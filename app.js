@@ -21,9 +21,9 @@ mongoose
     .then(() => console.log("Connected to mongoose db"))
     .catch((err) => console.log(`Error: ${err}`))
 
-app.use(bodyParser.urlencoded({
-    extended: false
-}))
+// app.use(bodyParser.urlencoded({
+//     extended: false
+// }))
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
