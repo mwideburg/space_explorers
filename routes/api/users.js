@@ -25,7 +25,7 @@ router.post("/register", (req, res) => {
 
     if(!isValid){
         
-        res.status(400).json(errors)
+        return res.status(400).json(errors)
     }
 
     User.findOne({email: req.body.email})
@@ -43,7 +43,20 @@ router.post("/register", (req, res) => {
                    bcrypt.hash(newUser.password, salt, (err, hashedPword) => {
                         if(err) throw err;
                         newUser.password = hashedPword;
-                        newUser.save().then(user => res.json(user)).catch(err => console.log(err))
+                        newUser
+                            .save()
+                            .then(user => {
+                                const payload = {id: user.id, handle: user.handle}
+
+                                jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600 }, (err, token) => {
+                                    res.json({
+                                        success: true,
+                                        token: "Bearer " + token
+                                    })
+                                })
+                            })
+                        
+                            .catch(err => console.log(err))
                    })
                }) 
             }
@@ -51,6 +64,7 @@ router.post("/register", (req, res) => {
        
         })
 })
+
 
 
 
@@ -68,7 +82,8 @@ router.post('/login', (req, res) => {
     User.findOne({email})
         .then(user => {
             if(!user){
-                return res.status(404).json({email: 'this user does now exits'})
+                errors.email = "incorrect email"
+                return res.status(404).json(errors)
             }
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
@@ -77,12 +92,16 @@ router.post('/login', (req, res) => {
                             id: user.id,
                             // name: user.name,
                             handle: user.handle,
-                            email: user.email
+                            // email: user.email
 
                         }
-                        jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600}, (err, token) => res.json({success: true, bearer: "Bearer " + token}))
+                        jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600}, (err, token) => res.json({success: true, bearer: "Bearer " + token})
+                        .catch(err => console.log(err))
+                        )
+                        
                     }else{
-                        return res.status(400).json({password: 'password incorrect'})
+                        errors.password = "incorrect password"
+                        return res.status(400).json(errors)
                     }
                 })
                     

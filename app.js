@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
+
+
+
+
+
 const db = require('./config/keys').mongoURI
 const users = require("./routes/api/users")
 const tweets = require("./routes/api/tweets")
@@ -11,20 +16,22 @@ const passport = require('passport')
 
 
 
-app.use(passport.initialize())
-// app.use(passport.session());
 
-require('./config/passport')(passport);
+
 
 mongoose
-    .connect(db, {useNewUrlParser: true})
+    .connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log("Connected to mongoose db"))
     .catch((err) => console.log(`Error: ${err}`))
+
+// app.use(passport.session());
+app.use(passport.initialize())
+require('./config/passport')(passport);
 
 // app.use(bodyParser.urlencoded({
 //     extended: false
 // }))
-
+app.get("/", (req, res) => res.send("Hello World!!"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
