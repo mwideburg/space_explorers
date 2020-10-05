@@ -19,30 +19,6 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now()
     },
-    hp: {
-        type: Number,
-    },
-    hpmax: {
-        type: Number,
-    },
-    qp: {
-        type: Number
-    },
-    missles: {
-        type: Number
-    },
-    evasion: {
-        type: Number
-    },
-    weapon1 : {
-        type: String
-    },
-    weapon2: {
-        type: String
-    },
-    weapon3: {
-        type: String
-    }
 });
 
 const User = mongoose.model('users',  UserSchema)
