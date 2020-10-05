@@ -1,24 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const EnemySchema = new Schema({
 
-    handle: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    date: {
-        type: Date,
-        default: Date.now()
-    },
     hp: {
         type: Number,
     },
@@ -34,7 +18,7 @@ const UserSchema = new Schema({
     evasion: {
         type: Number
     },
-    weapon1 : {
+    weapon1: {
         type: String
     },
     weapon2: {
@@ -45,6 +29,6 @@ const UserSchema = new Schema({
     }
 });
 
-const User = mongoose.model('users',  UserSchema)
+const Enemy = mongoose.model('enemies', EnemySchema)
 
-module.exports = User
+module.exports = Enemy

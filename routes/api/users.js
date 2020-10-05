@@ -14,7 +14,15 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   res.json({
     id: req.user.id,
     handle: req.user.handle,
-    email: req.user.email
+    email: req.user.email,
+    hp: req.user.hp,
+    hpmax: req.user.hpmax,
+    qp: req.user.qp,
+    missles: req.user.missles,
+    evasion: req.user.evasion,
+    weapon1: req.user.weapon1,
+    weapon2: req.user.weapon2,
+    weapon3: req.user.weapon3,
   });
 })
 
