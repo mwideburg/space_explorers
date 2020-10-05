@@ -123,6 +123,7 @@ Front end ui, maybe frontend conditionals
 
  Nicholas McDonnell:
 Backend finish
+
  Travis Holter:
 Backend finish
 
@@ -132,6 +133,7 @@ Friday:
  Ross Miglin: Ross Coin with websockets
 
  Nicholas McDonnell: Multiplayer and Tutor
+ 
  Travis Holter: Tutorial
 
 
