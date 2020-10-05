@@ -2,6 +2,8 @@ const express = require("express")
 const router = express.Router();
 const Robot = require('../../models/Robot')
 const passport = require('passport')
+// const db = require('../../config/keys.js').mongoURI
+
 
 //Validations below
 
@@ -51,9 +53,26 @@ router.post('/user/:user_id',
 
     newRobot.save().then(robot => res.json(robot))
     }
-    
-
 );
+    
+router.patch('/:id', 
+    passport.authenticate('jwt', {session: false}),
+    (req, res) => {
+    // const updateRobot = req.body;
+    Robot.findById(req.params.id)
+        .then(robot => robot.update(
+            { _id: ObjectId(id) }, { $set: updateRobot }
+        ))
 
+    // (req, res) => {
+    //     debugger
+    //     const updateRobot = req.body;
+    //     const id = req.params.id;
+    //     // db.robots.update()
+    //     debugger
+    //     db.robots.update({ _id: ObjectId(id) }, { $set: updateRobot });
 
-module.exports = router
+    // })
+}
+
+module.exports = router;
