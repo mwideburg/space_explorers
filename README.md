@@ -131,9 +131,7 @@ Friday:
  Michael Wideberg: Multiplayer
  Ross Miglin: Ross Coin with websockets
 
- Nicholas McDonnell: 
-
-	Multiplayer and Tutor
+ Nicholas McDonnell: Multiplayer and Tutor
  Travis Holter: Tutorial
 
 
