@@ -1,0 +1,85 @@
+//color pallette
+
+$black: #000000;
+$blue-munsell: #068D9D;
+$liberty: #53599A;
+$cerulean-frost: #6D9DC5;
+$maya-blue: #73C2FB;
+$blizzard-blue: #AEECEF;
+$white: #FFFFFF;
+
+//////////////////
+
+.robot-row{
+    height: 100%;
+    width: 900px;
+
+    
+}
+
+.robot-conatiner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width:100%;
+ 
+    
+}
+.robot-row form{
+    
+}
+
+.robot{
+    height: 400px;
+    width: 200px;
+    opacity: .7;
+    border: 1px white solid;
+    border-radius: 5px;
+    transition: .2s;
+    transition-timing-function: ease-in-out;
+
+}
+.robot:hover{
+    opacity: 1;
+    cursor: pointer;
+
+}
+
+.robot-img{
+   
+    width: 200px;
+    object-fit: contain;
+}
+.robot-stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+
+    width: 100%;
+    background-color: black;
+    
+}
+.robot-stats ul{
+    
+    list-style: none;
+    margin:0;
+    padding-left: 10px;
+
+}
+
+.robot-stats li{
+    padding-top: 10px;
+    list-style: none;
+
+}
+
+.robot-form{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+}

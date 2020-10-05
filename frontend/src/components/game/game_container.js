@@ -1,17 +1,19 @@
 
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
-import LoginForm from './login_form';
+
+import Game from './game';
+
 
 const mapStateToProps = (state) => {
     return {
-        errors: state.errors.session
+        user: state.session.user,
+        robot: state.session.robot
+
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: user => dispatch(login(user)),
         
     }
 }
@@ -19,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(LoginForm);
+)(Game);

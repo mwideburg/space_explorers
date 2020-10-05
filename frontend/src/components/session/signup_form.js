@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-
+import { withRouter, Link } from 'react-router-dom';
+import "./form.scss"
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
@@ -33,7 +33,7 @@ class SignupForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        
         let user = {
             email: this.state.email,
             handle: this.state.handle,
@@ -60,7 +60,7 @@ class SignupForm extends React.Component {
         return (
             <div className="signup-form-container">
                 <form onSubmit={this.handleSubmit}>
-                    <div className="signup-form">
+                    <div className="signup-form form-center" >
                         <br />
                         <input type="text"
                             value={this.state.email}
@@ -90,6 +90,10 @@ class SignupForm extends React.Component {
                         {this.renderErrors()}
                     </div>
                 </form>
+                <p>  Have an account?</p>
+                <Link to="/login">
+                    Log in
+                </Link>
             </div>
         );
     }

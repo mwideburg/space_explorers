@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import './navbar.css'
+import './navbar.scss'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -18,29 +18,42 @@ class NavBar extends React.Component {
     getLinks() {
         if (this.props.loggedIn) {
             return (
-                <div>
-                    <Link to={'/tweets'}>All Tweets</Link>
-                    <Link to={'/profile'}>Profile</Link>
-                    <Link to={'/new_tweet'}>Write a Tweet</Link>
-                    <button onClick={this.logoutUser}>Logout</button>
+                <div >
+                    <div className="logout-header">
+                        {/* <Link to={'/tweets'}>All Tweets</Link>
+                        <Link to={'/profile'}>Profile</Link>
+                        <Link to={'/new_tweet'}>Write a Tweet</Link> */}
+                        <button onClick={this.logoutUser}>Logout</button>
+                    </div>
                 </div>
             );
         } else {
             return (
-                <div>
-                    <h1> Hello NICK </h1>
-                    <Link to={'/signup'}>Signup</Link>
-                    <Link to={'/login'}>Login</Link>
-            
+                <div className="navWrapper">
+                    <link rel="stylesheet"
+                        href="https://fonts.googleapis.com/css?family=Press+Start+2P"/>
+                    
+                    <div className="NavBar ">
+
+                        <Link to={'/signup'}>
+                             Signup
+                        </Link>
+                        <Link to={'/login'} >
+                            Login 
+                        </Link>
+
+                    </div>
+
                 </div>
+                
             );
         }
     }
 
     render() {
         return (
-            <div>
-                <h1>Chirper</h1>
+            <div className="">
+                
                 { this.getLinks()}
             </div>
         );

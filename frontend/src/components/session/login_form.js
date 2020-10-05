@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-
+import { withRouter, Link } from 'react-router-dom';
+import "./form.scss"
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
@@ -19,7 +19,7 @@ class LoginForm extends React.Component {
     // Once the user has been authenticated, redirect to the Tweets page
     componentWillReceiveProps(nextProps) {
         if (nextProps.currentUser === true) {
-            this.props.history.push('/tweets');
+            this.props.history.push('/story');
         }
 
         // Set or clear errors
@@ -36,7 +36,7 @@ class LoginForm extends React.Component {
     // Handle form submission
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        
         let user = {
             email: this.state.email,
             password: this.state.password
@@ -59,11 +59,11 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        // debugger
+        
         return (
-            <div>
+            <div className="form-wrapper">
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                    <div className="form-center">
                         <input type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
@@ -80,6 +80,11 @@ class LoginForm extends React.Component {
                         {this.renderErrors()}
                     </div>
                 </form>
+                <p>  Don't have an account </p>
+                
+                <Link to="/signup">
+                 Sign Up
+                </Link>
             </div>
         );
     }

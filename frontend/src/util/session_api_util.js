@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const setAuthToken = token => {
-    debugger
+    
     if (token) {
         axios.defaults.headers.common['Authorization'] = token;
     } else {
@@ -9,11 +9,11 @@ export const setAuthToken = token => {
     }
 };
 export const signup = (userData) => {
-    debugger
+    
     return axios.post('/api/users/register', userData);
 };
 
 export const login = (userData) => {
-    debugger
+    
     return axios.post('/api/users/login', userData);
 };

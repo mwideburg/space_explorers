@@ -1,0 +1,25 @@
+.game-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    background:white;
+}
+
+.map-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: black;
+    color: lightgray;
+}
+.sidebar-planets{
+    width: 300px;
+    height: 100%;
+    background-color: rgb(189, 133, 253);
+}
+.sidebar-inventory{
+    width: 300px;
+    height: 100%;
+    background-color: rgb(189, 133, 253);
+}

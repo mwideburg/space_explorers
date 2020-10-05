@@ -1,0 +1,40 @@
+//color pallette
+
+$black: #000000;
+$blue-munsell: #068D9D;
+$liberty: #53599A;
+$cerulean-frost: #6D9DC5;
+$maya-blue: #73C2FB;
+$blizzard-blue: #AEECEF;
+$white: #FFFFFF;
+
+//////////////////
+
+
+.header{
+    height: 80px;
+    // background: $cerulean-frost;
+   
+    position: absolute;
+    top: 0;
+    width: 100%;
+    
+}
+footer{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom:0;
+    color: white;
+    font-size: 10px;
+    height: 30px;
+
+}
+.nav-logged-in-wrapper {   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
