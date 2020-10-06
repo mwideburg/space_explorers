@@ -24,8 +24,12 @@ export const receiveErrors = errors => ({
 
 export const makeRobot = (user, robot) => dispatch => {
     debugger
-    return APIUtil.makeRobot(user, robot).then((robot) => {
+    return APIUtil.makeRobot(user, robot).then(robot => {
         debugger
+        const data = robot.data
+        
+        localStorage.setItem('robot', JSON.stringify(data));
+        
         return dispatch(receiveCurrentRobot(robot.data))
     }, err => {
         debugger
