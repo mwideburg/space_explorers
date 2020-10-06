@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './navbar.scss'
 
-class NavBar extends React.Component {
+class GameNavBar extends React.Component {
     constructor(props) {
         super(props);
         this.logoutUser = this.logoutUser.bind(this);
@@ -18,47 +18,26 @@ class NavBar extends React.Component {
     getLinks() {
         if (this.props.loggedIn) {
             return (
-                <div className="navbar-loggedin">
-                    
+                <div >
                     <div className="logout-header">
                         {/* <Link to={'/tweets'}>All Tweets</Link>
                         <Link to={'/profile'}>Profile</Link>
                         <Link to={'/new_tweet'}>Write a Tweet</Link> */}
-                        <button onClick={this.logoutUser} className="logout-button">Logout</button>
+                        <button onClick={this.logoutUser}>Logout</button>
                     </div>
                 </div>
             );
-        } else {
-            return (
-                <div className="navWrapper">
-                    <link rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Press+Start+2P"/>
-                    
-                    <div className="NavBar ">
-
-                        <Link to={'/signup'}>
-                             Signup
-                        </Link>
-                        <Link to={'/login'} >
-                            Login 
-                        </Link>
-
-                    </div>
-
-                </div>
-                
-            );
-        }
+        } 
     }
 
     render() {
         return (
             <div className="">
-                
+
                 { this.getLinks()}
             </div>
         );
     }
 }
 
-export default NavBar;
+export default GameNavBar;

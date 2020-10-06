@@ -42,30 +42,36 @@ class RobotSelection extends React.Component {
             hp: 30,
             weapon1: "Laser MKI",
             weapon2: "Mongoose Missile",
-            missile: 15,
-            evasion: 5
+            missles: 15,
+            evasion: 5,
+            photoUrl: "https://i.imgur.com/2QuLJvO.jpg",
+            rosscoin: 500
         }
         const robot2 = {
             name: "The Snowy Owl",
             hp: 30,
             weapon1: "Laser MKI",
-            missile: 5,
-            evasion: 20
+            missles: 5,
+            evasion: 20,
+            photoUrl: "https://lh3.googleusercontent.com/proxy/Qe1H-_NAP8Ag_9uhaAQ5ww-RMuDFsKfPAo8xEaENkhKYPhUt_6Ol637q9kuTkX-Wzjh5wepBX9IC3VgAg84zgZvMqHfJi6e4beA-DXPBki5IBZlY",
+            rosscoin: 500
         }
         const robot3 = {
             name: "The Roc",
             hp: 40,
             weapon1: "Laser MKI",
-            missile: 5,
-            evasion: 5
+            missiles: 5,
+            evasion: 5,
+            photoUrl: "https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png",
+            rosscoin: 500
         }
 
         if (e.currentTarget.id === 'kestrel'){
-            this.props.makeRobot(this.props.user, robot1)
+            this.props.makeRobot(this.props.user, robot1).then(this.props.history.push('/game'))
         } else if(e.currentTarget.id === 'snow-owl') {
-            this.props.makeRobot(this.props.user, robot2)
+            this.props.makeRobot(this.props.user, robot2).then(this.props.history.push('/game'))
         } else if (e.currentTarget.id === 'roc') {
-            this.props.makeRobot(this.props.user, robot3)
+            this.props.makeRobot(this.props.user, robot3).then(this.props.history.push('/game'))
         }
 
         
@@ -136,7 +142,7 @@ class RobotSelection extends React.Component {
                         </div> 
                         <div id="snow-owl" className="robot" onClick={(robot2) => this.handleSubmit(robot2)}>
                             <div  className="robot-img">
-                            <img src="https://lh3.googleusercontent.com/proxy/W4rwED5zwctCtxUV77ToPByKQNQI6RnlPz92rtcGJQvJJZioWzHSvSG88o35KQEnup_LvwDK7RotPwlzajtfQIABKrdBQaD2G5DWox9ETUaqdcH-" className="robot-img"/>
+                            <img src="https://lh3.googleusercontent.com/proxy/Qe1H-_NAP8Ag_9uhaAQ5ww-RMuDFsKfPAo8xEaENkhKYPhUt_6Ol637q9kuTkX-Wzjh5wepBX9IC3VgAg84zgZvMqHfJi6e4beA-DXPBki5IBZlY" className="robot-img"/>
                             </div>
                             <div className="robot-stats">
                                     <ul>
