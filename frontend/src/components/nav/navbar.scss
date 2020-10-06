@@ -28,7 +28,7 @@ $white: rgb(255, 255, 255);
     align-items: center;
     width: 400px;
     height: auto;
-    text-deocration: none;
+    text-decoration: none;
     /* background-color: white; */
 }
 .NavBar a{
@@ -108,6 +108,19 @@ $white: rgb(255, 255, 255);
 .logout-header {
     color: $donatello-purple;
     font-family: 'Press Start 2P';
+}
+
+.logout-button {
+    font-family: 'Press Start 2P';
+    color: $white;
+    background-color: $black;
+    border: 0;
+}
+
+.logout-button:hover {
+    cursor: pointer;
+    background: transparent;
+    color: $turtle-green;
 }
 
 
