@@ -18,6 +18,7 @@ $white: #FFFFFF;
     justify-content: center;
     align-items: center;
     background-color: black;
+    text-decoration: none;
 }
 
 .NavBar {
@@ -28,6 +29,7 @@ $white: #FFFFFF;
     align-items: center;
     width: 400px;
     height: auto;
+    text-deocration: none;
     /* background-color: white; */
 }
 .NavBar a{
@@ -97,7 +99,7 @@ $white: #FFFFFF;
     
 }
 .NavBar a:hover{
-    color: blueviolet;
+    color: $maya-blue;
     cursor: pointer;
 }
 
