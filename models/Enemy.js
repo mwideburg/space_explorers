@@ -26,7 +26,13 @@ const EnemySchema = new Schema({
     },
     weapon3: {
         type: String
-    }
+    },
+    rosscoin: {
+        type: Number
+    },
+    location: {
+        type: String
+    },
 });
 
 const Enemy = mongoose.model('enemies', EnemySchema)

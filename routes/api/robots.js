@@ -32,7 +32,7 @@ router.get('/user/:user_id', (req, res) => {
     Robot.find({ pilot_id: req.params.user_id })
         .then(robot => res.json(robot))
         .catch(err =>
-            res.status(404).json({ notweetsfound: 'No robot found from that user' }
+            res.status(404).json({ norobotsfound: 'No robot found from that user' }
             )
         );
 });
@@ -58,7 +58,8 @@ router.post('/user/:user_id',
         weapon2: req.body.weapon2,
         qp: req.body.qp,
         missles: req.body.missles,
-        evasion: req.body.evasion
+        evasion: req.body.evasion,
+        rosscoin: req.body.rosscoin,
     });
 
 
