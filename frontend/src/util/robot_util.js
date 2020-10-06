@@ -8,6 +8,6 @@ export const makeRobot = (userData, robotData) => {
 };
 
 export const getRobot = (userData) => {
-    
+    debugger
     return axios.get(`/api/robots/user/${userData.id}`);
 };

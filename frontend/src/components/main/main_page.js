@@ -8,6 +8,7 @@ import SignupFormContainer from '../session/signup_form_container';
 import Story from '../story/story_container';
 import Robots from '../robots/robot_selection_container';
 import Game from '../game/game_container';
+import UserRobot from '../robots/robot_container';
 
 import './main.scss'
 class MainPage extends React.Component {
@@ -21,6 +22,7 @@ class MainPage extends React.Component {
                 <div className="wrapper">
                 <ProtectedRoute exact path="/robots" component={Robots}/>
                 <ProtectedRoute exact path="/game" component={Game}/>
+                <ProtectedRoute exact path="/user/robot" component={UserRobot}/>
                 <Switch>
                     <AuthRoute exact path="/" component={NavBarContainer}/>
                     

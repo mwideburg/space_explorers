@@ -1,14 +1,13 @@
 
-import { connect } from 'react-redux';
 
-import RobotSelection from './robot_selection';
-import {makeRobot, getRobot} from '../../actions/robot_actions';
-
+import{connect} from 'react-redux'
+import { makeRobot, getRobot } from '../../actions/robot_actions';
+import UserRobot from './user_robot';
 const mapStateToProps = (state) => {
     return {
         user: state.session.user,
         robot: state.entities.robot
-        
+
     };
 };
 
@@ -22,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(RobotSelection);
+)(UserRobot);

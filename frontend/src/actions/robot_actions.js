@@ -37,10 +37,15 @@ export const makeRobot = (user, robot) => dispatch => {
     }
 )}
 export const getRobot = (user) => dispatch => {
-    debugger
+    
     return APIUtil.getRobot(user).then((robot) => {
-        debugger
-        return dispatch(receiveCurrentRobot(robot.data))
+        // debugger
+        if(robot.data.length === 0){
+            return false
+        }
+        let last = robot.data.length -1;
+        let robo = robot.data[last];
+        return dispatch(receiveCurrentRobot(robo))
     }, err => {
         debugger
         return dispatch(receiveErrors(err.response.data))
