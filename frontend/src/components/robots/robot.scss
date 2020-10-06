@@ -29,8 +29,8 @@ $white: rgb(255, 255, 255);
 }
 
 .robot{
-    height: 400px;
-    width: 200px;
+    height: 500px;
+    width: 230px;
     opacity: .7;
     border: 1px $white solid;
     border-radius: 5px;
@@ -45,11 +45,12 @@ $white: rgb(255, 255, 255);
 }
 
 .robot-img{
-   
-    width: 200px;
-    object-fit: contain;
+   height: 180px;
+    width: 230px;
+    object-fit: fill;
 }
 .robot-stats{
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

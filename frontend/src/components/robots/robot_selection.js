@@ -35,6 +35,7 @@ class RobotSelection extends React.Component {
 
     // Handle form submission
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         const robot1 = {
             name: "The Kestrel",
@@ -44,9 +45,32 @@ class RobotSelection extends React.Component {
             missile: 15,
             evasion: 5
         }
+        const robot2 = {
+            name: "The Snowy Owl",
+            hp: 30,
+            weapon1: "Laser MKI",
+            missile: 5,
+            evasion: 20
+        }
+        const robot3 = {
+            name: "The Roc",
+            hp: 40,
+            weapon1: "Laser MKI",
+            missile: 5,
+            evasion: 5
+        }
 
-        this.props.makeRobot(this.props.user, robot1)
+        if (e.currentTarget.id === 'kestrel'){
+            this.props.makeRobot(this.props.user, robot1)
+        } else if(e.currentTarget.id === 'snow-owl') {
+            this.props.makeRobot(this.props.user, robot2)
+        } else if (e.currentTarget.id === 'roc') {
+            this.props.makeRobot(this.props.user, robot3)
+        }
+
+        
     
+       
     }
 
     // Render the session errors if there are any
@@ -54,7 +78,8 @@ class RobotSelection extends React.Component {
 
 
     render() {
-
+        
+        
         
         
 
@@ -77,12 +102,15 @@ class RobotSelection extends React.Component {
                 </div> */}
                 <div className="robot-conatiner">
                     
-                    <div className="robot" onClick={(robot1) => this.handleSubmit(robot1)}>
-                            <div className="robot-img">
+                    <div id="kestrel" className="robot" onClick={(robot1) => this.handleSubmit(robot1)}>
+                        <div className="robot-img">
                             <img src="https://i.imgur.com/2QuLJvO.jpg" className="robot-img"/>
                             </div>
                             <div className="robot-stats">
                                     <ul>
+                                        <li>
+                                            "The Kestrel"
+                                        </li>
                                         <li>
                                                 hp: 30
                                         </li>
@@ -100,15 +128,21 @@ class RobotSelection extends React.Component {
                                         </li>
                                     </ul>
                             </div>
+                            
+
+
 
                         
                         </div> 
-                        <div className="robot" onClick={(robot1) => this.handleSubmit(robot1)}>
-                            <div className="robot-img">
-                            <img src="https://i.imgur.com/2QuLJvO.jpg" className="robot-img"/>
+                        <div id="snow-owl" className="robot" onClick={(robot2) => this.handleSubmit(robot2)}>
+                            <div  className="robot-img">
+                            <img src="https://lh3.googleusercontent.com/proxy/W4rwED5zwctCtxUV77ToPByKQNQI6RnlPz92rtcGJQvJJZioWzHSvSG88o35KQEnup_LvwDK7RotPwlzajtfQIABKrdBQaD2G5DWox9ETUaqdcH-" className="robot-img"/>
                             </div>
                             <div className="robot-stats">
                                     <ul>
+                                        <li>
+                                            "The Snowy Owl"
+                                        </li>
                                         <li>
                                                 hp: 30
                                         </li>
@@ -116,36 +150,34 @@ class RobotSelection extends React.Component {
                                                 weapon 1: "Laser MKI"
                                         </li>
                                         <li>
-                                                weapon 2: "Mongoose Missile"
-                                        </li>
-                                        <li>
                                             missile: 15
                                         </li>
                                         <li>
-                                                evasion: 5
+                                                evasion: 20
                                         </li>
                                     </ul>
                             </div>
 
                         
                         </div> 
-                        <div className="robot">
-                        <div className="robot-img" onClick={(robot1) => this.handleSubmit(robot1)}>
-                            <img src="https://i.imgur.com/2QuLJvO.jpg" className="robot-img"/>
+                        <div id="roc" className="robot">
+                        <div id="roc" className="robot-img" onClick={(robot3) => this.handleSubmit(robot3)}>
+                            <img id="roc" src="https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png" className="robot-img"/>
                             </div>
                             <div className="robot-stats">
                                     <ul>
                                         <li>
-                                                hp: 30
+                                            "The Roc"
+                                        </li>
+                                        <li>
+                                                hp: 40
                                         </li>
                                         <li>
                                                 weapon 1: "Laser MKI"
                                         </li>
+                                     
                                         <li>
-                                                weapon 2: "Mongoose Missile"
-                                        </li>
-                                        <li>
-                                            missile: 15
+                                            missile: 5
                                         </li>
                                         <li>
                                                 evasion: 5

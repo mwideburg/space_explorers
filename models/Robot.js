@@ -6,6 +6,9 @@ const RobotSchema = new Schema({
     name: {
         type: String,
     },
+    pilot_id: {
+        type: String
+    },
     hp: {
         type: Number,
     },
