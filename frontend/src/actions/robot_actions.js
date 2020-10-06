@@ -21,7 +21,7 @@ export const makeRobot = (user, robot) => dispatch => {
     debugger
     return APIUtil.makeRobot(user, robot).then((robot) => {
         debugger
-        return dispatch(receiveCurrentRobot(robot))
+        return dispatch(receiveCurrentRobot(robot.data))
     }, err => {
         debugger
         return dispatch(receiveErrors(err.response.data))
