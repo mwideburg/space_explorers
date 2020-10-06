@@ -161,8 +161,8 @@ class RobotSelection extends React.Component {
                         
                         </div> 
                         <div id="roc" className="robot">
-                        <div className="robot-img" onClick={(robot3) => this.handleSubmit(robot3)}>
-                            <img src="https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png" className="robot-img"/>
+                        <div id="roc" className="robot-img" onClick={(robot3) => this.handleSubmit(robot3)}>
+                            <img id="roc" src="https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png" className="robot-img"/>
                             </div>
                             <div className="robot-stats">
                                     <ul>
