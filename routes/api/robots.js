@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/user/:user_id', (req, res) => {
-    Robot.find()
+    Robot.findById(req.params.user_id)
         .sort({ hp: -1 })
         .then(robots => res.json(robots))
         .catch(err => res.status(404).json({ norobotsfound: "No robot found for that user"}));
@@ -58,21 +58,11 @@ router.post('/user/:user_id',
 router.patch('/:id', 
     passport.authenticate('jwt', {session: false}),
     (req, res) => {
-    // const updateRobot = req.body;
+    const updateRobot = req.body;
     Robot.findById(req.params.id)
         .then(robot => robot.update(
-            { _id: ObjectId(id) }, { $set: updateRobot }
-        ))
-
-    // (req, res) => {
-    //     debugger
-    //     const updateRobot = req.body;
-    //     const id = req.params.id;
-    //     // db.robots.update()
-    //     debugger
-    //     db.robots.update({ _id: ObjectId(id) }, { $set: updateRobot });
-
-    // })
+           { $set: updateRobot }
+        )).then(robot => res.json(robot)).catch(err => console.log(err))
 })
 
 module.exports = router;
