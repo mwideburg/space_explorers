@@ -20,12 +20,22 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ norobotsfound: "No robots found"}));
 })
 
+// router.get('/user/:user_id', (req, res) => {
+//     Robot.findById(req.params.user_id)
+//         .sort({ hp: -1 })
+//         .then(robots => res.json(robots))
+//         .catch(err => res.status(404).json({ norobotsfound: "No robot found for that user"}));
+// })
+
+
 router.get('/user/:user_id', (req, res) => {
-    Robot.findById(req.params.user_id)
-        .sort({ hp: -1 })
-        .then(robots => res.json(robots))
-        .catch(err => res.status(404).json({ norobotsfound: "No robot found for that user"}));
-})
+    Robot.find({ pilot_id: req.params.user_id })
+        .then(robot => res.json(robot))
+        .catch(err =>
+            res.status(404).json({ notweetsfound: 'No robot found from that user' }
+            )
+        );
+});
 
 // patch?
 // this is for changing the attributes of our robot
@@ -41,6 +51,7 @@ router.post('/user/:user_id',
     // }
     const newRobot = new Robot({
         name: req.body.name,
+        pilot_id: req.params.user_id,
         hp: req.body.hp,
         hpmax: req.body.hpmax,
         weapon1: req.body.weapon1,
