@@ -73,6 +73,6 @@ router.patch('/:id',
     //     db.robots.update({ _id: ObjectId(id) }, { $set: updateRobot });
 
     // })
-}
+})
 
 module.exports = router;
