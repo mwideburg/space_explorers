@@ -1,9 +1,19 @@
+//updated color pallette
+$leonardo-blue: rgb(60, 144, 247);
+$michelangelo-orange: rgb(242, 183, 65);
+$donatello-purple: rgb(235, 91, 247);
+$raphael-red: rgb(237, 92, 42);
+$turtle-green: rgb(136, 236, 72);
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+////////////////////////
+
 .game-container{
     width: 100%;
     height: 100%;
     display: flex;
 
-    background:white;
+    background:$white;
 }
 
 .map-container{
@@ -12,16 +22,16 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: black;
-    color: lightgray;
+    background-color: $black;
+    color: $white;
 }
 .sidebar-planets{
     width: 300px;
     height: 100%;
-    background-color: rgb(189, 133, 253);
+    background-color: $donatello-purple;
 }
 .sidebar-inventory{
     width: 300px;
     height: 100%;
-    background-color: rgb(189, 133, 253);
+    background-color: $donatello-purple;
 }

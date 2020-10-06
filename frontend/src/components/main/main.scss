@@ -1,19 +1,14 @@
-@import url('https://fonts.google.com/specimen/Russo+One#standard-styles');
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
-//color pallette
-
-$black: #000000;
-$blue-munsell: #068D9D;
-$liberty: #53599A;
-$cerulean-frost: #6D9DC5;
-$maya-blue: #73C2FB;
-$blizzard-blue: #AEECEF;
-$white: #FFFFFF;
-
-//////////////////
-
-
+//updated color pallette
+$leonardo-blue: rgb(60, 144, 247);
+$michelangelo-orange: rgb(242, 183, 65);
+$donatello-purple: rgb(235, 91, 247);
+$raphael-red: rgb(237, 92, 42);
+$turtle-green: rgb(136, 236, 72);
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+////////////////////////
 
 .title {
   color: $white;
@@ -34,9 +29,8 @@ body {
     background-color: black;
     width: 100%;
     height: 100vh;
-    color: $blizzard-blue;
+    color: $white;
     font-family: 'Press Start 2P';
-    // position: absolute;
     top: 0;
     overflow: hidden;
     z-index: 0;
@@ -73,6 +67,6 @@ body {
 }
 
 .splash-container{
-  background-color: black;
+  background-color: $black;
   height: 100%;
 }

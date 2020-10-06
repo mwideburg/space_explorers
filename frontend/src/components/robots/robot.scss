@@ -1,14 +1,12 @@
-//color pallette
-
-$black: #000000;
-$blue-munsell: #068D9D;
-$liberty: #53599A;
-$cerulean-frost: #6D9DC5;
-$maya-blue: #73C2FB;
-$blizzard-blue: #AEECEF;
-$white: #FFFFFF;
-
-//////////////////
+//updated color pallette
+$leonardo-blue: rgb(60, 144, 247);
+$michelangelo-orange: rgb(242, 183, 65);
+$donatello-purple: rgb(235, 91, 247);
+$raphael-red: rgb(237, 92, 42);
+$turtle-green: rgb(136, 236, 72);
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+////////////////////////
 
 .robot-row{
     height: 100%;
@@ -34,7 +32,7 @@ $white: #FFFFFF;
     height: 400px;
     width: 200px;
     opacity: .7;
-    border: 1px white solid;
+    border: 1px $white solid;
     border-radius: 5px;
     transition: .2s;
     transition-timing-function: ease-in-out;
@@ -58,7 +56,7 @@ $white: #FFFFFF;
     align-items: space-between;
 
     width: 100%;
-    background-color: black;
+    background-color: $black;
     
 }
 .robot-stats ul{

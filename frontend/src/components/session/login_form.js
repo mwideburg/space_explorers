@@ -65,24 +65,25 @@ class LoginForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-center">
                         <input type="text"
+                            className="input-field"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder="Email"
                         />
                         <br />
                         <input type="password"
+                            className="input-field"
                             value={this.state.password}
                             onChange={this.update('password')}
                             placeholder="Password"
                         />
                         <br />
-                        <input type="submit" value="Submit" />
+                        <input type="submit" className="submit-button" value="Submit" />
                         {this.renderErrors()}
                     </div>
                 </form>
                 <p>  Don't have an account </p>
-                
-                <Link to="/signup">
+                <Link to="/signup" className="signup-button">
                  Sign Up
                 </Link>
             </div>

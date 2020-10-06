@@ -1,14 +1,14 @@
-//color pallette
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
-$black: #000000;
-$blue-munsell: #068D9D;
-$liberty: #53599A;
-$cerulean-frost: #6D9DC5;
-$maya-blue: #73C2FB;
-$blizzard-blue: #AEECEF;
-$white: #FFFFFF;
-
-//////////////////
+//updated color pallette
+$leonardo-blue: rgb(60, 144, 247);
+$michelangelo-orange: rgb(242, 183, 65);
+$donatello-purple: rgb(235, 91, 247);
+$raphael-red: rgb(237, 92, 42);
+$turtle-green: rgb(136, 236, 72);
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+////////////////////////
 
 
 .navWrapper{
@@ -17,7 +17,7 @@ $white: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: $black;
 }
 
 .NavBar {
@@ -43,12 +43,12 @@ $white: #FFFFFF;
     height: 50px;
     color: $white;   
     border: 1px solid ;
-    border-radius: 3px $maya-blue;
+    border-radius: 3px $leonardo-blue;
     text-align: center;
     text-decoration: none;
     border: none;
     border-radius: 25px;
-    background-color: $maya-blue;
+    background-color: $leonardo-blue;
     transition: .25s;
     transition-timing-function: ease-in;
 }
@@ -56,13 +56,13 @@ $white: #FFFFFF;
 .NavBar button:hover{
     background-color: $white;
     cursor: pointer;
-    color: $maya-blue;
+    color: $leonardo-blue;
 }
 
 .Links1 {
     width: 100px;
     display: flex;
-    background-color: $maya-blue;
+    background-color: $leonardo-blue;
     justify-content: space-between;
 }
 
@@ -80,8 +80,10 @@ $white: #FFFFFF;
     align-items: flex-start;
     flex-direction: row;
     z-index: 1;
-
+    font-family: 'Press Start 2P';
+    font-size: 30px;
 }
+
 .wrapper{
     height: 100%;
     width: 100%;
@@ -93,12 +95,17 @@ $white: #FFFFFF;
 
 .NavBar a{
     padding: 10px;
-    color: white;
+    color: $white;
     
 }
 .NavBar a:hover{
-    color: blueviolet;
+    color: $donatello-purple;
     cursor: pointer;
+}
+
+.logout-header {
+    color: $donatello-purple;
+    font-family: 'Press Start 2P';
 }
 
 
