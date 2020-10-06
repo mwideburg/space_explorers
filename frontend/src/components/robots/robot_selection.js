@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Robot from './robot'
+
 import "./robot.scss"
-class RobotSelection extends React.Component {
+class UserRobot extends React.Component {
     constructor(props) {
         super(props);
         
@@ -80,13 +80,17 @@ class RobotSelection extends React.Component {
     }
 
     // Render the session errors if there are any
-
+    handleClick(){
+        
+        const user = this.props.user
+        this.props.getRobot(user).then(this.props.history.push('/user/robot'))
+    }
 
 
     render() {
         
         
-        
+        const user = this.props.user
         
 
         return (
@@ -107,7 +111,7 @@ class RobotSelection extends React.Component {
 
                 </div> */}
                 <div className="robot-conatiner">
-                    
+                    <button onClick={() => this.handleClick()}> GET ROBOT</button>
                     <div id="kestrel" className="robot" onClick={(robot1) => this.handleSubmit(robot1)}>
                         <div className="robot-img">
                             <img src="https://i.imgur.com/2QuLJvO.jpg" className="robot-img"/>
@@ -203,4 +207,4 @@ class RobotSelection extends React.Component {
     }
 }
 
-export default withRouter(RobotSelection);
+export default withRouter(UserRobot);
