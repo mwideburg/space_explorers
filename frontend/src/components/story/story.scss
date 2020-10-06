@@ -13,10 +13,10 @@ $white: #FFFFFF;
 .story-container{
     width: 600px;
     height: 400px;
-    background-color: $blue-munsell; //$cerulean-frost;
+    background-color: $liberty; //$cerulean-frost;
     padding: 50px;
     //border-radius: 25px;
-    border-radius: 60px 45px 30px 15px/15px 30px 45px 60px;
+    border-radius: 60px 60px 60px 60px/15px 15px 15px 15px;
     //border-block-style: double;
 
 }
@@ -32,9 +32,10 @@ $white: #FFFFFF;
 }
 
 .robot-link {
+    margin-top: 25px;
     justify-content: center;
     font-size: 20px;
     font-weight: bolder;
-    color: $blizzard-blue;
+    color: $white;
     text-decoration: none;
 }
