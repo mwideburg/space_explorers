@@ -58,43 +58,51 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div className="signup-form-container">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="signup-form form-center" >
-                        <br />
-                        <input type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-                        <br />
-                        <input type="text"
-                            value={this.state.handle}
-                            onChange={this.update('handle')}
-                            placeholder="Handle"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password2}
-                            onChange={this.update('password2')}
-                            placeholder="Confirm Password"
-                        />
-                        <br />
-                        <input type="submit" value="Submit" />
-                        {this.renderErrors()}
-                    </div>
-                </form>
-                <p>  Have an account?</p>
-                <Link to="/login">
-                    Log in
-                </Link>
-            </div>
+          <div className="signup-form-container">
+            <form onSubmit={this.handleSubmit}>
+              <div className="signup-form form-center">
+                <br />
+                <input
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  placeholder="Email"
+                  className="input-field"
+                />
+                <br />
+                <input
+                  type="text"
+                  value={this.state.handle}
+                  onChange={this.update("handle")}
+                  placeholder="Handle"
+                  className="input-field"
+                />
+                <br />
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  placeholder="Password"
+                  className="input-field"
+                />
+                <br />
+                <input
+                  type="password"
+                  value={this.state.password2}
+                  onChange={this.update("password2")}
+                  placeholder="Confirm Password"
+                  className="input-field"
+                />
+                <br />
+                <input type="submit" className="submit-button" value="Submit" />
+                {this.renderErrors()}
+              </div>
+            </form>
+            <p> Have an account?</p>
+              <Link to="/login" className="login-button">
+                Log in
+              </Link>
+          </div>
         );
     }
 }

@@ -59,9 +59,11 @@ $white: rgb(255, 255, 255);
 }
 
 .submit-button {
+    
     font-family: 'Press Start 2P';
     color: $white;
-    background-color: $turtle-green;
+    background: transparent;
+    //background-color: $turtle-green;
     overflow: hidden;
     border: 0;
     height: 15px;
@@ -79,8 +81,9 @@ $white: rgb(255, 255, 255);
 }
 
 .submit-button:hover{
-    background-color: $white;
+    //background-color: $white;
     color: $donatello-purple;
+    cursor: pointer;
 }
 
 .signup-button {
@@ -91,10 +94,29 @@ $white: rgb(255, 255, 255);
 .input-field {
     //background: transparent;
     font-size: 10px;
-    background-color: $black;
+    background: transparent;
+    //background-color: $black;
     padding-left: 5px;
     font-family: 'Press Start 2P';
     color: $turtle-green;
     width: 100%;
     border: solid 2px $turtle-green;
+}
+
+.input-field:-webkit-autofill,
+.input-field:-webkit-autofill:hover,
+.input-field:-webkit-autofill:focus,
+.input-field:-webkit-autofill:active{
+    background-color: transparent;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: $turtle-green !important;
+}
+
+.login-button {
+    text-decoration: none;
+    color: $white;
+}
+
+.login-button:hover {
+    color: green;
 }

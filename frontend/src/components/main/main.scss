@@ -14,7 +14,13 @@ $white: rgb(255, 255, 255);
   color: $white;
   text-decoration: none;
   font-size: 30px;
-  //font-family: Press Start 2P;
+  text-shadow: -1px 1px $leonardo-blue, 
+  -2px 2px $donatello-purple,
+  -4px 4px $raphael-red;
+}
+
+.title:hover {
+  color: $turtle-green;
 }
 
 body {

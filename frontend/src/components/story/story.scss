@@ -1,3 +1,6 @@
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+
 //updated color pallette
 $leonardo-blue: rgb(60, 144, 247);
 $michelangelo-orange: rgb(242, 183, 65);
@@ -28,6 +31,13 @@ $white: rgb(255, 255, 255);
 
 }
 
+.story-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 .story-text {
     color: $white;
 }
@@ -50,4 +60,8 @@ $white: rgb(255, 255, 255);
 
 .robot-link:hover {
     color: $michelangelo-orange;
+}
+
+.slider {
+    color: $white;
 }
