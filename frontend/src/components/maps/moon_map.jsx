@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, mapTypes, MarkerManager } from 'google-maps-react';
-
-
-
+import { Map, GoogleApiWrapper, mapTypes, InfoWindow, Marker } from 'google-maps-react';
+// import MarkerManagerUtil from '../../util/marker_manager'
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 export class MoonMap extends React.Component {
     componentDidMount() {
@@ -33,7 +32,7 @@ export class MoonMap extends React.Component {
                 mapTypeIds: ["mars_elevation"],
             },
         });
-       
+        // this.MarkerManagerUtil = new MarkerManagerUtil(this.map)
         const getHorizontallyRepeatingTileUrl = (coord, zoom, urlfunc) => {
             var y = coord.y;
             var x = coord.x;
@@ -54,6 +53,7 @@ export class MoonMap extends React.Component {
 
             return urlfunc({ x: x, y: y }, zoom)
         }
+
         const getMarsTileUrl = (baseUrl, coord, zoom) => {
             var bound = Math.pow(2, zoom);
             var x = coord.x;
@@ -120,9 +120,26 @@ export class MoonMap extends React.Component {
             // updateBounds(bounds)
             
         })
-
-
-
+        const image =
+            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+        const myLatLng = { lat: 0, lng: 0 }
+        const markermap = this.map
+        const marker = new google.maps.Marker({
+            position: myLatLng,
+            markermap,
+            icon: image,
+            title: "Hello World!",
+        });
+        // this.MarkerManagerUtil.updateMarker()
+        const infowindow = new google.maps.InfoWindow({
+            content: "<div id='content' color='black'>" + "<h3>HOLTERGEST</h3>" + "<p> prepare for battle</p>"+"</div>",
+        });
+        marker.addListener("click", () => {
+            infowindow.open(markermap, marker);
+        })
+        marker.setMap(markermap);
+    }
+    componentDidUpdate() {
        
     }
 
@@ -132,6 +149,7 @@ export class MoonMap extends React.Component {
             height: '500px',
             overflow: 'visable',
             position: 'relative',
+            color: 'black'
         
         };
         return (
