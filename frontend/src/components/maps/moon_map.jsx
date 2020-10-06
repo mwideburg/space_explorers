@@ -94,7 +94,7 @@ export class MoonMap extends React.Component {
             isPng: false,
             maxZoom: 8,
             radius: 3396200,
-            name: 'Titan',
+            name: 'Nicks Atom',
             credit: 'Image Credit: NASA/JPL/GSFC'
         });
         this.map.mapTypes.set("mars_elevation", moonMapType);
