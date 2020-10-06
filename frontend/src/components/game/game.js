@@ -2,6 +2,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import GameContainer from './game_container'
+import MoonMap from '../maps/moon_map'
+
 import "./game.scss"
 class Game extends React.Component {
     constructor(props) {
@@ -33,7 +35,10 @@ class Game extends React.Component {
                 </div>
 
                 <div className="map-container">
-                        <h1>{this.props.user.handle}</h1>
+                    <h1>{this.props.user.handle}</h1>
+                    <MoonMap/>
+                        
+
                 </div>  
 
                 <div className="sidebar-inventory">
