@@ -1,4 +1,8 @@
 const Enemy = require("../../models/Enemy");
+const express = require("express")
+const router = express.Router();
+const passport = require('passport')
+
 
 router.post('/',
     (req, res) => {
@@ -21,7 +25,7 @@ router.post('/',
 );
 
 router.get('/:enemy_id', (req, res) => {
-    Enemy.find({ enemy_id: req.params.enemy_id })
+    Enemy.find({ _id: req.params.enemy_id })
         .then(enemy => res.json(enemy))
         .catch(err =>
             res.status(404).json({ noenemyfound: 'No enemy found from that id' }
@@ -29,11 +33,13 @@ router.get('/:enemy_id', (req, res) => {
         );
 });
 
-router.get('/:location_id', (req, res) => {
-    Enemy.find({ location: req.params.location_id })
+router.get('/location/:location', (req, res) => {
+    Enemy.find({ location: req.params.location })
         .then(enemy => res.json(enemy))
         .catch(err =>
             res.status(404).json({ noenemyfound: 'No enemy found from that location' }
             )
         );
 });
+
+module.exports = router;
