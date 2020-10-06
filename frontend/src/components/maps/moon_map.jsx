@@ -123,6 +123,7 @@ export class MoonMap extends React.Component {
         const image =
             "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
         const myLatLng = { lat: 0, lng: 0 }
+        const myLatLng2 = { lat: 10, lng: 20 }
         const markermap = this.map
         const marker = new google.maps.Marker({
             position: myLatLng,
@@ -130,14 +131,33 @@ export class MoonMap extends React.Component {
             icon: image,
             title: "Hello World!",
         });
+        const roboImage = {
+            url: "https://thumbs.gfycat.com/ThunderousIdealBorzoi-max-1mb.gif",
+            scaledSize: new google.maps.Size(50, 50),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 32),
+        }
+        const marker2 = new google.maps.Marker({
+            position: myLatLng2,
+            markermap,
+            icon: roboImage,
+            title: "Hello World!",
+        });
         // this.MarkerManagerUtil.updateMarker()
         const infowindow = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<h3>HOLTERGEST</h3>" + "<p> prepare for battle</p>"+"</div>",
+            content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>HOLTERGEST</h3></a>" + "<p> prepare for battle</p>"+"</div>",
+        });
+        const infowindow2 = new google.maps.InfoWindow({
+            content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>MEGA METAL</h3></a>" + "<p> prepare for battle</p>"+"</div>",
         });
         marker.addListener("click", () => {
             infowindow.open(markermap, marker);
         })
+        marker2.addListener("click", () => {
+            infowindow2.open(markermap, marker2);
+        })
         marker.setMap(markermap);
+        marker2.setMap(markermap);
     }
     componentDidUpdate() {
        

@@ -11,10 +11,11 @@ export const receiveCurrentRobot = currentRobot => ({
     type: RECEIVE_CURRENT_ROBOT,
     currentRobot
 });
-export const receiveUserRobot = userRobot => ({
-    type: RECEIVE_CURRENT_ROBOT,
-    userRobot
-});
+export const receiveUserRobot = userRobot => {
+    
+    return {type: RECEIVE_CURRENT_ROBOT,
+    userRobot}
+};
 
 export const receiveErrors = errors => ({
     type: RECEIVE_SESSION_ERRORS,
@@ -23,9 +24,9 @@ export const receiveErrors = errors => ({
 
 
 export const makeRobot = (user, robot) => dispatch => {
-    debugger
+    
     return APIUtil.makeRobot(user, robot).then(robot => {
-        debugger
+        
         const data = robot.data
         
         localStorage.setItem('robot', JSON.stringify(data));
@@ -45,9 +46,24 @@ export const getRobot = (user) => dispatch => {
         }
         let last = robot.data.length -1;
         let robo = robot.data[last];
+        localStorage.setItem('robot', JSON.stringify(robo));
+        debugger
         return dispatch(receiveCurrentRobot(robo))
     }, err => {
         debugger
+        return dispatch(receiveErrors(err.response.data))
+    }
+)}
+export const updateRobot = (robot, getState) => dispatch => {
+    // debugger
+    return APIUtil.updateRobot(robot).then((robot) => {
+        // debugger
+        
+        const robo = JSON.parse(robot.config.data)
+        localStorage.setItem('robot', JSON.stringify(robo));
+        return dispatch(receiveCurrentRobot(robo))
+    }, err => {
+        // debugger
         return dispatch(receiveErrors(err.response.data))
     }
 )}

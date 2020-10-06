@@ -60,7 +60,7 @@ class UserRobot extends React.Component {
             name: "The Roc",
             hp: 40,
             weapon1: "Laser MKI",
-            missiles: 5,
+            missles: 5,
             evasion: 5,
             photoUrl: "https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png",
             rosscoin: 500

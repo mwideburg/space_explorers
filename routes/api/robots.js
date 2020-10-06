@@ -71,6 +71,7 @@ router.post('/user/:user_id',
 router.patch('/:id', 
     passport.authenticate('jwt', {session: false}),
     (req, res) => {
+        // debugger
     const updateRobot = req.body;
     Robot.findById(req.params.id)
         .then(robot => robot.update(

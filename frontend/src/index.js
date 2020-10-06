@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const decodedUser = jwt_decode(localStorage.jwtToken);
         let preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
         // if(localStorage.robot){
-        //     debugger
+            // debugger
         //     const robot = localStorage.getItem(JSON.parse(robot))
         //     preloadedState = { session: { isAuthenticated: true, user: decodedUser }, entities: {robot: robot} }
         // }

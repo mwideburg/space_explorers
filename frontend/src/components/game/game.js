@@ -44,6 +44,19 @@ class Game extends React.Component {
         this.setState({robot: robot})
         
     }
+    updateStats(){
+        const robot = this.state.robot
+        robot.hp -= 10
+        
+        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot }))
+    }
+    buyMissle(){
+        const robot = this.state.robot
+        robot.missles += 5
+        robot.rosscoin -= 100
+        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot }))
+    }
+    
     
 
     // Once the user has been authenticated, redirect to the Tweets page
@@ -71,6 +84,7 @@ class Game extends React.Component {
                 </div>  
 
                 <div className="sidebar-inventory">
+                    <h2>$RC: {robot.rosscoin}</h2>
                    <h2>{this.state.robot.name}</h2>
                     <img src={robot.photoUrl} alt="robot" className="robot-img" />
                 <ul>
@@ -90,6 +104,8 @@ class Game extends React.Component {
                         Evasion: {robot.evasion}
                     </li>
             </ul>
+                <button onClick={() => this.updateStats()}>LOWER HP BY 10</button>
+                <button onClick={() => this.buyMissle()}>BUY MISSLES</button>
                 </div>
             </div>
         );
