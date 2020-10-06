@@ -35,6 +35,9 @@ const RobotSchema = new Schema({
     },
     rosscoin: {
         type: Number
+    },
+    photoUrl:{
+        type: String,
     }
 })
 

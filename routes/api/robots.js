@@ -60,6 +60,7 @@ router.post('/user/:user_id',
         missles: req.body.missles,
         evasion: req.body.evasion,
         rosscoin: req.body.rosscoin,
+        photoUrl: req.body.photoUrl,
     });
 
 

@@ -5,16 +5,17 @@ import Game from './game';
 
 
 const mapStateToProps = (state) => {
+    // debugger
     return {
         user: state.session.user,
-        robot: state.session.robot
+        robot: state.entities.robot
 
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        
+    
     }
 }
 
