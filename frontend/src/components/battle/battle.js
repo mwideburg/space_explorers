@@ -3,6 +3,9 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import "./battle.scss"
+import enemy1 from "../../images/enemy1.png"
+import enemy2 from "../../images/enemy2.png"
+import enemy3 from "../../images/enemy3.png"
 
 class Battle extends React.Component {
     constructor(props) {
@@ -227,6 +230,9 @@ class Battle extends React.Component {
                 </div>
             )
         }
+        if(this.state.enemy){
+
+        }
         let robot = this.state.robot
         console.log(this.state.robot)
         // debugger
@@ -263,7 +269,7 @@ class Battle extends React.Component {
                     <img className="battle-img" src="https://pngimg.com/uploads/transformers/transformers_PNG30.png"/>
                     
 
-                        <img className="battle-img" src="https://files.slack.com/files-pri/T03GU501J-F01C5LU3EJE/image.png"/>
+                        <img className="battle-img" src={enemy1}/>
                 </div>
                
                
@@ -271,7 +277,7 @@ class Battle extends React.Component {
 
                 <div className="enemy-view">
                     
-
+                            <h2>{this.state.enemy.name}</h2>
                     <ul>
                         <li>
                             HP:{this.state.enemy.hp}
