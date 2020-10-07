@@ -50,7 +50,7 @@ export const getEnemies = (robot) => dispatch => {
         // refactor for loccation?
         
         
-        debugger   
+        // debugger   
         return dispatch(receiveCurrentEnemies(res.data))
     });
 };

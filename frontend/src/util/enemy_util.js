@@ -12,7 +12,7 @@ export const getEnemy = (enemyData) => {
     return axios.get(`/api/enemies/${enemyData.id}`);
 };
 export const getEnemies = (robot) => {
-  debugger
+  // debugger
     return axios.get(`/api/enemies/location/${robot.location}`);
 };
 

@@ -9,7 +9,8 @@ const mapStateToProps = (state) => {
     // debugger
     return {
         user: state.session.user,
-        robot: state.entities.robot
+        robot: state.entities.robot,
+        enemies: state.entities.enemy
 
     };
 };

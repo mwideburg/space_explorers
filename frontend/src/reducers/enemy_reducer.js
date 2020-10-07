@@ -1,7 +1,8 @@
 import {
   RECEIVE_CURRENT_ENEMY,
   SET_ENEMY_HP,
-  SET_ENEMY_MISSLE
+  SET_ENEMY_MISSLE,
+  RECEIVE_CURRENT_ENEMIES
 } from "../actions/enemy_actions";
 
 
@@ -15,7 +16,7 @@ export default (state = initialState, action) => {
 
     case RECEIVE_CURRENT_ENEMY:
         return Object.assign({}, action.currentEnemy);
-    case RECEIVE_CURRENT_ENEMY:
+    case RECEIVE_CURRENT_ENEMIES:
         return Object.assign({}, action.enemies);
 
     case SET_ENEMY_HP:
