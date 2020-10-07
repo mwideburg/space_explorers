@@ -44,13 +44,13 @@ export const getEnemy = (enemy) => dispatch => {
 };
 export const getEnemies = (robot) => dispatch => {
     return APIUtil.getEnemies(robot).then((res) => {
-        if (res.data.length === 0){
-            return false
-        }
+        // if (res.data.length === 0){
+        //     return false
+        // }
         // refactor for loccation?
         
         
-        // debugger   
+        debugger   
         return dispatch(receiveCurrentEnemies(res.data))
     });
 };
