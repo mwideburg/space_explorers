@@ -7,6 +7,7 @@ import enemy1 from "../../images/enemy1.png"
 import enemy2 from "../../images/enemy2.png"
 import enemy3 from "../../images/enemy3.png"
 
+
 class Battle extends React.Component {
     constructor(props) {
         super(props);
@@ -181,7 +182,7 @@ class Battle extends React.Component {
         
     }
     salvage(){
-        debugger
+        // debugger
         const robot = this.state.robot
         const enemy = this.state.enemy
         robot.rosscoin += enemy.rosscoin
@@ -221,12 +222,11 @@ class Battle extends React.Component {
 
     render() {
 
-        
         if (this.state.hidden) {
             return(
                 <div className="render-splash">
-                    <img src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200"/>
-                    "RENDERING.."
+                    <img className="render-gif" src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200"/>
+                    RENDERING..
                 </div>
             )
         }
@@ -266,9 +266,10 @@ class Battle extends React.Component {
                         {this.endMessage()}
                     </div>
                 <div className="battle-view">
+                    
                     <img className="battle-img" src="https://pngimg.com/uploads/transformers/transformers_PNG30.png"/>
                     
-
+                    
                         <img className="battle-img" src={enemy1}/>
                 </div>
                

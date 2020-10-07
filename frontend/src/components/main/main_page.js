@@ -10,6 +10,7 @@ import Robots from '../robots/robot_selection_container';
 import Game from '../game/game_container';
 import UserRobot from '../robots/robot_container';
 import Battle from '../battle/battle_container';
+import GameStore from '../game_store/game_store_container';
 
 import './main.scss'
 class MainPage extends React.Component {
@@ -25,9 +26,9 @@ class MainPage extends React.Component {
                 <ProtectedRoute exact path="/game/battle" component={Battle}/>
                 <ProtectedRoute exact path="/game" component={Game}/>
                 <ProtectedRoute exact path="/user/robot" component={UserRobot}/>
+                <ProtectedRoute exact path="/game/store" component={GameStore}/>
                 <Switch>
                     <AuthRoute exact path="/" component={NavBarContainer}/>
-                    
                     <AuthRoute exact path="/login" component={LoginFormContainer} />
                     <AuthRoute exact path="/signup" component={SignupFormContainer} />
                     

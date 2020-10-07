@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import "./robot-game.scss"
 
 const Robot = (robot) => {
-    debugger
+    // debugger
     const stats = (robot) => {
         return (
             <ul className="robot-stat-list">

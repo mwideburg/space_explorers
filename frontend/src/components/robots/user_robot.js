@@ -14,11 +14,10 @@ class RobotUser extends React.Component {
             robot: this.props.robot,
             user: this.props.user,
             hidden: true
-
         };
         // this.handleClick = this.props.handleClick.bind(this)
 
-        debugger
+        // debugger
     }
     handleClick() {
 
@@ -26,7 +25,7 @@ class RobotUser extends React.Component {
         this.props.getRobot(user).then(this.props.history.push('/user/robot'))
     }
     componentDidMount(){
-        debugger
+        // debugger
         setTimeout(() => {
             this.setState({ hidden: false });
             let robot = JSON.parse(localStorage.getItem('robot'))
@@ -59,7 +58,8 @@ class RobotUser extends React.Component {
         // debugger
         if (this.props.robot === undefined) {
             return (
-                <div>
+                <div className="render-splash">
+                    <img className="render-gif" src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200" />
                     RENDERING..
                     <button onClick={() => this.handleClick()}> GET ROBOT</button>
                 </div>
