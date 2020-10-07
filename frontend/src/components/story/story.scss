@@ -31,10 +31,10 @@ $white: rgb(255, 255, 255);
 
 }
 
-.RosstheBoss:hover {
-    font-size: 20px;
-    color: #79C157;
-    
+.RosstheBoss {
+    text-shadow: -1px 1px $leonardo-blue, 
+    -2px 2px $donatello-purple,
+    -4px 4px $raphael-red;
 }
 .Rossimage {
     display: flex;
@@ -80,6 +80,7 @@ $white: rgb(255, 255, 255);
     justify-content: center;
 }
 .story-div {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -87,8 +88,15 @@ $white: rgb(255, 255, 255);
     margin-top: 25px;
 }
 
+.story-sub-div {
+    position: absolute;
+    top: 50%;
+    height: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .story-text {
-    
     color: $white;
 }
 
