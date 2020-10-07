@@ -32,10 +32,17 @@ $white: rgb(255, 255, 255);
 }
 
 .RosstheBoss {
+    text-decoration: none;
+    color: $white;
     text-shadow: -1px 1px $leonardo-blue, 
     -2px 2px $donatello-purple,
     -4px 4px $raphael-red;
 }
+
+.RosstheBoss:hover {
+    transform: scale(1.05);
+}
+
 .Rossimage {
     display: flex;
     margin-left: 50px;

@@ -88,7 +88,7 @@ class Story extends React.Component {
                   />
                   <p> A brilliant and evil engineer from Holtercorp™,</p>
 
-                  <p className="RosstheBoss">Ross Miglin</p>
+                  <a className="RosstheBoss" href="https://www.linkedin.com/in/ross-miglin/">Ross Miglin</a>
                 </div>
               </div>
             </div>

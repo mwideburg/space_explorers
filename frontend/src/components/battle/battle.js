@@ -10,6 +10,7 @@ import snow_owl from "../../images/snow_owl.png";
 import the_kestrel from "../../images/the_kestrel.png";
 import the_roc from "../../images/the_roc.png";
 
+
 class Battle extends React.Component {
     constructor(props) {
         super(props);
@@ -265,8 +266,8 @@ class Battle extends React.Component {
         if (this.state.hidden) {
             return(
                 <div className="render-splash">
-                    <img src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200"/>
-                    "RENDERING.."
+                    <img className="render-gif" src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200"/>
+                    RENDERING..
                 </div>
             )
         }

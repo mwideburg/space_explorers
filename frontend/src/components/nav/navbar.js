@@ -35,7 +35,7 @@ class NavBar extends React.Component {
                         href="https://fonts.googleapis.com/css?family=Press+Start+2P"/>
                     
                     <div className="NavBar ">
-
+                        <img className="entry-gif" src="https://cdn2.scratch.mit.edu/get_image/user/10551558_60x60.png" />
                         <Link to={'/signup'}>
                              Signup
                         </Link>

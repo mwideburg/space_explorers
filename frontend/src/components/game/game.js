@@ -1,10 +1,10 @@
 
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
 import GameContainer from './game_container'
 import MoonMap from '../maps/moon_map'
 import RobotStats from './robot_stats'
-
+import GameStore from '../game_store/game_store_container';
 import "./game.scss"
 class Game extends React.Component {
     constructor(props) {
@@ -84,6 +84,7 @@ class Game extends React.Component {
                 <div className="map-container">
                     <h1>{this.props.user.handle}</h1>
                     <MoonMap/>
+              
                         
 
                 </div>  
