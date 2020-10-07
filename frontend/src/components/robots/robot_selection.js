@@ -53,7 +53,7 @@ class UserRobot extends React.Component {
             weapon1: "Laser MKI",
             missles: 5,
             evasion: 20,
-            photoUrl: "https://lh3.googleusercontent.com/proxy/Qe1H-_NAP8Ag_9uhaAQ5ww-RMuDFsKfPAo8xEaENkhKYPhUt_6Ol637q9kuTkX-Wzjh5wepBX9IC3VgAg84zgZvMqHfJi6e4beA-DXPBki5IBZlY",
+            photoUrl: "https://i.pinimg.com/originals/3d/f5/d7/3df5d723be9c1353553ff007b56d3b86.jpg",
             rosscoin: 500
         }
         const robot3 = {
@@ -146,7 +146,7 @@ class UserRobot extends React.Component {
                         </div> 
                         <div id="snow-owl" className="robot" onClick={(robot2) => this.handleSubmit(robot2)}>
                             <div  className="robot-img">
-                            <img src="https://lh3.googleusercontent.com/proxy/Qe1H-_NAP8Ag_9uhaAQ5ww-RMuDFsKfPAo8xEaENkhKYPhUt_6Ol637q9kuTkX-Wzjh5wepBX9IC3VgAg84zgZvMqHfJi6e4beA-DXPBki5IBZlY" className="robot-img"/>
+                            <img src="https://i.pinimg.com/originals/3d/f5/d7/3df5d723be9c1353553ff007b56d3b86.jpg" className="robot-img"/>
                             </div>
                             <div className="robot-stats">
                                     <ul>
