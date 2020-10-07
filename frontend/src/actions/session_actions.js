@@ -28,9 +28,9 @@ export const logoutUser = () => ({
 });
 
 
-export const signup = user => dispatch => (
+export const signup = (user) => dispatch => (
     APIUtil.signup(user).then((user) => {
-
+        
         return dispatch(receiveUserSignIn())
     }, err => {
         

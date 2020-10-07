@@ -54,7 +54,7 @@ export const getRobot = (user) => dispatch => {
         return dispatch(receiveErrors(err.response.data))
     }
 )}
-export const updateRobot = (robot, getState) => dispatch => {
+export const updateRobot = (robot) => dispatch => {
     // debugger
     return APIUtil.updateRobot(robot).then((robot) => {
         // debugger
