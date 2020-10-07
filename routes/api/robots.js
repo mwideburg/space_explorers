@@ -61,6 +61,8 @@ router.post('/user/:user_id',
         evasion: req.body.evasion,
         rosscoin: req.body.rosscoin,
         photoUrl: req.body.photoUrl,
+        bodyphotoUrl: req.body.bodyphotoUrl,
+        location: req.body.location
     });
 
 

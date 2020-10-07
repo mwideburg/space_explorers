@@ -29,7 +29,7 @@ router.get('/:enemy_id', (req, res) => {
         );
 });
 
-router.get('/:location_id', (req, res) => {
+router.get('/location/:location_id', (req, res) => {
     Enemy.find({ location: req.params.location_id })
         .then(enemy => res.json(enemy))
         .catch(err =>

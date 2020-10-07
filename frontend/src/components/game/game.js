@@ -21,13 +21,18 @@ class Game extends React.Component {
 
     }
     componentDidMount(){
-        debugger
+        
+
         setTimeout(() => {
             this.setState({ hidden: false });
             let robot = JSON.parse(localStorage.getItem('robot'))
+            
             // robot = this.props.robot
             this.setState({ robot: robot })
+            
+            this.props.getEnemies(robot)
         }, 1000);
+
         // this.setState({robot: this.props.robot})
         
     }
@@ -90,6 +95,9 @@ class Game extends React.Component {
                 <ul>
                     <li>
                         HP:{robot.hp}
+                    </li>
+                    <li>
+                        Location:{robot.location}
                     </li>
                     <li>
                         Weapon:{robot.weapon1}

@@ -14,13 +14,15 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case RECEIVE_CURRENT_ENEMY:
-        return Object.assign(state, action.currentEnemy);
+        return Object.assign({}, action.currentEnemy);
+    case RECEIVE_CURRENT_ENEMY:
+        return Object.assign({}, action.enemies);
 
     case SET_ENEMY_HP:
-        return Object.assign(enemy.hp, action.hp);
+        return Object.assign({}, action.hp);
         
     case SET_ENEMY_MISSLE:
-        return Object.assign(enemy.missles, action.missles);
+        return Object.assign({}, action.missles);
 
     default:
       return state;

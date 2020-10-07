@@ -45,7 +45,8 @@ class UserRobot extends React.Component {
             missles: 15,
             evasion: 5,
             photoUrl: "https://i.imgur.com/2QuLJvO.jpg",
-            rosscoin: 500
+            rosscoin: 500,
+            location: "moon"
         }
         const robot2 = {
             name: "The Snowy Owl",
@@ -54,7 +55,8 @@ class UserRobot extends React.Component {
             missles: 5,
             evasion: 20,
             photoUrl: "https://i.pinimg.com/originals/3d/f5/d7/3df5d723be9c1353553ff007b56d3b86.jpg",
-            rosscoin: 500
+            rosscoin: 500,
+            location: "moon"
         }
         const robot3 = {
             name: "The Roc",
@@ -63,7 +65,8 @@ class UserRobot extends React.Component {
             missles: 5,
             evasion: 5,
             photoUrl: "https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png",
-            rosscoin: 500
+            rosscoin: 500,
+            location: "moon"
         }
 
         if (e.currentTarget.id === 'kestrel'){

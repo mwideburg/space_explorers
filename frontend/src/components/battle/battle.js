@@ -19,7 +19,7 @@ class Battle extends React.Component {
 
     }
     componentDidMount() {
-        debugger
+        // debugger
         setTimeout(() => {
             this.setState({ hidden: false });
             let robot = JSON.parse(localStorage.getItem('robot'))
@@ -52,13 +52,21 @@ class Battle extends React.Component {
         const robot = this.state.robot
         robot.missles -= 1
         
-        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot }))
+        this.props.updateStats(this.state.robot, this.props.user)
+        this.setState({ robot: robot })
     }
     attackLaser() {
         const robot = this.state.robot
         
         
-        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot }))
+        this.props.updateStats(this.state.robot, this.props.user)
+        this.setState({ robot: robot })
+    }
+    flee(){
+        const robot = this.state.robot
+        
+
+        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push('/game'))
     }
 
     checkHp(){
@@ -103,6 +111,7 @@ class Battle extends React.Component {
                     
                     <button onClick={() => this.attackLaser()}>Attack {robot.weapon1}</button>
                     <button onClick={() => this.attackMissle()}>Attack {robot.weapon2}</button>
+                    <button onClick={() => this.flee()}>Flee</button>
                 </div>
 
                 <div className="battle-view">
