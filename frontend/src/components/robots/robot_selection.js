@@ -45,7 +45,8 @@ class UserRobot extends React.Component {
             missles: 15,
             evasion: 5,
             photoUrl: "https://i.imgur.com/2QuLJvO.jpg",
-            rosscoin: 500
+            rosscoin: 500,
+            location: "moon"
         }
         const robot2 = {
             name: "The Snowy Owl",
@@ -53,8 +54,9 @@ class UserRobot extends React.Component {
             weapon1: "Laser MKI",
             missles: 5,
             evasion: 20,
-            photoUrl: "https://lh3.googleusercontent.com/proxy/Qe1H-_NAP8Ag_9uhaAQ5ww-RMuDFsKfPAo8xEaENkhKYPhUt_6Ol637q9kuTkX-Wzjh5wepBX9IC3VgAg84zgZvMqHfJi6e4beA-DXPBki5IBZlY",
-            rosscoin: 500
+            photoUrl: "https://i.pinimg.com/originals/3d/f5/d7/3df5d723be9c1353553ff007b56d3b86.jpg",
+            rosscoin: 500,
+            location: "moon"
         }
         const robot3 = {
             name: "The Roc",
@@ -63,7 +65,8 @@ class UserRobot extends React.Component {
             missles: 5,
             evasion: 5,
             photoUrl: "https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png",
-            rosscoin: 500
+            rosscoin: 500,
+            location: "moon"
         }
 
         if (e.currentTarget.id === 'kestrel'){
@@ -146,7 +149,7 @@ class UserRobot extends React.Component {
                         </div> 
                         <div id="snow-owl" className="robot" onClick={(robot2) => this.handleSubmit(robot2)}>
                             <div  className="robot-img">
-                            <img src="https://lh3.googleusercontent.com/proxy/Qe1H-_NAP8Ag_9uhaAQ5ww-RMuDFsKfPAo8xEaENkhKYPhUt_6Ol637q9kuTkX-Wzjh5wepBX9IC3VgAg84zgZvMqHfJi6e4beA-DXPBki5IBZlY" className="robot-img"/>
+                            <img src="https://i.pinimg.com/originals/3d/f5/d7/3df5d723be9c1353553ff007b56d3b86.jpg" className="robot-img"/>
                             </div>
                             <div className="robot-stats">
                                     <ul>

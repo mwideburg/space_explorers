@@ -137,10 +137,22 @@ export class MoonMap extends React.Component {
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(0, 32),
         }
+        const repairShop = {
+            url: "https://img2.pngio.com/repair-svg-png-icon-free-download-96545-onlinewebfontscom-mechanic-icon-png-981_960.png",
+            scaledSize: new google.maps.Size(30, 30),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 32),
+        }
         const marker2 = new google.maps.Marker({
             position: myLatLng2,
             markermap,
             icon: roboImage,
+            title: "Hello World!",
+        });
+        const marker3 = new google.maps.Marker({
+            position: {lat: -70, lng: -20},
+            markermap,
+            icon: repairShop,
             title: "Hello World!",
         });
         // this.MarkerManagerUtil.updateMarker()
@@ -150,14 +162,21 @@ export class MoonMap extends React.Component {
         const infowindow2 = new google.maps.InfoWindow({
             content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>MEGA METAL</h3></a>" + "<p> prepare for battle</p>"+"</div>",
         });
+        const infowindow3 = new google.maps.InfoWindow({
+            content: "<div id='content' color='black'>" + "<a href='/#/game/repair'><h3>ROBOT REPAIR</h3></a>" + "<p> prepare for battle</p>"+"</div>",
+        });
         marker.addListener("click", () => {
             infowindow.open(markermap, marker);
         })
         marker2.addListener("click", () => {
             infowindow2.open(markermap, marker2);
         })
+        marker3.addListener("click", () => {
+            infowindow3.open(markermap, marker3);
+        })
         marker.setMap(markermap);
         marker2.setMap(markermap);
+        marker3.setMap(markermap);
     }
     componentDidUpdate() {
        

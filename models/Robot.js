@@ -38,6 +38,12 @@ const RobotSchema = new Schema({
     },
     photoUrl:{
         type: String,
+    },
+    bodyphotoUrl:{
+        type: String,
+    },
+    location:{
+        type: String,
     }
 })
 

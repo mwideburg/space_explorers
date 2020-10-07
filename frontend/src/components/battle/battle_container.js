@@ -1,16 +1,16 @@
 
 import { connect } from 'react-redux';
-import { updateRobot} from '../../actions/robot_actions';
-import { getEnemies} from '../../actions/enemy_actions';
+import { updateRobot, setRobotMissle, setRobotHp, receiveCurrentRobot } from '../../actions/robot_actions';
 
-import Game from './game';
+import Battle from './battle';
 
 
 const mapStateToProps = (state) => {
     // debugger
     return {
         user: state.session.user,
-        robot: state.entities.robot
+        robot: state.entities.robot,
+        enemies: state.entities.enemy
 
     };
 };
@@ -18,11 +18,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         updateRobot: (robot) => dispatch(updateRobot(robot)),
-        getEnemies: (robot) => dispatch(getEnemies(robot))
+        updateStats: (robot) => dispatch(receiveCurrentRobot(robot))
+
     }
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Game);
+)(Battle);

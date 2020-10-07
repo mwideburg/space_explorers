@@ -1,0 +1,80 @@
+.battle-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    animation: fadein 1s;
+
+    
+}
+
+.user-robot{
+    // background-color: red;
+    width: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+.battle-img{
+   height: 400px;
+    
+    object-fit: fill;
+}
+.battle-middle{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    
+
+}
+
+.message{
+    text-align: center;
+    animation: fadein 1s;
+    display: flex;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    color: red;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: auto;
+    position: absolute;
+    position: absolute; 
+    margin-top: 150px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+
+}
+.battle-view{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.enemy-view{
+    // background-color: red;
+    width: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.render-splash{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+@keyframes fadein{
+    from{opacity: 0;}
+    to{opacity:1;}
+}
