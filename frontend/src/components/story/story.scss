@@ -31,14 +31,64 @@ $white: rgb(255, 255, 255);
 
 }
 
+.RosstheBoss:hover {
+    font-size: 20px;
+    color: #79C157;
+    
+}
+.Rossimage {
+    display: flex;
+    margin-left: 50px;
+    width: 80%;
+    height: 80%;
+}
+
+.worldimage {
+    display: flex;
+    margin-left: 130px;
+    width: 50%;
+    height: 50%;
+}
+
+.spaceimage {
+    display: flex;
+    margin-left: 130px;
+    width: 50%;
+    height: 50%;
+}
+
+.mechimage {
+   display: flex;
+    margin-left: 160px;
+    width: 30%;
+    height: 20%; 
+}
+
+.RosstheBoss {
+    display: flex;
+    justify-content: center;
+}
+
+.Holtercorp {
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+}
+
+.Holtercorp-subtext {
+    display: flex;  
+    justify-content: center;
+}
 .story-div {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-top: 25px;
 }
 
 .story-text {
+    
     color: $white;
 }
 
