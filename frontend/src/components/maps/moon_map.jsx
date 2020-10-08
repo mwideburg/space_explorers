@@ -164,6 +164,12 @@ export class MoonMap extends React.Component {
            
             title: "Rocket!",
         });
+        let x;
+        if (this.props.robot.qp > 0) {
+            x = "<div id='content' color='black'>" + "<a href='/#/game/mars'><h3>TO MARS!</h3></a>" + "<p> prepare for battle</p>" + "</div>"
+        } else {
+            x = "<div id='content' color='white'>" + "<a href=''><h3>YOU CAN'T LAUNCH YET!</h3></a>" + "<p> prepare for battle</p>" + "</div>"
+        };
         // this.MarkerManagerUtil.updateMarker()
         const infowindow = new google.maps.InfoWindow({
             content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>HOLTERGEST</h3></a>" + "<p> prepare for battle</p>"+"</div>",
@@ -175,7 +181,7 @@ export class MoonMap extends React.Component {
             content: "<div id='content' color='black'>" + "<a href='/#/game/store'><h3>ROBOT REPAIR</h3></a>" + "<p> prepare for battle</p>"+"</div>",
         });
         const rocketWindow = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game/mars'><h3>TO SPACE!</h3></a>" + "<p> prepare for battle</p>"+"</div>",
+            content: x,
         });
         marker.addListener("click", () => {
             infowindow.open(markermap, marker);
@@ -187,7 +193,7 @@ export class MoonMap extends React.Component {
             infowindow3.open(markermap, marker3);
         })
         rocket.addListener("click", () => {
-            infowindow3.open(markermap, rocket);
+            rocketWindow.open(markermap, rocket);
         })
         marker.setMap(markermap);
         marker2.setMap(markermap);

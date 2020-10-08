@@ -177,6 +177,7 @@ export class MoonMap extends React.Component {
            
             title: "Rocket!",
         });
+ 
         // this.MarkerManagerUtil.updateMarker()
         const infowindow = new google.maps.InfoWindow({
             content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>HOLTERGEST</h3></a>" + "<p> prepare for battle</p>"+"</div>",
@@ -188,7 +189,7 @@ export class MoonMap extends React.Component {
             content: "<div id='content' color='black'>" + "<a href='/#/game/store'><h3>ROBOT REPAIR</h3></a>" + "<p> prepare for battle</p>"+"</div>",
         });
         const rocketWindow = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game/mars'><h3>TO SPACE!</h3></a>" + "<p> prepare for battle</p>"+"</div>",
+            content: "<div id='content' color='black'>" + "<a href='/#/game/mars'><h3>TO SPACE!</h3></a>" + "<p> prepare for battle</p>" + "</div>",
         });
         marker.addListener("click", () => {
             infowindow.open(markermap, marker);

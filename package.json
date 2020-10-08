@@ -28,10 +28,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "react-audio-player": "^0.14.0",
-<<<<<<< HEAD
     "react-carousel": "^4.3.0",
-=======
->>>>>>> c1f4d6eb364bdd5e06b99e547f8110bd6aeac5ec
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-slick": "^0.27.11",
