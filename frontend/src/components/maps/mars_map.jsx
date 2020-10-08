@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, mapTypes, InfoWindow, Marker } from 'google-maps-react';
-import rocket_img from '../../images/rocket.png'
+import rocket_img from '../../images/rocket.png';
+import rich_image from "../../images/rich_image.png";
+import mech from "../../images/mech.gif";
 // import MarkerManagerUtil from '../../util/marker_manager'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -78,7 +80,7 @@ export class MarsMap extends React.Component {
             minZoom: 0,
 
             radius: 1738000,
-            name: "Mars",
+            name: "Moon",
         });
 
         this.map.mapTypes.set("moon", moonMapType);
@@ -103,8 +105,12 @@ export class MarsMap extends React.Component {
             // updateBounds(bounds)
             
         })
-        const image =
-            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+        const image = {
+          url:"https://i.gifer.com/origin/1f/1f2537df2f9b0f9a583054ccef4946c7_w200.gif",
+          scaledSize: new google.maps.Size(50, 50),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(0, 32),
+        };
         const myLatLng = { lat: 0, lng: 0 }
         const myLatLng2 = { lat: 55, lng: -20 }
         const markermap = this.map
@@ -112,31 +118,31 @@ export class MarsMap extends React.Component {
             position: myLatLng,
             markermap,
             icon: image,
-            title: "Hello World!",
+            title: "Hard Battle",
         });
-        const roboImage = {
-            url: "https://thumbs.gfycat.com/ThunderousIdealBorzoi-max-1mb.gif",
-            scaledSize: new google.maps.Size(50, 50),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 32),
-        }
-        const repairShop = {
-            url: "https://img2.pngio.com/repair-svg-png-icon-free-download-96545-onlinewebfontscom-mechanic-icon-png-981_960.png",
-            scaledSize: new google.maps.Size(30, 30),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 32),
-        }
+        // const roboImage = {
+        //     url: "https://thumbs.gfycat.com/ThunderousIdealBorzoi-max-1mb.gif",
+        //     scaledSize: new google.maps.Size(50, 50),
+        //     origin: new google.maps.Point(0, 0),
+        //     anchor: new google.maps.Point(0, 32),
+        // }
+        // const repairShop = {
+        //     url: "../../images/rich_image.png",
+        //     scaledSize: new google.maps.Size(30, 30),
+        //     origin: new google.maps.Point(0, 0),
+        //     anchor: new google.maps.Point(0, 32),
+        // }
         const marker2 = new google.maps.Marker({
             position: myLatLng2,
             markermap,
-            icon: roboImage,
-            title: "Hello World!",
+            icon: mech,
+            title: "Mega Metal",
         });
         const marker3 = new google.maps.Marker({
             position: {lat: -20, lng: 35},
             markermap,
-            icon: repairShop,
-            title: "Hello World!",
+            icon: rich_image,
+            title: "Riches Riches",
         });
         
         const rocket = new google.maps.Marker({
@@ -144,34 +150,58 @@ export class MarsMap extends React.Component {
             markermap,
             icon: rocket_img,
            
-            title: "Rocket!",
+            title: "Go Travel",
         });
  
         // this.MarkerManagerUtil.updateMarker()
-        const infowindow = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>HOLTERGEST</h3></a>" + "<p> prepare for battle</p>"+"</div>",
-        });
-        const infowindow2 = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>MEGA METAL</h3></a>" + "<p> prepare for battle</p>"+"</div>",
-        });
-        const infowindow3 = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game/store'><h3>ROBOT REPAIR</h3></a>" + "<p> prepare for battle</p>"+"</div>",
-        });
-        const rocketWindow = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game'><h3>TO THE MOON!</h3></a>" + "</div>",
-        });
-        marker.addListener("click", () => {
-            infowindow.open(markermap, marker);
-        })
-        marker2.addListener("click", () => {
-            infowindow2.open(markermap, marker2);
-        })
-        marker3.addListener("click", () => {
-            infowindow3.open(markermap, marker3);
-        })
-        rocket.addListener("click", () => {
-            rocketWindow.open(markermap, rocket);
-        })
+         let x;
+         if (this.props.robot.qp > 0) {
+           x =
+             "<div id='content' color='black'>" +
+             "<a href='/#/game'><h3>TO MARS!</h3></a>" +
+             "<center><p> new enemies await </p></center>" +
+             "</div>";
+         } else {
+           x =
+             "<div id='content' color='white'>" +
+             "<h3>YOU CAN'T LAUNCH YET!</h3>" +
+             "</div>";
+         }
+         // this.MarkerManagerUtil.updateMarker()
+         const infowindow = new google.maps.InfoWindow({
+           content:
+             "<div id='content' color='black'>" +
+             "<a href='/#/game/battle'><h3>Enter Battle</h3></a>" +
+             "</div>",
+         });
+         const infowindow2 = new google.maps.InfoWindow({
+           content:
+             "<div id='content' color='black'>" +
+             "<a href='/#/game/battle'><h3>Enter Battle</h3></a>" +
+             "</div>",
+         });
+         const infowindow3 = new google.maps.InfoWindow({
+           content:
+             "<div id='content' color='black'>" +
+             "<a href='/#/game/store'><h3>Rich's Riches</h3></a>" +
+             "<p> repair your robot</p>" +
+             "</div>",
+         });
+         const rocketWindow = new google.maps.InfoWindow({
+           content: x,
+         });
+         marker.addListener("click", () => {
+           infowindow.open(markermap, marker);
+         });
+         marker2.addListener("click", () => {
+           infowindow2.open(markermap, marker2);
+         });
+         marker3.addListener("click", () => {
+           infowindow3.open(markermap, marker3);
+         });
+         rocket.addListener("click", () => {
+           rocketWindow.open(markermap, rocket);
+         });
         marker.setMap(markermap);
         marker2.setMap(markermap);
         marker3.setMap(markermap);

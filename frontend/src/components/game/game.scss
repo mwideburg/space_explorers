@@ -27,7 +27,7 @@ $white: rgb(255, 255, 255);
     color: $white;
 }
 .sidebar-planets{
-    width: 400px;
+    width: 300px;
     height: 100%;
     background-color: $donatello-purple;
 }
@@ -55,6 +55,7 @@ $white: rgb(255, 255, 255);
     }
 }
 .planet-description{
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,10 +63,12 @@ $white: rgb(255, 255, 255);
     text-align: center;
     width: 100%;
     height: 400px;
+    
 }
 
 
 .planet-container{
+    margin-top: 10px;
     width: 100px;
     height: 100px;
     border: white 1px solid;

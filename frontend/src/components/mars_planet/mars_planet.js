@@ -9,7 +9,7 @@ import RobotStats from './robot_mars_stats'
 import GameStore from '../game_store/game_store_container';
 
 
-import moon_img from '../../images/moon2.png'
+import mars_img from '../../images/mars.png'
 import "./mars.scss"
 class MarsGame extends React.Component {
     constructor(props) {
@@ -102,61 +102,49 @@ class MarsGame extends React.Component {
             robot.location = "mars"
         
         return (
-            <div className="game-container">
-                <div className="sidebar-planets">
-                    <div className="planet-description">
-                    Current Planet: {robot.location}
-                    <div className="planet-container">
-                        
-                        <img src={moon_img} alt="moon"/>
-                       
-                    </div>
-                        <p> Description: Until a few years ago the moon was mostly populated by hippie communes that represented free spirited people from many different old earth nations. They worked and lived in harmony until a wealthy software CEO bought the land out from under them. Having a fuzzy concept of ownership, the natives now work as miners and laborers for Richcorp™. 
-Across the landscapes you can see billboards with the company motto: “Work strong today to make Rich even richer tomorrow!”</p>
+          <div className="game-container">
+            <div className="sidebar-planets">
+              <div className="planet-description">
+                Current Planet: {robot.location}
+                <div className="planet-container">
+                  <img src={mars_img} alt="mars" />
                 </div>
-                </div>
-
-                <div className="map-container">
-                    <h1>{this.props.user.handle}</h1>
-                   
-                       <MarsMap robot={robot} />
-
-   
-                    
-                    
-              
-                        
-
-                </div>  
-
-                <div className="sidebar-inventory">
-                    <h2>$RC: {robot.rosscoin}</h2>
-                   <h2>{this.state.robot.name}</h2>
-                   <center>QP: {robot.qp} </center>
-                    <img src={robot.photoUrl} alt="robot" className="robot-img" />
-                <ul>
-                    <li>
-                        HP:{robot.hp}
-                    </li>
-                    <li>
-                        Location:{robot.location}
-                    </li>
-                    <li>
-                        Weapon:{robot.weapon1}
-                    </li>
-                    <li>
-                        Weapon 2:{robot.weapon2}
-                    </li>
-                    <li>
-                        Missiles: {robot.missles}
-                    </li>
-                    <li>
-                        Evasion: {robot.evasion}
-                    </li>
-            </ul>
-              
-                </div>
+                <p>
+                  {" "}
+                  Description: Welcome to Mars!”
+                </p>
+                {/* Until a few years ago the moon was mostly populated by hippie
+                communes that represented free spirited people from many
+                different old earth nations. They worked and lived in harmony
+                until a wealthy software CEO bought the land out from under
+                them. Having a fuzzy concept of ownership, the natives now work
+                as miners and laborers for Richcorp™. Across the landscapes you
+                can see billboards with the company motto: “Work strong today to
+                make Rich even richer tomorrow!” */}
+              </div>
             </div>
+
+            <div className="map-container">
+              <h1>{this.props.user.handle}</h1>
+
+              <MoonMap robot={robot} />
+            </div>
+
+            <div className="sidebar-inventory">
+              <h2>$RC: {robot.rosscoin}</h2>
+              <h2>{this.state.robot.name}</h2>
+              <center>QP: {robot.qp} </center>
+              <img src={robot.photoUrl} alt="robot" className="robot-img" />
+              <ul>
+                <li>HP:{robot.hp}</li>
+                <li>Location:{robot.location}</li>
+                <li>Weapon:{robot.weapon1}</li>
+                <li>Weapon 2:{robot.weapon2}</li>
+                <li>Missiles: {robot.missles}</li>
+                <li>Evasion: {robot.evasion}</li>
+              </ul>
+            </div>
+          </div>
         );
     }
 }

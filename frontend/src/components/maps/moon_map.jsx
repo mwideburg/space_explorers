@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, mapTypes, InfoWindow, Marker } from 'google-maps-react';
-import rocket_img from '../../images/rocket.png'
+import rocket_img from '../../images/rocket.png';
+import rich_image from '../../images/rich_image.png';
+import mech from '../../images/mech.gif';
 // import MarkerManagerUtil from '../../util/marker_manager'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -102,7 +104,7 @@ export class MoonMap extends React.Component {
             isPng: false,
             maxZoom: 8,
             radius: 3396200,
-            name: 'Moon',
+            name: 'Mars',
             credit: 'Image Credit: NASA/JPL/GSFC'
         });
         this.map.mapTypes.set("mars_elevation", moonMapType);
@@ -128,15 +130,27 @@ export class MoonMap extends React.Component {
             // updateBounds(bounds)
             
         })
-        const image =
-            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+        const enemy3 = {
+          url:
+            "https://i.gifer.com/origin/1f/1f2537df2f9b0f9a583054ccef4946c7_w200.gif",
+          scaledSize: new google.maps.Size(50, 50),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(0, 32),
+        };
+        const image = {
+          url:
+            "https://toppng.com/uploads/preview/anime-transparent-gundam-mech-transparent-anime-house-stark-with-tony-11563292171fymj6gptj3.png",
+          scaledSize: new google.maps.Size(50, 50),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(0, 32),
+        };
         const myLatLng = { lat: 0, lng: 0 }
         const myLatLng2 = { lat: 10, lng: 20 }
         const markermap = this.map
         const marker = new google.maps.Marker({
             position: myLatLng,
             markermap,
-            icon: image,
+            icon: mech,
             title: "Hello World!",
         });
         const roboImage = {
@@ -145,22 +159,28 @@ export class MoonMap extends React.Component {
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(0, 32),
         }
-        const repairShop = {
-            url: "https://img2.pngio.com/repair-svg-png-icon-free-download-96545-onlinewebfontscom-mechanic-icon-png-981_960.png",
-            scaledSize: new google.maps.Size(30, 30),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 32),
-        }
+        // const repairShop = {
+        //     url: "../../images/rich_image.png",
+        //     scaledSize: new google.maps.Size(30, 30),
+        //     origin: new google.maps.Point(0, 0),
+        //     anchor: new google.maps.Point(0, 32),
+        // }
         const marker2 = new google.maps.Marker({
             position: myLatLng2,
             markermap,
             icon: roboImage,
             title: "Hello World!",
         });
+        const enemy= new google.maps.Marker({
+          position: { lat: 11, lng: 70 },
+          markermap,
+          icon: enemy3,
+          title: "Hello World!",
+        });
         const marker3 = new google.maps.Marker({
             position: {lat: -70, lng: -20},
             markermap,
-            icon: repairShop,
+            icon: rich_image,
             title: "Hello World!",
         });
         
@@ -171,38 +191,55 @@ export class MoonMap extends React.Component {
            
             title: "Rocket!",
         });
-        let x;
-        if (this.props.robot.qp > 0) {
-            x = "<div id='content' color='black'>" + "<a href='/#/game/mars'><h3>TO MARS!</h3></a>" + "<center><p> new enemies await </p></center>" + "</div>"
-        } else {
-            x = "<div id='content' color='white'>" + "<h3>YOU CAN'T LAUNCH YET!</h3>" + "</div>"
-        };
-        // this.MarkerManagerUtil.updateMarker()
         const infowindow = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>HOLTERGEST</h3></a>" + "<p> prepare for battle</p>"+"</div>",
+          content:
+            "<div id='content' color='black'>" +
+            "<a href='/#/game/battle'><h3>Enter Battle</h3></a>" +
+            "</div>",
         });
         const infowindow2 = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>MEGA METAL</h3></a>" + "<p> prepare for battle</p>"+"</div>",
+          content:
+            "<div id='content' color='black'>" +
+            "<a href='/#/game/battle'><h3>Enter Battle</h3></a>" +
+            "</div>",
         });
         const infowindow3 = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game/store'><h3>Rich's Riches</h3></a>" + "<p> repair your robot</p>"+"</div>",
+          content:
+            "<div id='content' color='black'>" +
+            "<a href='/#/game/store'><h3>ROBOT REPAIR</h3></a>" +
+            "<p> prepare for battle</p>" +
+            "</div>",
+        });
+        const enemyWindow2 = new google.maps.InfoWindow({
+          content:
+            "<div id='content' color='black'>" +
+            "<a href='/#/game/store'><h3>Enter Battle</h3></a>" +
+            "</div>",
         });
         const rocketWindow = new google.maps.InfoWindow({
-            content: x,
+          content:
+            "<div id='content' color='black'>" +
+            "<a href='/#/game'><h3>TO THE MOON!</h3></a>" +
+            "</div>",
         });
         marker.addListener("click", () => {
-            infowindow.open(markermap, marker);
-        })
+          infowindow.open(markermap, marker);
+        });
+        enemy.addListener("click", () => {
+          enemyWindow2.open(markermap, enemy);
+        });
         marker2.addListener("click", () => {
-            infowindow2.open(markermap, marker2);
-        })
+          infowindow2.open(markermap, marker2);
+        });
         marker3.addListener("click", () => {
-            infowindow3.open(markermap, marker3);
-        })
+          infowindow3.open(markermap, marker3);
+        });
         rocket.addListener("click", () => {
-            rocketWindow.open(markermap, rocket);
-        })
+          rocketWindow.open(markermap, rocket);
+        });
+       
         marker.setMap(markermap);
+        enemy.setMap(markermap);
         marker2.setMap(markermap);
         marker3.setMap(markermap);
         rocket.setMap(markermap);
