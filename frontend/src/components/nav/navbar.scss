@@ -111,6 +111,7 @@ $white: rgb(255, 255, 255);
 }
 
 .logout-button {
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     font-family: 'Press Start 2P';
     color: $white;
     background: transparent;

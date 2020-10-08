@@ -163,7 +163,7 @@ export class MoonMap extends React.Component {
             content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>MEGA METAL</h3></a>" + "<p> prepare for battle</p>"+"</div>",
         });
         const infowindow3 = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game/store'><h3>ROBOT REPAIR</h3></a>" + "<p> prepare for battle</p>"+"</div>",
+            content: "<div id='content' color='black'>" + "<a href='/#/game/store'><h3>Rich's Riches</h3></a>" + "<p> repair your robot</p>"+"</div>",
         });
         marker.addListener("click", () => {
             infowindow.open(markermap, marker);
