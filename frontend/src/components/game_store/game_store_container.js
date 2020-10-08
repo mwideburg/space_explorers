@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateRobot } from '../../actions/robot_actions';
+import { updateRobot, receiveCurrentRobot } from '../../actions/robot_actions';
 
 
 import GameStore from './game_store';
@@ -16,7 +16,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateRobot: (robot) => dispatch(updateRobot(robot))
+        updateRobot: (robot) => dispatch(updateRobot(robot)),
+        updateStats: (robot) => dispatch(receiveCurrentRobot(robot)),
     }
 }
 

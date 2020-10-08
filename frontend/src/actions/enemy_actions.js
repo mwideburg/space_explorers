@@ -49,7 +49,7 @@ export const getEnemies = (robot) => dispatch => {
         // }
         // refactor for loccation?
         
-        
+      localStorage.setItem('enemies', JSON.stringify(res.data))
         // debugger   
         return dispatch(receiveCurrentEnemies(res.data))
     });

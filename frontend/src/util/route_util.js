@@ -28,13 +28,32 @@ const Protected = ({ component: Component, loggedIn, ...rest }) => (
         }
     />
 );
+const Level = ({ component: Component, levelUp, ...rest }) => {
+    
+    return(
+    <Route
+        {...rest}
+        render={props =>
+            (levelUp === 0) ? (
+                <Component {...props} />
+            ) : (
+                    // Redirect to the login page if the user is already authenticated
+                    <Redirect to="/game/mars" />
+                )
+        }
+    />
+)};
 
 // Use the isAuthenitcated slice of state to determine whether a user is logged in
 
-const mapStateToProps = state => (
-    { loggedIn: state.session.isAuthenticated }
-);
+const mapStateToProps = state => {
+
+    return(
+    { loggedIn: state.session.isAuthenticated,
+    levelUp: state.entities.robot.qp }
+)};
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
+export const LevelRoute = withRouter(connect(mapStateToProps)(Level));

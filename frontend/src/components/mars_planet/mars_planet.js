@@ -2,17 +2,16 @@
 import React from 'react';
 import { withRouter, Route, Switch,  } from 'react-router-dom';
 import { LevelRoute  } from '../../util/route_util';
-import GameContainer from './game_container'
+import GameContainer from './mars_planet_conatiner'
 import MoonMap from '../maps/moon_map_conatiner'
 import MarsMap from '../maps/mars_map_conatiner'
-import RobotStats from './robot_stats'
+import RobotStats from './robot_mars_stats'
 import GameStore from '../game_store/game_store_container';
-import soundwave from "../../images/soundwave.gif";
 
 
-import moon_img from '../../images/mars.png'
-import "./game.scss"
-class Game extends React.Component {
+import moon_img from '../../images/moon2.png'
+import "./mars.scss"
+class MarsGame extends React.Component {
     constructor(props) {
         super(props);
         // debugger
@@ -34,6 +33,7 @@ class Game extends React.Component {
             
             this.props.getRobot(this.props.user)
             let robot = JSON.parse(localStorage.getItem('robot'))
+            
             this.setState({ robot: robot })
             this.props.getEnemies(robot)
             
@@ -48,16 +48,27 @@ class Game extends React.Component {
         // this.setState({robot: this.props.robot})
         
     }
-
-    componentDidUpdate(){
+    componentWillUnmount() {
         
+
     }
     componentWillUnmount() {
         const robot = this.state.robot
         this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot }))
 
     }
-    
+
+    componentDidUpdate(){
+        
+    }
+    // componentUnmount(){
+    //     debugger
+    //     // this.setState({robot: this.props.robot})
+    //     localStorage.removeItem('robot')
+    //     this.setState({robot: {}})
+    //     // robot = this.props.robot
+        
+    // }
     reRender(){
         const robot = this.props.robot
         this.setState({robot: robot})
@@ -85,35 +96,32 @@ class Game extends React.Component {
 
     render() {
             if(this.state.hidden) {
-                <div className="render-splash">
-                  <img className="render-gif" src={soundwave} />
-                  RENDERING..
-                </div>;
+                return "RENDERING.."
             }
             let robot = this.props.robot
-            robot.location = "moon"
+            robot.location = "mars"
         
         return (
             <div className="game-container">
-                
                 <div className="sidebar-planets">
                     <div className="planet-description">
-                    Current Location: {robot.location}
-                    
+                    Current Planet: {robot.location}
                     <div className="planet-container">
+                        
                         <img src={moon_img} alt="moon"/>
+                       
                     </div>
-                    <p>What a moon it is...</p>
-                    </div>
+                        <p> Description: Until a few years ago the moon was mostly populated by hippie communes that represented free spirited people from many different old earth nations. They worked and lived in harmony until a wealthy software CEO bought the land out from under them. Having a fuzzy concept of ownership, the natives now work as miners and laborers for Richcorp™. 
+Across the landscapes you can see billboards with the company motto: “Work strong today to make Rich even richer tomorrow!”</p>
+                </div>
                 </div>
 
                 <div className="map-container">
                     <h1>{this.props.user.handle}</h1>
-                    <Switch>
-                        <Route exact path="/game" component={() => <MoonMap robot={robot} />} ></Route>
-                        <Route exact path="/game/mars" component={() => <MarsMap robot={robot} />} ></Route>
+                   
+                       <MarsMap robot={robot} />
 
-                    </Switch>
+   
                     
                     
               
@@ -153,4 +161,4 @@ class Game extends React.Component {
     }
 }
 
-export default withRouter(Game);
+export default withRouter(MarsGame);

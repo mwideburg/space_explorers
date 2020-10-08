@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { updateRobot, getRobot} from '../../actions/robot_actions';
 import { getEnemies} from '../../actions/enemy_actions';
 
-import MarsGame from './game';
+import Game from './mars_planet';
 
 
 const mapStateToProps = (state) => {
@@ -26,4 +26,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(MarsGame);
+)(Game);

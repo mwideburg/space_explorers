@@ -31,6 +31,12 @@ class GameStore extends React.Component{
 
     }
 
+    componentWillUnmount(){
+        const robot = this.state.robot
+        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push('/game'))
+        
+    }
+
     checkMoney(cost){
         if(this.state.robot.rosscoin > cost){
             return true
@@ -69,21 +75,24 @@ class GameStore extends React.Component{
         this.setState({ robot: robot })
     }
 
-    upgradeWeapon1(weapon){
+    upgradeWeapon1(){
+        debugger
         if (!this.checkMoney(400)) {
             return null
         }
+        const weapon = this.checkWeapon()
         const robot = this.state.robot
         robot.weapon1 = weapon
         robot.rosscoin -= 400
         this.setState({ robot: robot })
     }
-    upgradeWeapon2(weapon){
+    upgradeWeapon2(){
         if (!this.checkMoney(600)) {
             return null
         }
+        const weapon2 = this.checkWeapon2()
         const robot = this.state.robot
-        robot.weapon2 = weapon
+        robot.weapon2 = weapon2
         robot.rosscoin -= 600
         this.setState({ robot: robot })
     }
@@ -110,6 +119,34 @@ class GameStore extends React.Component{
         robot.missles += 3
         robot.rosscoin -= 100
        this.setState({ robot: robot })
+    }
+    checkWeapon2(){
+        const robot = this.state.robot
+        let weapon2
+        if (robot.weapon2 === "Mongoose Missile") {
+            weapon2 = "Honey Badger Missile"
+
+        } else if ((robot.weapon2 === "Honey Badger Missile")) {
+            weapon2 = "Hellhound Missile"
+        } else {
+            weapon2 = "No Upgrade Available"
+        }
+        return weapon2
+    }
+    checkWeapon(){
+        const robot = this.state.robot
+        let weapon
+        if (robot.weapon1 === "Laser MKI") {
+            weapon = "Laser MKII"
+
+        } else if ((robot.weapon1 === "Laser MKII")) {
+            weapon = "Laser MKIII"
+        } else {
+            weapon = "No Upgrade Available"
+        }
+
+        
+        return weapon
     }
 
     render(){

@@ -14,6 +14,12 @@ export class MarsMap extends React.Component {
             west: -200,
             east: 200,
         };
+        const robot = this.props.robot
+        robot.location = "mars"
+        if (robot.location === 'moon') {
+            this.props.setRobotLocation(robot)
+        } 
+        
         this.map = new google.maps.Map(this.mapNode, {
             center: { lat: 0, lng: 0 },
             zoom: 3,
@@ -72,7 +78,7 @@ export class MarsMap extends React.Component {
             minZoom: 0,
 
             radius: 1738000,
-            name: "Europa",
+            name: "Mars",
         });
 
         this.map.mapTypes.set("moon", moonMapType);
@@ -134,7 +140,7 @@ export class MarsMap extends React.Component {
         });
         
         const rocket = new google.maps.Marker({
-            position: {lat: 80, lng: -10},
+            position: {lat: 20, lng: -10},
             markermap,
             icon: rocket_img,
            
@@ -152,7 +158,7 @@ export class MarsMap extends React.Component {
             content: "<div id='content' color='black'>" + "<a href='/#/game/store'><h3>ROBOT REPAIR</h3></a>" + "<p> prepare for battle</p>"+"</div>",
         });
         const rocketWindow = new google.maps.InfoWindow({
-            content: "<div id='content' color='black'>" + "<a href='/#/game/mars'><h3>TO SPACE!</h3></a>" + "<p> prepare for battle</p>" + "</div>",
+            content: "<div id='content' color='black'>" + "<a href='/#/game'><h3>TO THE MOON!</h3></a>" + "</div>",
         });
         marker.addListener("click", () => {
             infowindow.open(markermap, marker);
@@ -164,12 +170,13 @@ export class MarsMap extends React.Component {
             infowindow3.open(markermap, marker3);
         })
         rocket.addListener("click", () => {
-            infowindow3.open(markermap, rocket);
+            rocketWindow.open(markermap, rocket);
         })
         marker.setMap(markermap);
         marker2.setMap(markermap);
         marker3.setMap(markermap);
         rocket.setMap(markermap);
+       
     }
     componentDidUpdate() {
        
@@ -184,6 +191,7 @@ export class MarsMap extends React.Component {
             color: 'black'
         
         };
+        
         return (
             <div id='map-container2'>
                 <div ref={map => this.mapNode = map} id='map-container' style={mapStyles2}>
