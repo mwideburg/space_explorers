@@ -103,8 +103,8 @@ class UserRobot extends React.Component {
         
 
         return (
-            <div className="robot-row">
-                {/* <div className="robot-form">
+          <div className="robot-row">
+            {/* <div className="robot-form">
                     <form>
                         <input type="text"
                             value={this.state.email}
@@ -119,99 +119,79 @@ class UserRobot extends React.Component {
 
 
                 </div> */}
-                <div className="robot-container">
-                    <button onClick={() => this.handleClick()}> GET ROBOT</button>
-                    <div id="kestrel" className="robot" onClick={(robot1) => this.handleSubmit(robot1)}>
-                        <div className="robot-img">
-                            <img src="https://i.imgur.com/2QuLJvO.jpg" className="robot-img"/>
-                            </div>
-                            <div className="robot-stats">
-                                    <ul>
-                                        <li>
-                                            "The Kestrel"
-                                        </li>
-                                        <li>
-                                                hp: 30
-                                        </li>
-                                        <li>
-                                                weapon 1: "Laser MKI"
-                                        </li>
-                                        <li>
-                                                weapon 2: "Mongoose Missile"
-                                        </li>
-                                        <li>
-                                            missile: 15
-                                        </li>
-                                        <li>
-                                                evasion: 5
-                                        </li>
-                                    </ul>
-                            </div>
-                            
-
-
-
-                        
-                        </div> 
-                        <div id="snow-owl" className="robot" onClick={(robot2) => this.handleSubmit(robot2)}>
-                            <div  className="robot-img">
-                            <img src="https://i.pinimg.com/originals/3d/f5/d7/3df5d723be9c1353553ff007b56d3b86.jpg" className="robot-img"/>
-                            </div>
-                            <div className="robot-stats">
-                                    <ul>
-                                        <li>
-                                            "The Snowy Owl"
-                                        </li>
-                                        <li>
-                                                hp: 30
-                                        </li>
-                                        <li>
-                                                weapon 1: "Laser MKI"
-                                        </li>
-                                        <li>
-                                            missile: 15
-                                        </li>
-                                        <li>
-                                                evasion: 20
-                                        </li>
-                                    </ul>
-                            </div>
-
-                        
-                        </div> 
-                        <div id="roc" className="robot">
-                        <div id="roc" className="robot-img" onClick={(robot3) => this.handleSubmit(robot3)}>
-                            <img id="roc" src="https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png" className="robot-img"/>
-                            </div>
-                            <div className="robot-stats">
-                                    <ul>
-                                        <li>
-                                            "The Roc"
-                                        </li>
-                                        <li>
-                                                hp: 40
-                                        </li>
-                                        <li>
-                                                weapon 1: "Laser MKI"
-                                        </li>
-                                     
-                                        <li>
-                                            missile: 5
-                                        </li>
-                                        <li>
-                                                evasion: 5
-                                        </li>
-                                    </ul>
-                            </div>
-
-                        
-                        </div> 
-
-
-
+            <div className="robot-container">
+              <div className="robot-selector">
+                <div
+                  id="kestrel"
+                  className="robot"
+                  onClick={(robot1) => this.handleSubmit(robot1)}
+                >
+                  <div className="robot-img">
+                    <img
+                      src="https://i.imgur.com/2QuLJvO.jpg"
+                      className="robot-img"
+                    />
+                  </div>
+                  <div className="robot-stats">
+                    <ul>
+                      <li>"The Kestrel"</li>
+                      <li>hp: 30</li>
+                      <li>weapon 1: "Laser MKI"</li>
+                      <li>weapon 2: "Mongoose Missile"</li>
+                      <li>missile: 15</li>
+                      <li>evasion: 5</li>
+                    </ul>
+                  </div>
                 </div>
-               
+                <div
+                  id="snow-owl"
+                  className="robot"
+                  onClick={(robot2) => this.handleSubmit(robot2)}
+                >
+                  <div className="robot-img">
+                    <img
+                      src="https://i.pinimg.com/originals/3d/f5/d7/3df5d723be9c1353553ff007b56d3b86.jpg"
+                      className="robot-img"
+                    />
+                  </div>
+                  <div className="robot-stats">
+                    <ul>
+                      <li>"The Snowy Owl"</li>
+                      <li>hp: 30</li>
+                      <li>weapon 1: "Laser MKI"</li>
+                      <li>missile: 15</li>
+                      <li>evasion: 20</li>
+                    </ul>
+                  </div>
+                </div>
+                <div id="roc" className="robot">
+                  <div
+                    id="roc"
+                    className="robot-img"
+                    onClick={(robot3) => this.handleSubmit(robot3)}
+                  >
+                    <img
+                      id="roc"
+                      src="https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png"
+                      className="robot-img"
+                    />
+                  </div>
+                  <div className="robot-stats">
+                    <ul>
+                      <li>"The Roc"</li>
+                      <li>hp: 40</li>
+                      <li>weapon 1: "Laser MKI"</li>
+
+                      <li>missile: 5</li>
+                      <li>evasion: 5</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <button className="submit-button" onClick={() => this.handleClick()}> LOAD LAST ROBOT</button>
             </div>
+          </div>
         );
     }
 }

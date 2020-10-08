@@ -74,7 +74,7 @@ class RobotUser extends React.Component {
                 
                 
                 <div className="sidebar-inventory">
-                    <Link to="/game">PLAY GAME</Link>
+                    <Link to="/game" className="play-button">PLAY GAME</Link>
                     <h2>{this.state.robot.name}</h2>
                     <img src={robot.photoUrl} alt="robot" className="robot-img" />
                     <ul>
