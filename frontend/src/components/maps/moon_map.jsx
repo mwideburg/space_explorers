@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, mapTypes, InfoWindow, Marker } from 'google-maps-react';
+import rocket_img from '../../images/rocket.png'
 // import MarkerManagerUtil from '../../util/marker_manager'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -155,6 +156,14 @@ export class MoonMap extends React.Component {
             icon: repairShop,
             title: "Hello World!",
         });
+        
+        const rocket = new google.maps.Marker({
+            position: {lat: 30, lng: 50},
+            markermap,
+            icon: rocket_img,
+           
+            title: "Rocket!",
+        });
         // this.MarkerManagerUtil.updateMarker()
         const infowindow = new google.maps.InfoWindow({
             content: "<div id='content' color='black'>" + "<a href='/#/game/battle'><h3>HOLTERGEST</h3></a>" + "<p> prepare for battle</p>"+"</div>",
@@ -165,6 +174,9 @@ export class MoonMap extends React.Component {
         const infowindow3 = new google.maps.InfoWindow({
             content: "<div id='content' color='black'>" + "<a href='/#/game/store'><h3>ROBOT REPAIR</h3></a>" + "<p> prepare for battle</p>"+"</div>",
         });
+        const rocketWindow = new google.maps.InfoWindow({
+            content: "<div id='content' color='black'>" + "<a href='/#/game/store'><h3>TO SPACE!</h3></a>" + "<p> prepare for battle</p>"+"</div>",
+        });
         marker.addListener("click", () => {
             infowindow.open(markermap, marker);
         })
@@ -174,9 +186,13 @@ export class MoonMap extends React.Component {
         marker3.addListener("click", () => {
             infowindow3.open(markermap, marker3);
         })
+        rocket.addListener("click", () => {
+            infowindow3.open(markermap, rocket);
+        })
         marker.setMap(markermap);
         marker2.setMap(markermap);
         marker3.setMap(markermap);
+        rocket.setMap(markermap);
     }
     componentDidUpdate() {
        

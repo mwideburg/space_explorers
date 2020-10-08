@@ -276,6 +276,14 @@ class Battle extends React.Component {
 
 
     render() {
+        if (this.state.hidden) {
+            return (
+                <div className="render-splash">
+                    <img className="render-gif" src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200" />
+                    RENDERING..
+                </div>
+            )
+        }
         let enemy_image;
         if (this.state.enemy.name === "Rust Soldier") {
           enemy_image = enemy1;
@@ -293,17 +301,8 @@ class Battle extends React.Component {
           main_image = the_roc;
         }
         
-        if (this.state.hidden) {
-            return(
-                <div className="render-splash">
-                    <img className="render-gif" src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200"/>
-                    RENDERING..
-                </div>
-            )
-        }
-        if(this.state.enemy){
-
-        }
+        
+        
         let robot = this.state.robot
         console.log(this.state.robot)
         // debugger
