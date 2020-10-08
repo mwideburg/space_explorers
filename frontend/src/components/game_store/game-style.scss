@@ -1,0 +1,36 @@
+.game-store-wrapper{
+    width: 700px;
+    height: 500px;
+    background-color: red;
+    
+}
+
+.rich-img{
+    width: 100px;
+    height: 100px;
+    padding:10px;
+}
+
+.rich-greeting{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    margin: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+.store-objects{
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+    }
+    
+}
+
+.item-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

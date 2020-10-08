@@ -113,7 +113,7 @@ class UserRobot extends React.Component {
 
 
                 </div> */}
-                <div className="robot-conatiner">
+                <div className="robot-container">
                     <button onClick={() => this.handleClick()}> GET ROBOT</button>
                     <div id="kestrel" className="robot" onClick={(robot1) => this.handleSubmit(robot1)}>
                         <div className="robot-img">

@@ -1,11 +1,15 @@
 
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import "./battle.scss"
-import enemy1 from "../../images/enemy1.png"
-import enemy2 from "../../images/enemy2.png"
-import enemy3 from "../../images/enemy3.png"
+import enemy1 from "../../images/enemy1.png";
+import enemy2 from "../../images/enemy2.png";
+import enemy3 from "../../images/enemy3.png";
+import snow_owl from "../../images/snow_owl.png";
+import the_kestrel from "../../images/the_kestrel.png";
+import the_roc from "../../images/the_roc.png";
+
 
 class Battle extends React.Component {
     constructor(props) {
@@ -23,19 +27,20 @@ class Battle extends React.Component {
 
         };
 
-        this.salvage = this.salvage.bind(this)
-        this.enemyTurn = this.enemyTurn.bind(this)
-        this.attackLaser = this.attackLaser.bind(this)
-        this.attackMissle = this.attackMissle.bind(this)
+        this.salvage = this.salvage.bind(this);
+        this.enemyTurn = this.enemyTurn.bind(this);
+        this.attackLaser = this.attackLaser.bind(this);
+        this.attackMissle = this.attackMissle.bind(this);
+        this.showMissle = this.showMissle.bind(this);
 
     }
     componentDidMount() {
         // debugger
         setTimeout(() => {
             this.setState({ hidden: false });
-            let robot = JSON.parse(localStorage.getItem('robot'))
+            let robot = JSON.parse(localStorage.getItem('robot'));
             // robot = this.props.robot
-            this.setState({ robot: robot })
+            this.setState({ robot: robot });
         }, 3000);
         // this.setState({robot: this.props.robot})
 
@@ -49,143 +54,159 @@ class Battle extends React.Component {
 
     // }
     reRender() {
-        const robot = this.props.robot
-        this.setState({ robot: robot })
+        const robot = this.props.robot;
+        this.setState({ robot: robot });
 
     }
     updateStats() {
-        const robot = this.state.robot
-        robot.hp -= 5
+        const robot = this.state.robot;
+        robot.hp -= 5;
 
-        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot }))
+        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot }));
     }
     attackMissle() {
-        const robot = this.state.robot
-        const enemy = this.state.enemy
-        let message = "You Missed!"
-        const evasion = enemy.evasion
-        robot.missles -= 1
+        const robot = this.state.robot;
+        const enemy = this.state.enemy;
+        let message = "You Missed!";
+        const evasion = enemy.evasion;
+        
+        if (robot.missles <= 0) {
+            message = "You are out of missles";
+        } else {
+        robot.missles -= 1;
         if (robot.weapon2 === 'Mongoose Missile') {
             if ((Math.random() * 100 + evasion) < 50) {
-                enemy.hp -= 2
-                message = "You hit!"
+                enemy.hp -= 2;
+                message = "You hit!";
             }
             
         } else if (robot.weapon2 === 'Honey Badger Missile') {
             //70% chance
             if ((Math.random() * 100 + evasion) < 70){
-                enemy.hp -= 3
-                message = "You hit!"
+                enemy.hp -= 3;
+                message = "You hit!";
             }
             
         } else if (robot.weapon2 === 'Hellhound Missile') {
             if ((Math.random() * 100 + evasion) < 90) {
-                enemy.hp -= 3
-                message = "You hit!"
+                enemy.hp -= 3;
+                message = "You hit!";
             }
            
+          }
         }
-        this.setState({ enemy: enemy })
-        this.props.updateStats(this.state.robot, this.props.user)
-        this.setState({ robot: robot, message: message })
-        const that = this
-        setTimeout(function () {
+        this.setState({ enemy: enemy });
+        this.props.updateStats(this.state.robot, this.props.user);
+        this.setState({ robot: robot, message: message });
+        
+        if (enemy.hp > 0) {
+            this.setState({ robot: robot, message: message });
+            const that = this;
+
+            setTimeout(function () {
 
 
-            that.enemyTurn()
-        }, 1000)
+                that.enemyTurn()
+            }, 1000)
+        }
         
     }
     attackLaser() {
         let message = "You Missed!"
-        const robot = this.state.robot
-        const enemy = this.state.enemy
-        const evasion = enemy.evasion
+        const robot = this.state.robot;
+        const enemy = this.state.enemy;
+        const evasion = enemy.evasion;
         if(robot.weapon1 === 'Laser MKI'){
             if ((Math.random() * 100 + evasion) < 95) {
-                enemy.hp -= 1
-                message = "You hit!"
+                enemy.hp -= 1;
+                message = "You hit!";
             }
             
         } else if (robot.weapon1 === 'Laser MKII'){
             if ((Math.random() * 100 + evasion) < 95) {
-                enemy.hp -= 2
-                message = "You hit!"
+                enemy.hp -= 2;
+                message = "You hit!";
             }
         } else if (robot.weapon1 === 'Laser MKIII'){
             if ((Math.random() * 100 + evasion) < 95) {
-                enemy.hp -= 3
-                message = "You hit!"
+                enemy.hp -= 3;
+                message = "You hit!";
             }
         }
         // debugger
-        this.setState({enemy: enemy})
-        this.props.updateStats(this.state.robot, this.props.user)
-        this.setState({ robot: robot, message: message })
-        const that = this
-        setTimeout(function () {
+        this.setState({enemy: enemy});
+        this.props.updateStats(this.state.robot, this.props.user);
+        if(enemy.hp > 0){
+            this.setState({ robot: robot, message: message });
+            const that = this;
+
+            setTimeout(function () {
 
 
-            that.enemyTurn()
-        }, 1000)
+                that.enemyTurn()
+            }, 1000)
+        }
+       
         
     }
     enemyTurn(){
         
-        let message = "Enemy is preparing for attack"
-        const that = this
-        that.setState({ message: message })
+        let message = "Enemy is preparing for attack";
+        const that = this;
+        that.setState({ message: message });
         setTimeout(function () {
             
             
-            that.enemyAttack()
-        }, 2000)
+            that.enemyAttack();
+        }, 2000);
 
     }
     enemyAttack(){
-        let message = "Enemy Missed!"
-        const robot = this.state.robot
-        const enemy = this.state.enemy
-        const evasion = robot.evasion
-       
+        let message = "Enemy Missed!";
+        const robot = this.state.robot;
+        const enemy = this.state.enemy;
+        const evasion = robot.evasion;
+        const random =( Math.random() * 100) + evasion
+        debugger
         if (enemy.weapon1 === "Rusty Base Blaster") {
-            if ((Math.random() * 100 + evasion) < 95) {
-                robot.hp -= 1
-                message = "Ouch you got hit!"
+            if (random < 50) {
+                robot.hp -= 5;
+                message = "Ouch you got hit!";
             }
 
-        } else if (enemy.weapon1 === ' Base Blaster') {
-            if ((Math.random() * 100 + evasion) < 95) {
-                robot.hp -= 2
-                message = "Ouch you got hit!"
+        } else if (enemy.weapon1 === 'Base Blaster') {
+            if (random < 50) {
+                robot.hp -= 8;
+                message = "Ouch you got hit!";
             }
         } else if (enemy.weapon1 === "Nice Base Blaster") {
-            if ((Math.random() * 100 + evasion) < 95) {
-                robot.hp -= 3
-                message = "Ouch you got hit"
+            if (random < 50) {
+                robot.hp -= 10;
+                message = "Ouch you got hit";
             }
         }
         // debugger
-        this.setState({ enemy: enemy })
-        this.props.updateStats(this.state.robot, this.props.user)
-        this.setState({ robot: robot, message: message })
+        this.setState({ enemy: enemy });
+        this.props.updateStats(this.state.robot, this.props.user);
+        
+        this.setState({ robot: robot, message: message });
     }
     flee(){
-        const robot = this.state.robot
+        const robot = this.state.robot;
         
 
-        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push('/game'))
+        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push('/game'));
     }
 
     checkHp(){
         
     }
     salvage(){
-        debugger
-        const robot = this.state.robot
-        const enemy = this.state.enemy
-        robot.rosscoin += enemy.rosscoin
-        this.setState({ robot: robot })
+        // debugger
+        const robot = this.state.robot;
+        const enemy = this.state.enemy;
+        robot.rosscoin += enemy.rosscoin;
+        this.setState({ robot: robot });
         
         setTimeout(() => {
             
@@ -198,12 +219,14 @@ class Battle extends React.Component {
     }
     endMessage(){
         if (this.state.hidden){
-            return null
+            return null;
         }
-        const enemy = this.state.enemy
-        const salvage = this.salvage
+        const enemy = this.state.enemy;
+        const robot = this.state.robot;
+        const salvage = this.salvage;
+        let message
         if (enemy.hp <= 0) {
-            const message = `You defeated the evil ross robot, collect your ross coin: $RC ${enemy.rosscoin}`;
+            message =`You defeated the evil ross robot, collect your ross coin: $RC ${enemy.rosscoin}`
             
                 return(
                 <div>
@@ -212,6 +235,32 @@ class Battle extends React.Component {
                 </div>)
             
 
+        } else if(robot.hp <= 0){
+            debugger
+            message = `You have failed humanity... recover and try again`
+            return(
+                <div>
+                    <h1> {message} </h1>
+                    <button onClick={() => this.flee()}> Return To Map </button> 
+                </div>
+
+            )
+        }else {
+            return null
+        }
+    }
+
+    showMissle() {
+        const robot = this.state.robot;
+        debugger
+        if (!robot.weapon2 == "") {
+            return (
+              <button onClick={() => this.attackMissle()}>
+                Attack {robot.weapon2}
+              </button>
+            );
+        } else {
+            return null
         }
     }
 
@@ -220,13 +269,28 @@ class Battle extends React.Component {
 
 
     render() {
-
+        let enemy_image;
+        if (this.state.enemy.name === "Rust Soldier") {
+          enemy_image = enemy1;
+        } else if (this.state.enemy.name === "Rust Lieutenant") {
+          enemy_image = enemy2;
+        } else if (this.state.enemy.name === "Rust Leader") {
+          enemy_image = enemy3;
+        }
+        let main_image;
+        if (this.state.robot.name === "The Kestrel") {
+          main_image = the_kestrel;
+        } else if (this.state.robot.name === "The Snowy Owl") {
+          main_image = snow_owl;
+        } else if (this.state.robot.name === "The Roc") {
+          main_image = the_roc;
+        }
         
         if (this.state.hidden) {
             return(
                 <div className="render-splash">
-                    <img src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200"/>
-                    "RENDERING.."
+                    <img className="render-gif" src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200"/>
+                    RENDERING..
                 </div>
             )
         }
@@ -236,6 +300,7 @@ class Battle extends React.Component {
         let robot = this.state.robot
         console.log(this.state.robot)
         // debugger
+        
         return (
             <div className="battle-container">
                 <div className="user-robot">
@@ -255,21 +320,20 @@ class Battle extends React.Component {
                     </ul>
                     
                     <button onClick={() => this.attackLaser()}>Attack {robot.weapon1}</button>
-                    <button onClick={() => this.attackMissle()}>Attack {robot.weapon2}</button>
+                    {this.showMissle()}
                     <button onClick={() => this.flee()}>Flee</button>
                 </div>
                < div className="battle-middle">
-               
                
                     <div className="message">
                         <h1>{this.state.message}</h1>
                         {this.endMessage()}
                     </div>
                 <div className="battle-view">
-                    <img className="battle-img" src="https://pngimg.com/uploads/transformers/transformers_PNG30.png"/>
+                    <img className="battle-img" src={main_image}/>
                     
 
-                        <img className="battle-img" src={enemy1}/>
+                    <img className="battle-img" src={enemy_image}/>
                 </div>
                
                
@@ -290,9 +354,9 @@ class Battle extends React.Component {
                         </li>
 
 
-                        <li>
+                        {/* <li>
                             Missiles: {this.state.enemy.missiles}
-                        </li>
+                        </li> */}
 
                     </ul>
                     

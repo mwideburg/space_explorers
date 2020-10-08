@@ -51,7 +51,7 @@ export const makeRobot = (user, robot) => dispatch => {
         
         return dispatch(receiveCurrentRobot(robot.data))
     }, err => {
-        debugger
+        // debugger
         return dispatch(receiveErrors(err.response.data))
     }
 )}
@@ -65,10 +65,10 @@ export const getRobot = (user) => dispatch => {
         let last = robot.data.length -1;
         let robo = robot.data[last];
         localStorage.setItem('robot', JSON.stringify(robo));
-        debugger
+        // debugger
         return dispatch(receiveCurrentRobot(robo))
     }, err => {
-        debugger
+        // debugger
         return dispatch(receiveErrors(err.response.data))
     }
 )}
