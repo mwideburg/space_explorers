@@ -214,7 +214,7 @@ class Battle extends React.Component {
         const enemy = this.state.enemy;
         const salvage = this.salvage;
         if (enemy.hp <= 0) {
-            message =`You defeated the evil ross robot, collect your ross coin: $RC ${enemy.rosscoin}`
+            const message =`You defeated the evil ross robot, collect your ross coin: $RC ${enemy.rosscoin}`
                 
                 
                 return(
