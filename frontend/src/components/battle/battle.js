@@ -9,6 +9,7 @@ import enemy3 from "../../images/enemy3.png";
 import snow_owl from "../../images/snow_owl.png";
 import the_kestrel from "../../images/the_kestrel.png";
 import the_roc from "../../images/the_roc.png";
+import soundwave from "../../images/soundwave.gif";
 import { getEnemy } from '../../util/enemy_util';
 
 
@@ -285,7 +286,7 @@ class Battle extends React.Component {
         if (this.state.hidden) {
             return (
                 <div className="render-splash">
-                    <img className="render-gif" src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200" />
+                    <img className="render-gif" src={soundwave} />
                     RENDERING..
                 </div>
             )

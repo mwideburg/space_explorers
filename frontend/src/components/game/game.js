@@ -6,6 +6,7 @@ import MoonMap from '../maps/moon_map'
 import MarsMap from '../maps/mars_map'
 import RobotStats from './robot_stats'
 import GameStore from '../game_store/game_store_container';
+import soundwave from "../../images/soundwave.gif";
 import "./game.scss"
 class Game extends React.Component {
     constructor(props) {
@@ -72,7 +73,10 @@ class Game extends React.Component {
 
     render() {
             if(this.state.hidden) {
-                return "RENDERING.."
+                <div className="render-splash">
+                  <img className="render-gif" src={soundwave} />
+                  RENDERING..
+                </div>;
             }
             let robot = this.state.robot
             console.log(this.state.robot)
