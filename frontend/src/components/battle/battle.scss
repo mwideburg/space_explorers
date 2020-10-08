@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+$leonardo-blue: rgb(60, 144, 247);
+$michelangelo-orange: rgb(242, 183, 65);
+$donatello-purple: rgb(235, 91, 247);
+$raphael-red: rgb(237, 92, 42);
+$turtle-green: rgb(136, 236, 72);
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+
 .battle-container{
     width: 100%;
     height: 100%;
     display: flex;
     animation: fadein 1s;
+    font-family: "Press Start 2P";
 
     
 }
@@ -13,13 +24,25 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     padding: 10px;
+    padding-left: 20px;
+    margin-top: -100px;
 }
-.battle-img{
+.our-battle-img{
    height: 400px;
-    
-    object-fit: fill;
+//    margin-left: 125px;
+   object-fit: fill;
+   margin-right: 150px;
+   margin-top: 450px;
+}
+
+.their-battle-img{
+   height: 400px;
+   margin-left: 200px;
+   object-fit: fill;
+//    margin-right: 100px;  
+   margin-bottom: 500px;
 }
 .battle-middle{
     text-align: center;
@@ -29,13 +52,76 @@
 
 }
 
+.Missile-Attack {
+    background: $turtle-green;
+
+	// box-sizing: border-box;
+	color: white;
+	cursor: pointer;
+    // display: inline-block;
+    // text-style:
+	font-size: 10px;
+	min-width: 200px;
+    padding: 5px;
+    margin:5px;
+    text-transform: uppercase; 
+    outline: none;
+    font-family: "Press Start 2P";
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.Flee {
+    background: $raphael-red;
+
+	// box-sizing: border-box;
+	color: white;
+	cursor: pointer;
+	// display: inline-block;
+	font-size: 10px;
+	min-width: 200px;
+    padding: 5px;
+    margin:5px;
+    text-transform: uppercase;
+    outline: none;
+    font-family: "Press Start 2P";
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.Laser-attack {
+    background: $leonardo-blue;
+	color: white;
+	cursor: pointer;
+	// display: inline-block;
+	font-size: 10px;
+	margin:5px;
+	// min-width: 200px;
+	padding: 5px;
+    text-transform: uppercase;
+    outline: none;
+    font-family: "Press Start 2P";
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.Laser-attack:hover {
+    color: $leonardo-blue;
+    background: white;
+}
+.Flee:hover {
+    color: $raphael-red;
+    background: white;
+}
+.Missile-Attack:hover {
+    color: $turtle-green;
+    background: white;
+}
+
 .message{
     text-align: center;
     animation: fadein 1s;
     display: flex;
     text-align: center;
     width: 100%;
-    height: 100px;
+    height: 60%;
     color: red;
     justify-content: center;
     align-items: center;
@@ -54,7 +140,7 @@
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 .enemy-view{
@@ -63,7 +149,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 10px;
 }
 
