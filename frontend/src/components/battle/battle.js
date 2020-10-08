@@ -9,6 +9,7 @@ import enemy3 from "../../images/enemy3.png";
 import snow_owl from "../../images/snow_owl.png";
 import the_kestrel from "../../images/the_kestrel.png";
 import the_roc from "../../images/the_roc.png";
+import { getEnemy } from '../../util/enemy_util';
 
 
 class Battle extends React.Component {
@@ -36,12 +37,16 @@ class Battle extends React.Component {
     }
     componentDidMount() {
         // debugger
+      
         setTimeout(() => {
             this.setState({ hidden: false });
             let robot = JSON.parse(localStorage.getItem('robot'));
+            
             // robot = this.props.robot
             this.setState({ robot: robot });
         }, 3000);
+        
+        
         // this.setState({robot: this.props.robot})
 
     }
@@ -227,6 +232,7 @@ class Battle extends React.Component {
         if (this.state.hidden){
             return null;
         }
+       
         let message
         const enemy = this.state.enemy;
         const robot = this.state.robot;
@@ -276,6 +282,15 @@ class Battle extends React.Component {
 
 
     render() {
+        if (this.state.hidden) {
+            return (
+                <div className="render-splash">
+                    <img className="render-gif" src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200" />
+                    RENDERING..
+                </div>
+            )
+        }
+        
         let enemy_image;
         if (this.state.enemy.name === "Rust Soldier") {
           enemy_image = enemy1;
@@ -293,17 +308,8 @@ class Battle extends React.Component {
           main_image = the_roc;
         }
         
-        if (this.state.hidden) {
-            return(
-                <div className="render-splash">
-                    <img className="render-gif" src="https://tcdonnel.files.wordpress.com/2018/01/transformers.gif?w=200"/>
-                    RENDERING..
-                </div>
-            )
-        }
-        if(this.state.enemy){
-
-        }
+        
+        
         let robot = this.state.robot
         console.log(this.state.robot)
         // debugger
