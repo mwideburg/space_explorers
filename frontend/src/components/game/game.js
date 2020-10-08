@@ -115,8 +115,7 @@ class Game extends React.Component {
                         Evasion: {robot.evasion}
                     </li>
             </ul>
-                <button onClick={() => this.updateStats()}>RAISE HP BY 10</button>
-                <button onClick={() => this.buyMissle()}>BUY MISSLES</button>
+              
                 </div>
             </div>
         );
