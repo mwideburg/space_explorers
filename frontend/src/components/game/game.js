@@ -85,10 +85,10 @@ class Game extends React.Component {
 
     render() {
             if(this.state.hidden) {
-                <div className="render-splash">
+                return (<div className="render-splash">
                   <img className="render-gif" src={soundwave} />
                   RENDERING..
-                </div>;
+                </div>)
             }
             let robot = this.props.robot
             robot.location = "moon"
