@@ -196,7 +196,8 @@ class GameStore extends React.Component{
                     </ul>
                         
                 </div>
-                {this.state.message}
+                <div className="Rich-Message">{this.state.message}
+                </div>
 
                 
 

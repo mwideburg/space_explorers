@@ -78,8 +78,11 @@ $white: rgb(255, 255, 255);
 
 .Holtercorp {
     display: flex;
+    margin-top: 50px;
     font-size: 30px;
     justify-content: center;
+    text-decoration: none;
+    color: white;
 }
 
 .Holtercorp-subtext {
@@ -87,6 +90,7 @@ $white: rgb(255, 255, 255);
     justify-content: center;
 }
 .story-div {
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     //position: relative;
     outline: none;
     display: flex;

@@ -43,7 +43,12 @@ class Story extends React.Component {
                   </p>
                   World leaders battled for salvage rights but only one
                   organization,
-                  <p className="Holtercorp">Holtercorp™,</p>
+                  <a
+                    href="https://www.linkedin.com/in/travis-holter-5376771b8/"
+                    className="Holtercorp"
+                  >
+                    Holtercorp™,
+                  </a>
                   <p className="Holtercorp-subtext">
                     ended up with the technology.
                   </p>
@@ -88,7 +93,12 @@ class Story extends React.Component {
                   />
                   <p> A brilliant and evil engineer from Holtercorp™,</p>
 
-                  <a className="RosstheBoss" href="https://www.linkedin.com/in/ross-miglin/">Ross Miglin</a>
+                  <a
+                    className="RosstheBoss"
+                    href="https://www.linkedin.com/in/ross-miglin/"
+                  >
+                    Ross Miglin
+                  </a>
                 </div>
               </div>
             </div>
