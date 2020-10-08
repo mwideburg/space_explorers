@@ -4,43 +4,37 @@ import rocket_img from '../../images/rocket.png'
 // import MarkerManagerUtil from '../../util/marker_manager'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-export class MoonMap extends React.Component {
+export class MarsMap extends React.Component {
     componentDidMount() {
         const { google } = this.props;
         const maps = google.maps;
-        const MARS_BOUNDS = {
+        const MOON_BOUNDS = {
             north: 80,
             south: -80.35,
-            west: -500,
-            east: 500,
-        };
-        const mapStyles = {
-            width: '100%',
-            height: '100%',
-            overflow: 'visable'
+            west: -200,
+            east: 200,
         };
         this.map = new google.maps.Map(this.mapNode, {
             center: { lat: 0, lng: 0 },
-            zoom: 6,
-            minZoom: 1,
-            style: {mapStyles},
+            zoom: 3,
+            minZoom: 2,
             restriction: {
-                latLngBounds: MARS_BOUNDS,
+                latLngBounds: MOON_BOUNDS,
                 strictBounds: false,
             },
             streetViewControl: false,
             mapTypeControlOptions: {
-                mapTypeIds: ["mars_elevation"],
+                mapTypeIds: ["moon"],
             },
         });
         // this.MarkerManagerUtil = new MarkerManagerUtil(this.map)
-        const getHorizontallyRepeatingTileUrl = (coord, zoom, urlfunc) => {
-            var y = coord.y;
-            var x = coord.x;
-
+        
+        const getNormalizedCoord = (coord, zoom) => {
+            const y = coord.y;
+            let x = coord.x;
             // tile range in one direction range is dependent on zoom level
             // 0 = 1 tile, 1 = 2 tiles, 2 = 4 tiles, 3 = 8 tiles, etc
-            var tileRange = 1 << zoom;
+            const tileRange = 1 << zoom;
 
             // don't repeat across y-axis (vertically)
             if (y < 0 || y >= tileRange) {
@@ -49,40 +43,9 @@ export class MoonMap extends React.Component {
 
             // repeat across x-axis
             if (x < 0 || x >= tileRange) {
-                x = (x % tileRange + tileRange) % tileRange;
+                x = ((x % tileRange) + tileRange) % tileRange;
             }
-
-            return urlfunc({ x: x, y: y }, zoom)
-        }
-
-        const getMarsTileUrl = (baseUrl, coord, zoom) => {
-            var bound = Math.pow(2, zoom);
-            var x = coord.x;
-            var y = coord.y;
-            var quads = ['t'];
-
-            for (var z = 0; z < zoom; z++) {
-                bound = bound / 2;
-                if (y < bound) {
-                    if (x < bound) {
-                        quads.push('q');
-                    } else {
-                        quads.push('r');
-                        x -= bound;
-                    }
-                } else {
-                    if (x < bound) {
-                        quads.push('t');
-                        y -= bound;
-                    } else {
-                        quads.push('s');
-                        x -= bound;
-                        y -= bound;
-                    }
-                }
-            }
-
-            return baseUrl + quads.join('') + ".jpg";
+            return { x: x, y: y };
         }
 
         const moonMapType = new google.maps.ImageMapType({
@@ -111,9 +74,9 @@ export class MoonMap extends React.Component {
             radius: 1738000,
             name: "Europa",
         });
-        this.map.mapTypes.set("mars_elevation", moonMapType);
-        this.map.setMapTypeId("mars_elevation");
 
+        this.map.mapTypes.set("moon", moonMapType);
+        this.map.setMapTypeId("moon");
         const updateSpots = this.props.updateSpots
         this.map.addListener('bounds_changed', function () {
             // debugger
@@ -137,7 +100,7 @@ export class MoonMap extends React.Component {
         const image =
             "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
         const myLatLng = { lat: 0, lng: 0 }
-        const myLatLng2 = { lat: 10, lng: 20 }
+        const myLatLng2 = { lat: 55, lng: -20 }
         const markermap = this.map
         const marker = new google.maps.Marker({
             position: myLatLng,
@@ -164,14 +127,14 @@ export class MoonMap extends React.Component {
             title: "Hello World!",
         });
         const marker3 = new google.maps.Marker({
-            position: {lat: -70, lng: -20},
+            position: {lat: -20, lng: 35},
             markermap,
             icon: repairShop,
             title: "Hello World!",
         });
         
         const rocket = new google.maps.Marker({
-            position: {lat: 30, lng: 50},
+            position: {lat: 80, lng: -10},
             markermap,
             icon: rocket_img,
            
@@ -235,4 +198,4 @@ export class MoonMap extends React.Component {
 export default GoogleApiWrapper({
     
     apiKey: 'AIzaSyAIt7Jp8FA4nafxdv6Ve3LDcaOrlPzaPOA'
-})(MoonMap);
+})(MarsMap);
