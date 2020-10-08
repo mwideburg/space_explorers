@@ -44,6 +44,8 @@ class UserRobot extends React.Component {
             weapon2: "Mongoose Missile",
             missles: 15,
             evasion: 5,
+            qp: 0,
+            hpmax: 30,
             photoUrl: "https://i.imgur.com/2QuLJvO.jpg",
             rosscoin: 500,
             location: "moon"
@@ -54,6 +56,8 @@ class UserRobot extends React.Component {
             weapon1: "Laser MKI",
             missles: 5,
             evasion: 20,
+            qp: 0,
+            hpmax: 30,
             photoUrl: "https://i.pinimg.com/originals/3d/f5/d7/3df5d723be9c1353553ff007b56d3b86.jpg",
             rosscoin: 500,
             location: "moon"
@@ -64,6 +68,8 @@ class UserRobot extends React.Component {
             weapon1: "Laser MKI",
             missles: 5,
             evasion: 5,
+            hpmax: 40,
+            qp: 0,
             photoUrl: "https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png",
             rosscoin: 500,
             location: "moon"

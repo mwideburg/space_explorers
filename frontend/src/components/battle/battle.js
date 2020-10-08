@@ -206,6 +206,7 @@ class Battle extends React.Component {
         const robot = this.state.robot;
         const enemy = this.state.enemy;
         robot.rosscoin += enemy.rosscoin;
+        robot.qp += 1
         this.setState({ robot: robot });
         
         setTimeout(() => {
@@ -223,11 +224,13 @@ class Battle extends React.Component {
         }
         const enemy = this.state.enemy;
         const robot = this.state.robot;
+        
         const salvage = this.salvage;
         let message
         if (enemy.hp <= 0) {
             message =`You defeated the evil ross robot, collect your ross coin: $RC ${enemy.rosscoin}`
-            
+                
+                
                 return(
                 <div>
                     <h1> {message} </h1>

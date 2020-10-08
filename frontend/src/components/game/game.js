@@ -93,6 +93,7 @@ class Game extends React.Component {
                 <div className="sidebar-inventory">
                     <h2>$RC: {robot.rosscoin}</h2>
                    <h2>{this.state.robot.name}</h2>
+                   <center>QP: {robot.qp} </center>
                     <img src={robot.photoUrl} alt="robot" className="robot-img" />
                 <ul>
                     <li>
