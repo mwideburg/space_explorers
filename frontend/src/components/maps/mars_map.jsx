@@ -87,16 +87,29 @@ export class MoonMap extends React.Component {
 
         const moonMapType = new google.maps.ImageMapType({
             getTileUrl: function (coord, zoom) {
-                return getHorizontallyRepeatingTileUrl(coord, zoom, function (coord, zoom) {
-                    return getMarsTileUrl("http://mw1.google.com/mw-planetary/mars/elevation/", coord, zoom);
-                });
+                const normalizedCoord = getNormalizedCoord(coord, zoom);
+
+                if (!normalizedCoord) {
+                    return "";
+                }
+                const bound = Math.pow(2, zoom);
+                return (
+                    "https://mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw" +
+                    "/" +
+                    zoom +
+                    "/" +
+                    normalizedCoord.x +
+                    "/" +
+                    (bound - normalizedCoord.y - 1) +
+                    ".jpg"
+                );
             },
             tileSize: new google.maps.Size(256, 256),
-            isPng: false,
-            maxZoom: 8,
-            radius: 3396200,
-            name: 'Nicks Atom',
-            credit: 'Image Credit: NASA/JPL/GSFC'
+            maxZoom: 9,
+            minZoom: 0,
+
+            radius: 1738000,
+            name: "Europa",
         });
         this.map.mapTypes.set("mars_elevation", moonMapType);
         this.map.setMapTypeId("mars_elevation");

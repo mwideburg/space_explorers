@@ -9,6 +9,7 @@ import enemy3 from "../../images/enemy3.png";
 import snow_owl from "../../images/snow_owl.png";
 import the_kestrel from "../../images/the_kestrel.png";
 import the_roc from "../../images/the_roc.png";
+import { getEnemy } from '../../util/enemy_util';
 
 
 class Battle extends React.Component {
@@ -36,12 +37,16 @@ class Battle extends React.Component {
     }
     componentDidMount() {
         // debugger
+      
         setTimeout(() => {
             this.setState({ hidden: false });
             let robot = JSON.parse(localStorage.getItem('robot'));
+            
             // robot = this.props.robot
             this.setState({ robot: robot });
         }, 3000);
+        
+        
         // this.setState({robot: this.props.robot})
 
     }
@@ -227,6 +232,7 @@ class Battle extends React.Component {
         if (this.state.hidden){
             return null;
         }
+       
         let message
         const enemy = this.state.enemy;
         const robot = this.state.robot;
@@ -284,6 +290,7 @@ class Battle extends React.Component {
                 </div>
             )
         }
+        
         let enemy_image;
         if (this.state.enemy.name === "Rust Soldier") {
           enemy_image = enemy1;

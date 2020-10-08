@@ -1,6 +1,7 @@
 
 import { connect } from 'react-redux';
-import { updateRobot, setRobotMissle, setRobotHp, receiveCurrentRobot } from '../../actions/robot_actions';
+import { updateRobot, setRobotMissle, setRobotHp, receiveCurrentRobot, getEnemy } from '../../actions/robot_actions';
+import { getEnemies } from '../../util/enemy_util';
 
 import Battle from './battle';
 
@@ -18,7 +19,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         updateRobot: (robot) => dispatch(updateRobot(robot)),
-        updateStats: (robot) => dispatch(receiveCurrentRobot(robot))
+        updateStats: (robot) => dispatch(receiveCurrentRobot(robot)),
+       
 
     }
 }
