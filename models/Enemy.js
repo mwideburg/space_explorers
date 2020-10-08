@@ -6,6 +6,9 @@ const EnemySchema = new Schema({
     hp: {
         type: Number,
     },
+    name: {
+        type: String,
+    },
     hpmax: {
         type: Number,
     },

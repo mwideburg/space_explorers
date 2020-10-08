@@ -32,7 +32,7 @@ const App = () => (
       <ReactAudioPlayer
         className="audio-player"
         src={soundfile}
-        autoPlay
+        // autoPlay
         controls
         loop
       />
