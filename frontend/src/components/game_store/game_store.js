@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import rich from '../../images/rich.png'
 
@@ -198,6 +198,7 @@ class GameStore extends React.Component{
                 </div>
                 {this.state.message}
 
+                
 
             </div>
                 <div id="" className="robot-store ">
@@ -225,7 +226,7 @@ class GameStore extends React.Component{
                             Evasion: {robot.evasion}
                         </li>
                     </ul>
-                  
+                    <Link to="/game"> Back To Map </Link>
                 </div>
 
 
