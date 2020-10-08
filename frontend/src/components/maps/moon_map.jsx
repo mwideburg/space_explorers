@@ -6,6 +6,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 export class MoonMap extends React.Component {
     componentDidMount() {
+        
         const { google } = this.props;
         const maps = google.maps;
         const MARS_BOUNDS = {
@@ -14,6 +15,12 @@ export class MoonMap extends React.Component {
             west: -500,
             east: 500,
         };
+        // const robot = this.props.robot
+        // robot.location = "moon"
+        // if (robot.location === 'mars') {
+        //     this.props.setRobotLocation(robot)
+        // }
+
         const mapStyles = {
             width: '100%',
             height: '100%',
@@ -95,7 +102,7 @@ export class MoonMap extends React.Component {
             isPng: false,
             maxZoom: 8,
             radius: 3396200,
-            name: 'Nicks Atom',
+            name: 'Moon',
             credit: 'Image Credit: NASA/JPL/GSFC'
         });
         this.map.mapTypes.set("mars_elevation", moonMapType);
@@ -166,9 +173,9 @@ export class MoonMap extends React.Component {
         });
         let x;
         if (this.props.robot.qp > 0) {
-            x = "<div id='content' color='black'>" + "<a href='/#/game/mars'><h3>TO MARS!</h3></a>" + "<p> prepare for battle</p>" + "</div>"
+            x = "<div id='content' color='black'>" + "<a href='/#/game/mars'><h3>TO MARS!</h3></a>" + "<center><p> new enemies await </p></center>" + "</div>"
         } else {
-            x = "<div id='content' color='white'>" + "<a href=''><h3>YOU CAN'T LAUNCH YET!</h3></a>" + "<p> prepare for battle</p>" + "</div>"
+            x = "<div id='content' color='white'>" + "<h3>YOU CAN'T LAUNCH YET!</h3>" + "</div>"
         };
         // this.MarkerManagerUtil.updateMarker()
         const infowindow = new google.maps.InfoWindow({

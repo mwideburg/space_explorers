@@ -15,14 +15,14 @@ import { getEnemy } from '../../util/enemy_util';
 class Battle extends React.Component {
     constructor(props) {
         super(props);
-        // debugger
-        
+        debugger
+        const enemies = JSON.parse(localStorage.getItem('enemies'));
         const randomInt = (max) => {  return Math.floor(Math.random() * Math.floor(max))};
         this.state = {
         
             robot: this.props.robot,
             user: this.props.user,
-            enemy: this.props.enemies[randomInt(2)],
+            enemy: enemies[randomInt(2)],
             message: "",
             hidden: true
 
@@ -36,14 +36,15 @@ class Battle extends React.Component {
 
     }
     componentDidMount() {
-        // debugger
+       
       
         setTimeout(() => {
             this.setState({ hidden: false });
-            let robot = JSON.parse(localStorage.getItem('robot'));
+            // let robot = JSON.parse(localStorage.getItem('robot'));
             
-            // robot = this.props.robot
-            this.setState({ robot: robot });
+            
+            // // robot = this.props.robot
+            // this.setState({ robot: robot });
         }, 3000);
         
         
@@ -225,7 +226,15 @@ class Battle extends React.Component {
             // robot = this.props.robot
             
         }, 2000);
-        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push('/game'))
+        let currentPlanet = this.state.robot.location
+        let planetLink
+        if(currentPlanet === "mars"){
+            planetLink = "/game/mars"
+        }else{
+            planetLink = "/game"
+        }
+        debugger
+        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push(planetLink))
 
     }
     endMessage(){
@@ -244,7 +253,7 @@ class Battle extends React.Component {
                 return(
                 <div>
                     <h1> {message} </h1>
-                    <button onClick={() => salvage()}> Salvage Ross Coin </button>
+                    <button className="rosscoin-btn" onClick={() => salvage()}> Salvage Ross Coin </button>
                 </div>)
             
 
@@ -265,7 +274,7 @@ class Battle extends React.Component {
 
     showMissle() {
         const robot = this.state.robot;
-        debugger
+        
         if (!robot.weapon2 == "") {
             return (
               <button className="Missile-Attack"onClick={() => this.attackMissle()}>

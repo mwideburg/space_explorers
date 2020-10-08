@@ -35,7 +35,7 @@ class UserRobot extends React.Component {
 
     // Handle form submission
     handleSubmit(e) {
-        debugger
+     
         e.preventDefault();
         const robot1 = {
             name: "The Kestrel",

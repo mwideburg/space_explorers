@@ -59,9 +59,9 @@ export const getRobot = (user) => dispatch => {
     
     return APIUtil.getRobot(user).then((robot) => {
         // debugger
-        if(robot.data.length === 0){
-            return false
-        }
+        // if(robot.data.length === 0){
+        //     return false
+        // }
         let last = robot.data.length -1;
         let robo = robot.data[last];
         localStorage.setItem('robot', JSON.stringify(robo));
@@ -75,6 +75,19 @@ export const getRobot = (user) => dispatch => {
 export const updateRobot = (robot) => dispatch => {
     // debugger
     return APIUtil.updateRobot(robot).then((robot) => {
+        // debugger
+        
+        const robo = JSON.parse(robot.config.data)
+        localStorage.setItem('robot', JSON.stringify(robo));
+        return dispatch(receiveCurrentRobot(robo))
+    }, err => {
+        // debugger
+        return dispatch(receiveErrors(err.response.data))
+    }
+)}
+export const setRobotLocation = (robot) => dispatch => {
+    // debugger
+    return APIUtil.setRobotLocation(robot).then((robot) => {
         // debugger
         
         const robo = JSON.parse(robot.config.data)

@@ -163,7 +163,30 @@ $white: rgb(255, 255, 255);
     margin-bottom: 15px;
 }
 
+.sidebar-planets{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.rosscoin-btn{
+    background: $michelangelo-orange;
+	color: white;
+	cursor: pointer;
+	// display: inline-block;
+	font-size: 10px;
+	margin:5px;
+	// min-width: 200px;
+	padding: 5px;
+    text-transform: uppercase;
+    outline: none;
+    font-family: "Press Start 2P";
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+.rosscoin-btn:hover{
+    color: $michelangelo-orange;
+    background: white;
+}
 @keyframes fadein{
     from{opacity: 0;}
     to{opacity:1;}

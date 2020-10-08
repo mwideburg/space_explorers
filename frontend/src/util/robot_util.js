@@ -15,3 +15,7 @@ export const updateRobot = (robot) => {
     // debugger
     return axios.patch(`/api/robots/${robot._id}`, robot);
 };
+export const setRobotLocation = (robot) => {
+    // debugger
+    return axios.patch(`/api/robots/${robot._id}`, robot);
+};

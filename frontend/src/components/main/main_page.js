@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthRoute, ProtectedRoute } from '../../util/route_util';
+import { AuthRoute, ProtectedRoute, LevelRoute } from '../../util/route_util';
 import { Switch, Route, Link } from 'react-router-dom';
 import NavBarContainer from '../nav/navbar_container';
 import NavLoggedIn from '../nav/nav_logged_in';
@@ -8,6 +8,7 @@ import SignupFormContainer from '../session/signup_form_container';
 import Story from '../story/story_container';
 import Robots from '../robots/robot_selection_container';
 import Game from '../game/game_container';
+import MarsGame from '../mars_planet/mars_planet_conatiner';
 import UserRobot from '../robots/robot_container';
 import Battle from '../battle/battle_container';
 import GameStore from '../game_store/game_store_container';
@@ -25,6 +26,7 @@ class MainPage extends React.Component {
                 <ProtectedRoute exact path="/robots" component={Robots}/>
                 <ProtectedRoute exact path="/game/battle" component={Battle}/>
                 <ProtectedRoute exact path="/game" component={Game}/>
+                <ProtectedRoute exact path="/game/mars" component={MarsGame}/>
                 <ProtectedRoute exact path="/user/robot" component={UserRobot}/>
                 <ProtectedRoute exact path="/game/store" component={GameStore}/>
                 <Switch>
