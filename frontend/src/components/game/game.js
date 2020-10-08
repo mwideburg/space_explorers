@@ -51,7 +51,8 @@ class Game extends React.Component {
     }
     updateStats(){
         const robot = this.state.robot
-        robot.hp -= 10
+        robot.hp += 10
+        robot.rosscoin -= 100
         
         this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot }))
     }
@@ -113,7 +114,7 @@ class Game extends React.Component {
                         Evasion: {robot.evasion}
                     </li>
             </ul>
-                <button onClick={() => this.updateStats()}>LOWER HP BY 10</button>
+                <button onClick={() => this.updateStats()}>RAISE HP BY 10</button>
                 <button onClick={() => this.buyMissle()}>BUY MISSLES</button>
                 </div>
             </div>

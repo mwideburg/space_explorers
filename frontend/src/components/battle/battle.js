@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import "./battle.scss"
 import enemy1 from "../../images/enemy1.png";
@@ -98,12 +98,17 @@ class Battle extends React.Component {
         this.setState({ enemy: enemy });
         this.props.updateStats(this.state.robot, this.props.user);
         this.setState({ robot: robot, message: message });
-        const that = this;
-        setTimeout(function () {
+        
+        if (enemy.hp > 0) {
+            this.setState({ robot: robot, message: message });
+            const that = this;
+
+            setTimeout(function () {
 
 
-            that.enemyTurn();
-        }, 1000);
+                that.enemyTurn()
+            }, 1000)
+        }
         
     }
     attackLaser() {
@@ -131,13 +136,17 @@ class Battle extends React.Component {
         // debugger
         this.setState({enemy: enemy});
         this.props.updateStats(this.state.robot, this.props.user);
-        this.setState({ robot: robot, message: message });
-        const that = this;
-        setTimeout(function () {
+        if(enemy.hp > 0){
+            this.setState({ robot: robot, message: message });
+            const that = this;
+
+            setTimeout(function () {
 
 
-            that.enemyTurn()
-        }, 1000)
+                that.enemyTurn()
+            }, 1000)
+        }
+       
         
     }
     enemyTurn(){
@@ -157,27 +166,29 @@ class Battle extends React.Component {
         const robot = this.state.robot;
         const enemy = this.state.enemy;
         const evasion = robot.evasion;
-       
+        const random =( Math.random() * 100) + evasion
+        debugger
         if (enemy.weapon1 === "Rusty Base Blaster") {
-            if ((Math.random() * 100 + evasion) < 95) {
-                robot.hp -= 1;
+            if (random < 50) {
+                robot.hp -= 5;
                 message = "Ouch you got hit!";
             }
 
-        } else if (enemy.weapon1 === ' Base Blaster') {
-            if ((Math.random() * 100 + evasion) < 95) {
-                robot.hp -= 2;
+        } else if (enemy.weapon1 === 'Base Blaster') {
+            if (random < 50) {
+                robot.hp -= 8;
                 message = "Ouch you got hit!";
             }
         } else if (enemy.weapon1 === "Nice Base Blaster") {
-            if ((Math.random() * 100 + evasion) < 95) {
-                robot.hp -= 3;
+            if (random < 50) {
+                robot.hp -= 10;
                 message = "Ouch you got hit";
             }
         }
         // debugger
         this.setState({ enemy: enemy });
         this.props.updateStats(this.state.robot, this.props.user);
+        
         this.setState({ robot: robot, message: message });
     }
     flee(){
@@ -211,9 +222,11 @@ class Battle extends React.Component {
             return null;
         }
         const enemy = this.state.enemy;
+        const robot = this.state.robot;
         const salvage = this.salvage;
+        let message
         if (enemy.hp <= 0) {
-            const message = `You defeated the evil ross robot, collect your ross coin: $RC ${enemy.rosscoin}`;
+            message =`You defeated the evil ross robot, collect your ross coin: $RC ${enemy.rosscoin}`
             
                 return(
                 <div>
@@ -222,7 +235,17 @@ class Battle extends React.Component {
                 </div>)
             
 
-        } else {
+        } else if(robot.hp <= 0){
+            debugger
+            message = `You have failed humanity... recover and try again`
+            return(
+                <div>
+                    <h1> {message} </h1>
+                    <button onClick={() => this.flee()}> Return To Map </button> 
+                </div>
+
+            )
+        }else {
             return null
         }
     }
