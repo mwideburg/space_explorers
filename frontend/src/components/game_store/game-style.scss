@@ -6,12 +6,13 @@ $raphael-red: rgb(237, 92, 42);
 $turtle-green: rgb(136, 236, 72);
 $black: rgb(0, 0, 0);
 $white: rgb(255, 255, 255);
-////////////////////////
 
 .game-store-wrapper{
-    width: 700px;
-    height: 500px;
-    background-color: $raphael-red;
+    width: 900px;
+    height: 600px;
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
     
 }
 
@@ -44,3 +45,42 @@ $white: rgb(255, 255, 255);
     align-items: center;
     width: 100%;
 }
+
+.robot-store{
+    width: 300px;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+
+    font-size: 12px;
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li{
+            padding-top: 10px;
+        }
+    }
+    h2{
+        text-align: center;
+    }
+}
+
+.store-btn{
+    margin-top: 20px;
+    color: white;
+    font-family: inherit;
+    font-size: inherit;
+    // padding: inherit;
+    // margin: inherit;
+    border: none;
+    background: none;
+}
+.store-btn:hover{
+    color: $donatello-purple;
+    
+}
+

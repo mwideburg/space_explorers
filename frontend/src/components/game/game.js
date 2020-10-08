@@ -93,6 +93,7 @@ class Game extends React.Component {
                 <div className="sidebar-inventory">
                     <h2>$RC: {robot.rosscoin}</h2>
                    <h2>{this.state.robot.name}</h2>
+                   <center>QP: {robot.qp} </center>
                     <img src={robot.photoUrl} alt="robot" className="robot-img" />
                 <ul>
                     <li>
@@ -114,8 +115,7 @@ class Game extends React.Component {
                         Evasion: {robot.evasion}
                     </li>
             </ul>
-                <button onClick={() => this.updateStats()}>RAISE HP BY 10</button>
-                <button onClick={() => this.buyMissle()}>BUY MISSLES</button>
+              
                 </div>
             </div>
         );
