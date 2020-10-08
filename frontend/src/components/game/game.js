@@ -84,7 +84,7 @@ class Game extends React.Component {
 
                 <div className="map-container">
                     <h1>{this.props.user.handle}</h1>
-                    <MoonMap/>
+                    <MoonMap robot={robot}/>
               
                         
 
