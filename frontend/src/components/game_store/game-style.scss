@@ -1,7 +1,17 @@
+//updated color pallette
+$leonardo-blue: rgb(60, 144, 247);
+$michelangelo-orange: rgb(242, 183, 65);
+$donatello-purple: rgb(235, 91, 247);
+$raphael-red: rgb(237, 92, 42);
+$turtle-green: rgb(136, 236, 72);
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+////////////////////////
+
 .game-store-wrapper{
     width: 700px;
     height: 500px;
-    background-color: red;
+    background-color: $raphael-red;
     
 }
 
