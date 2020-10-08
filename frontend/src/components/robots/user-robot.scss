@@ -58,3 +58,31 @@ $white: rgb(255, 255, 255);
     from{opacity: 0;}
     to{opacity:1;}
 }
+
+.play-button {
+    text-decoration: none;
+    font-family: 'Press Start 2P';
+    color: $white;
+    background: transparent;
+    //background-color: $turtle-green;
+    overflow: hidden;
+    border: 0;
+    height: 15px;
+    clip-path: polygon(
+        0 10%,
+        10% 0,
+        90% 0,
+        100% 10%,
+        100% 90%,
+        90% 100%,
+        10% 100%,
+        0% 90%,
+        0% 10%
+    )
+}
+
+.play-button:hover{
+    //background-color: $white;
+    color: $leonardo-blue;
+    cursor: pointer;
+}

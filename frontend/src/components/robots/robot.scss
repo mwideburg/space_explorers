@@ -17,13 +17,24 @@ $white: rgb(255, 255, 255);
 
 .robot-container{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     height: 100%;
     width:100%;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    justify-content: space-evenly;
  
     
 }
+
+.robot-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .robot-row form{
     
 }
@@ -36,7 +47,8 @@ $white: rgb(255, 255, 255);
     border-radius: 5px;
     transition: .2s;
     transition-timing-function: ease-in-out;
-
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .robot:hover{
     opacity: 1;

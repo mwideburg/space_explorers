@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
-
+//updated color pallette
 $leonardo-blue: rgb(60, 144, 247);
 $michelangelo-orange: rgb(242, 183, 65);
 $donatello-purple: rgb(235, 91, 247);
@@ -7,7 +7,6 @@ $raphael-red: rgb(237, 92, 42);
 $turtle-green: rgb(136, 236, 72);
 $black: rgb(0, 0, 0);
 $white: rgb(255, 255, 255);
-
 .battle-container{
     width: 100%;
     height: 100%;
@@ -26,8 +25,7 @@ $white: rgb(255, 255, 255);
     flex-direction: column;
     justify-content: flex-end;
     padding: 10px;
-    padding-left: 20px;
-    margin-top: -100px;
+    font-family: 'Press Start 2P';
 }
 .our-battle-img{
    height: 400px;
