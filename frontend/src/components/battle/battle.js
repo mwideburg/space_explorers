@@ -6,6 +6,9 @@ import "./battle.scss"
 import enemy1 from "../../images/enemy1.png";
 import enemy2 from "../../images/enemy2.png";
 import enemy3 from "../../images/enemy3.png";
+import chrome4 from "../../images/chrome4.png";
+import chrome5 from "../../images/chrome5.png";
+import scorpio from "../../images/scorpio.png";
 import snow_owl from "../../images/snow_owl.png";
 import the_kestrel from "../../images/the_kestrel.png";
 import the_roc from "../../images/the_roc.png";
@@ -327,6 +330,12 @@ class Battle extends React.Component {
           enemy_image = enemy2;
         } else if (this.state.enemy.name === "Rust Leader") {
           enemy_image = enemy3;
+        } else if (this.state.enemy.name === "Chrome Soldier") {
+            enemy_image = chrome4;
+        }else if (this.state.enemy.name === "Chrome Lieutenant") {
+            enemy_image = chrome5;
+        }else if (this.state.enemy.name === "Chrome Leader") {
+            enemy_image = scorpio;
         }
         let main_image;
         if (this.state.robot.name === "The Kestrel") {

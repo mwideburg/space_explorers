@@ -35,6 +35,7 @@ class MarsGame extends React.Component {
             let robot = JSON.parse(localStorage.getItem('robot'))
             
             this.setState({ robot: robot })
+            robot.location = "mars"
             this.props.getEnemies(robot)
             
             // l
