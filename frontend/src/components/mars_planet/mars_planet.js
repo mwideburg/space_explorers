@@ -96,7 +96,15 @@ class MarsGame extends React.Component {
 
     render() {
             if(this.state.hidden) {
-                return "RENDERING.."
+              return (
+                <div className="render-splash">
+                  <img
+                    className="render-gif"
+                    src="https://cdn2.scratch.mit.edu/get_image/user/37255969_60x60.png"
+                  />
+                  "RENDERING.."
+                </div>
+              );
             }
             let robot = this.props.robot
             robot.location = "mars"
