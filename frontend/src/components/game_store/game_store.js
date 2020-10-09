@@ -185,7 +185,7 @@ class GameStore extends React.Component{
             <div className="store-container">
 
 
-                <center><h1> RICHE'$ RICHE$</h1></center>
+                <center><h1> EUGENE'$ CHECK IN</h1></center>
                 <div className="rich-greeting">
                     <div>
                         <img src={rich} className="rich-img" />
