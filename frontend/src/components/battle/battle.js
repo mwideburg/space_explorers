@@ -244,6 +244,7 @@ class Battle extends React.Component {
             // robot = this.props.robot
             
         }, 2000);
+        debugger;
         let currentPlanet = this.state.robot.location
         let planetLink
         if(currentPlanet === "mars"){

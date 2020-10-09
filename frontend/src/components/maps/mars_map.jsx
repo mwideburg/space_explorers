@@ -18,8 +18,8 @@ export class MarsMap extends React.Component {
             east: 200,
         };
         const robot = this.props.robot
-        robot.location = "mars"
-        if (robot.location === 'moon') {
+        robot.location = "moon"
+        if (robot.location === 'mars') {
             this.props.setRobotLocation(robot)
         } 
         
