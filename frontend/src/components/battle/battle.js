@@ -76,10 +76,13 @@ class Battle extends React.Component {
         const enemy = this.state.enemy;
         let message = "You Missed!";
         const evasion = enemy.evasion;
-        
-        if (robot.missles <= 0) {
+        if (enemy.hp <= 0) {
+            message = ""
+            this.setState({ message: "" })
+            return this.endMessage()
+        }else if (robot.missles <= 0) {
             message = "You are out of missles";
-        } else {
+        } else{
         robot.missles -= 1;
         if (robot.weapon2 === 'Mongoose Missile') {
             if ((Math.random() * 100 + evasion) < 50) {
@@ -125,7 +128,11 @@ class Battle extends React.Component {
         const robot = this.state.robot;
         const enemy = this.state.enemy;
         const evasion = enemy.evasion;
-        if(robot.weapon1 === 'Laser MKI'){
+        if (enemy.hp <= 0) {
+            message = ""
+            this.setState({message: ""})
+            return this.endMessage()
+        }else if(robot.weapon1 === 'Laser MKI'){
             if ((Math.random() * 100 + evasion) < 95) {
                 enemy.hp -= 1;
                 message = "You hit!";
@@ -180,20 +187,23 @@ class Battle extends React.Component {
         const enemy = this.state.enemy;
         const evasion = robot.evasion;
         const random = (Math.random() * 100) + evasion
-       
-        if (enemy.weapon1 === "Rusty Base Blaster") {
-            if (random < 50) {
+        debugger
+        if(enemy.hp <= 0){
+            message = ""
+            
+        }else if (enemy.weapon1 === "Rusty Base Blaster") {
+            if (random < 90) {
                 robot.hp -= 5;
                 message = "Ouch you got hit!";
             }
 
-        } else if (enemy.weapon1 === ' Base Blaster') {
-            if (random < 50) {
+        } else if (enemy.weapon1 === 'Base Blaster') {
+            if (random < 90) {
                 robot.hp -= 8;
                 message = "Ouch you got hit!";
             }
         } else if (enemy.weapon1 === "Nice Base Blaster") {
-            if (random < 50) {
+            if (random < 90) {
                 robot.hp -= 10;
                 message = "Ouch you got hit!";
             }
@@ -206,8 +216,15 @@ class Battle extends React.Component {
     flee(){
         const robot = this.state.robot;
         
-
-        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push('/game'));
+        let currentPlanet = this.props.robot.location
+        let planetLink
+        if (currentPlanet === "mars") {
+            planetLink = "/game/mars"
+        } else {
+            planetLink = "/game"
+        }
+       
+        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push(planetLink))
     }
 
     checkHp(){
@@ -234,7 +251,7 @@ class Battle extends React.Component {
         }else{
             planetLink = "/game"
         }
-        debugger
+        
         this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push(planetLink))
 
     }
@@ -249,7 +266,7 @@ class Battle extends React.Component {
         const salvage = this.salvage;
         if (enemy.hp <= 0) {
             message =`You defeated the evil ross robot, collect your ross coin: $RC ${enemy.rosscoin}`
-                
+            
                 
                 return(
                 <div>
@@ -259,8 +276,9 @@ class Battle extends React.Component {
             
 
         } else if (robot.hp <= 0) {
-            debugger
+            
             message = `You have failed humanity... recover and try again`
+          
             return (
                 <div>
                     <h1> {message} </h1>

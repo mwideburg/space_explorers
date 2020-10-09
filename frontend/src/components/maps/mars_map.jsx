@@ -8,6 +8,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 export class MarsMap extends React.Component {
     componentDidMount() {
+        debugger
         const { google } = this.props;
         const maps = google.maps;
         const MOON_BOUNDS = {
@@ -120,18 +121,19 @@ export class MarsMap extends React.Component {
             icon: image,
             title: "Hard Battle",
         });
-        // const roboImage = {
-        //     url: "https://thumbs.gfycat.com/ThunderousIdealBorzoi-max-1mb.gif",
-        //     scaledSize: new google.maps.Size(50, 50),
-        //     origin: new google.maps.Point(0, 0),
-        //     anchor: new google.maps.Point(0, 32),
-        // }
+        const roboImage = {
+            url: "https://thumbs.gfycat.com/ThunderousIdealBorzoi-max-1mb.gif",
+            scaledSize: new google.maps.Size(50, 50),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 32),
+        }
         // const repairShop = {
         //     url: "../../images/rich_image.png",
         //     scaledSize: new google.maps.Size(30, 30),
         //     origin: new google.maps.Point(0, 0),
         //     anchor: new google.maps.Point(0, 32),
         // }
+        
         const marker2 = new google.maps.Marker({
             position: myLatLng2,
             markermap,
@@ -156,9 +158,10 @@ export class MarsMap extends React.Component {
         // this.MarkerManagerUtil.updateMarker()
          let x;
          if (this.props.robot.qp > 0) {
+             
            x =
              "<div id='content' color='black'>" +
-             "<a href='/#/game'><h3>TO MARS!</h3></a>" +
+             "<a href='/#/game/mars'><h3>TO MARS!</h3></a>" +
              "<center><p> new enemies await </p></center>" +
              "</div>";
          } else {
