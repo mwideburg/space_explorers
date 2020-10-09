@@ -189,27 +189,46 @@ class Battle extends React.Component {
         const robot = this.state.robot;
         const enemy = this.state.enemy;
         const evasion = robot.evasion;
-        const random = (Math.random() * 100) + evasion
+        const random = (Math.random() * 100) + evasion;
         debugger
         if(enemy.hp <= 0){
-            message = ""
+            message = "";
             
         }else if (enemy.weapon1 === "Rusty Base Blaster") {
             if (random < 90) {
-                robot.hp -= 5;
+                robot.hp -= 1;
                 message = "Ouch you got hit!";
             }
 
         } else if (enemy.weapon1 === 'Base Blaster') {
             if (random < 90) {
-                robot.hp -= 8;
+                robot.hp -= 2;
                 message = "Ouch you got hit!";
             }
         } else if (enemy.weapon1 === "Nice Base Blaster") {
             if (random < 90) {
-                robot.hp -= 10;
+                robot.hp -= 3;
                 message = "Ouch you got hit!";
             }
+        }  else if (enemy.weapon1 === "Chrome Blaster") {
+            if (random < 90) {
+                robot.hp -= 30;
+                message = "Ouch you got hit!";
+            }
+        } else if (enemy.weapon1 === "Chromium Blaster") {
+            if (random < 90) {
+                robot.hp -= 30;
+                message = "Ouch you got hit!";
+            }
+        } else if (enemy.weapon1 === "Chromium HandCannon") {
+            if (random < 90) {
+                robot.hp -= 30;
+                message = "Ouch you got hit!";
+            }
+        } 
+        
+        if (robot.hp < 0) {
+            robot.hp = 0;
         }
         // debugger
         this.setState({ enemy: enemy });
@@ -219,12 +238,12 @@ class Battle extends React.Component {
     flee(){
         const robot = this.state.robot;
         
-        let currentPlanet = this.props.robot.location
-        let planetLink
+        let currentPlanet = this.props.robot.location;
+        let planetLink;
         if (currentPlanet === "mars") {
-            planetLink = "/game/mars"
+            planetLink = "/game/mars";
         } else {
-            planetLink = "/game"
+            planetLink = "/game";
         }
        
         this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push(planetLink))
@@ -248,8 +267,8 @@ class Battle extends React.Component {
             
         }, 2000);
         debugger;
-        let currentPlanet = this.state.robot.location
-        let planetLink
+        let currentPlanet = this.state.robot.location;
+        let planetLink;
         if(currentPlanet === "mars"){
             planetLink = "/game/mars"
         }else{

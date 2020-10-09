@@ -180,7 +180,7 @@ export class MarsMap extends React.Component {
          const infowindow2 = new google.maps.InfoWindow({
            content:
              "<div id='content' color='black'>" +
-             "<a href='/#/game/battle'><h3>Enter Battle</h3></a>" +
+             "<a href='/#/user/robot'><h3>Check out Robot</h3></a>" +
              "</div>",
          });
          const infowindow3 = new google.maps.InfoWindow({
