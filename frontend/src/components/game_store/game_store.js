@@ -76,7 +76,7 @@ class GameStore extends React.Component{
     }
 
     upgradeWeapon1(){
-        debugger
+        
         if (!this.checkMoney(400)) {
             return null
         }
@@ -185,7 +185,7 @@ class GameStore extends React.Component{
             <div className="store-container">
 
 
-                <center><h1> EUGENE'$ CHECK IN</h1></center>
+                <center><h1> BIG MIKE'$ SHOP</h1></center>
                 <div className="rich-greeting">
                     <div>
                         <img src={rich} className="rich-img" />

@@ -206,14 +206,14 @@ export class MoonMap extends React.Component {
         const infowindow3 = new google.maps.InfoWindow({
           content:
             "<div id='content' color='black'>" +
-            "<a href='/#/game/store'><h3>ROBOT REPAIR</h3></a>" +
+            "<a href='/#/game/store'><h3>BIG MIKES SHOP</h3></a>" +
             "<p> prepare for battle</p>" +
             "</div>",
         });
         const enemyWindow2 = new google.maps.InfoWindow({
           content:
             "<div id='content' color='black'>" +
-            "<a href='/#/game/store'><h3>Enter Battle</h3></a>" +
+            "<a href='/#/game/battle'><h3>Enter Battle</h3></a>" +
             "</div>",
         });
         const rocketWindow = new google.maps.InfoWindow({

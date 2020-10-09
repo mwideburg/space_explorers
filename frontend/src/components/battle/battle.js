@@ -19,7 +19,6 @@ import { getEnemy } from '../../util/enemy_util';
 class Battle extends React.Component {
     constructor(props) {
         super(props);
-        debugger
         const enemies = JSON.parse(localStorage.getItem('enemies'));
         const randomInt = (max) => {  return Math.floor(Math.random() * Math.floor(max))};
         this.state = {
@@ -190,7 +189,7 @@ class Battle extends React.Component {
         const enemy = this.state.enemy;
         const evasion = robot.evasion;
         const random = (Math.random() * 100) + evasion;
-        debugger
+        
         if(enemy.hp <= 0){
             message = "";
             
@@ -266,7 +265,7 @@ class Battle extends React.Component {
             // robot = this.props.robot
             
         }, 2000);
-        debugger;
+        
         let currentPlanet = this.state.robot.location;
         let planetLink;
         if(currentPlanet === "mars"){

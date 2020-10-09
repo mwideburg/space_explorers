@@ -8,7 +8,6 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 export class MarsMap extends React.Component {
     componentDidMount() {
-        debugger
         const { google } = this.props;
         const maps = google.maps;
         const MOON_BOUNDS = {
@@ -186,7 +185,7 @@ export class MarsMap extends React.Component {
          const infowindow3 = new google.maps.InfoWindow({
            content:
              "<div id='content' color='black'>" +
-             "<a href='/#/game/store'><h3>Rich's Riches</h3></a>" +
+             "<a href='/#/game/store'><h3>BIG MIKES SHOP</h3></a>" +
              "<p> repair your robot</p>" +
              "</div>",
          });

@@ -16,7 +16,7 @@ export default function (state = initialState, action) {
     switch (action.type) {
       case RECEIVE_CURRENT_ROBOT:
           // debugger
-          return Object.assign(action.currentRobot)
+          return Object.assign({}, action.currentRobot)
       case SET_ROBOT_HP:
         return Object.assign({}, action.hp);
 

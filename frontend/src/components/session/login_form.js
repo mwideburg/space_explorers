@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoSubmit = this.demoSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
     }
 
@@ -57,6 +58,16 @@ class LoginForm extends React.Component {
             </ul>
         );
     }
+    demoSubmit() {
+        
+
+        let user = {
+            email: "hello@gmail.com",
+            password: "heynick"
+        };
+
+        this.props.login(user);
+    }
 
     render() {
         
@@ -80,12 +91,16 @@ class LoginForm extends React.Component {
                         <br />
                         <input type="submit" className="submit-button" value="Submit" />
                         {this.renderErrors()}
+                
                     </div>
                 </form>
                 <p>  Don't have an account </p>
                 <Link to="/signup" className="signup-button">
                  Sign Up
                 </Link>
+                or use
+                <button className="submit-button" onClick={() => this.demoSubmit()}> Demo User </button>
+
             </div>
         );
     }
