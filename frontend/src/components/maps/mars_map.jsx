@@ -8,7 +8,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 export class MarsMap extends React.Component {
     componentDidMount() {
-        debugger
+        
         const { google } = this.props;
         const maps = google.maps;
         const MOON_BOUNDS = {
