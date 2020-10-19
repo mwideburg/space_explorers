@@ -1,4 +1,4 @@
-# space_explorers
+# Space Explorers
 Michael Wideburg, Nicholas McDonnell, Travis Holter, Ross Miglin (in first name alphabetical order)
 
 # Overview
