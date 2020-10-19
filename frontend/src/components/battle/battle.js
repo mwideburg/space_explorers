@@ -176,11 +176,14 @@ class Battle extends React.Component {
         let message = "Enemy is preparing for attack";
         const that = this;
         that.setState({ message: message });
-        setTimeout(function () {
+        if (!that.state.enemy.health <= 0 || !that.state.robot.hp <= 0) {
             
-            
-            that.enemyAttack();
-        }, 2000);
+            setTimeout(function () {
+                
+                
+                that.enemyAttack();
+            }, 2000);
+        }
 
     }
     enemyAttack(){
@@ -195,33 +198,33 @@ class Battle extends React.Component {
             
         }else if (enemy.weapon1 === "Rusty Base Blaster") {
             if (random < 90) {
-                robot.hp -= 1;
+                robot.hp -= 3;
                 message = "Ouch you got hit!";
             }
 
         } else if (enemy.weapon1 === 'Base Blaster') {
-            if (random < 90) {
-                robot.hp -= 2;
+            if (random < 85) {
+                robot.hp -= 5;
                 message = "Ouch you got hit!";
             }
         } else if (enemy.weapon1 === "Nice Base Blaster") {
-            if (random < 90) {
-                robot.hp -= 3;
+            if (random < 75) {
+                robot.hp -= 10;
                 message = "Ouch you got hit!";
             }
         }  else if (enemy.weapon1 === "Chrome Blaster") {
             if (random < 90) {
-                robot.hp -= 30;
+                robot.hp -= 5;
                 message = "Ouch you got hit!";
             }
         } else if (enemy.weapon1 === "Chromium Blaster") {
-            if (random < 90) {
-                robot.hp -= 30;
+            if (random < 85) {
+                robot.hp -= 8;
                 message = "Ouch you got hit!";
             }
         } else if (enemy.weapon1 === "Chromium HandCannon") {
-            if (random < 90) {
-                robot.hp -= 30;
+            if (random < 80) {
+                robot.hp -= 12;
                 message = "Ouch you got hit!";
             }
         } 

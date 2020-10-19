@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, mapTypes, InfoWindow, Marker } from 'google-maps-react';
 import rocket_img from '../../images/rocket.png';
 import rich_image from '../../images/rich_image.png';
+import heavy_arms from '../../images/heavy_arms.gif';
 import mech from '../../images/mech.gif';
 // import MarkerManagerUtil from '../../util/marker_manager'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
@@ -168,7 +169,7 @@ export class MoonMap extends React.Component {
         const marker2 = new google.maps.Marker({
             position: myLatLng2,
             markermap,
-            icon: roboImage,
+            icon: heavy_arms,
             title: "Hello World!",
         });
         const enemy= new google.maps.Marker({
@@ -194,7 +195,7 @@ export class MoonMap extends React.Component {
         const infowindow = new google.maps.InfoWindow({
           content:
             "<div id='content' color='black'>" +
-            "<a href='/#/user/robot'><h3>Check out Robot</h3></a>" +
+            "<a href='/#/user/robot'><h3>Check out your Robot</h3></a>" +
             "</div>",
         });
         const infowindow2 = new google.maps.InfoWindow({

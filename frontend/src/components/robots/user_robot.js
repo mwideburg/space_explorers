@@ -3,6 +3,9 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import RobotContainer from './robot_container'
 import MoonMap from '../maps/moon_map'
+import snow_owl from "../../images/snow_owl.png";
+import the_kestrel from "../../images/the_kestrel.png";
+import the_roc from "../../images/the_roc.png";
 
 
 import "./user-robot.scss"
@@ -67,6 +70,15 @@ class RobotUser extends React.Component {
             
         }
         let robot = this.state.robot
+
+        let main_image;
+        if (this.state.robot.name === "The Kestrel") {
+            main_image = the_kestrel;
+        } else if (this.state.robot.name === "The Snowy Owl") {
+            main_image = snow_owl;
+        } else if (this.state.robot.name === "The Roc") {
+            main_image = the_roc;
+        }
         
         
         return (
@@ -75,8 +87,32 @@ class RobotUser extends React.Component {
                 
                 <div className="sidebar-inventory">
                     <Link to="/game" className="play-button">PLAY GAME</Link>
-                    <h2>{this.state.robot.name}</h2>
+                    <h2> {this.state.user.handle}'s</h2>
+                    <h3> Most Recent Game: </h3>
+                    <center><h3> {this.state.robot.name} </h3></center>
                     <img src={robot.photoUrl} alt="robot" className="robot-img" />
+                    <br/>
+                    <ul>
+                        <li>
+                            QP:{robot.hp}
+                        </li>
+                        <li>
+                            $RC:{robot.rosscoin}
+                        </li>
+                        
+                    </ul>
+                    
+                </div>
+
+                <div className="user-stats">
+
+                    <div className="robot-stats">
+                        <div className="robot-title">
+                        <h2>{this.state.robot.name}</h2>
+                        <Link to="/game" className="robot-main-pic">
+                        <img className="robot-main-pic" src={main_image} />
+                        </Link>
+                        </div>
                     <ul>
                         <li>
                             HP:{robot.hp}
@@ -94,6 +130,10 @@ class RobotUser extends React.Component {
                             Evasion: {robot.evasion}
                         </li>
                     </ul>
+
+
+                    </div>
+
                 </div>
             </div>
         );

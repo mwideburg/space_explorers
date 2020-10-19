@@ -115,7 +115,7 @@ export class MarsMap extends React.Component {
         const myLatLng2 = { lat: 55, lng: -20 }
         const markermap = this.map
         const marker = new google.maps.Marker({
-            position: myLatLng,
+            position: myLatLng2,
             markermap,
             icon: image,
             title: "Hard Battle",
@@ -134,7 +134,7 @@ export class MarsMap extends React.Component {
         // }
         
         const marker2 = new google.maps.Marker({
-            position: myLatLng2,
+            position: myLatLng,
             markermap,
             icon: mech,
             title: "Mega Metal",
@@ -161,12 +161,13 @@ export class MarsMap extends React.Component {
            x =
              "<div id='content' color='black'>" +
              "<a href='/#/game/mars'><h3>TO MARS!</h3></a>" +
-             "<center><p> new enemies await </p></center>" +
+             "<center><p> The Chromium army awaits you for battle </p></center>" +
              "</div>";
          } else {
            x =
              "<div id='content' color='white'>" +
              "<h3>YOU CAN'T LAUNCH YET!</h3>" +
+             "<p> Come back when you have enough quest points" + "<br/>" + "Earn quest point by defeating enemies in battle </p>" +
              "</div>";
          }
          // this.MarkerManagerUtil.updateMarker()
@@ -179,7 +180,7 @@ export class MarsMap extends React.Component {
          const infowindow2 = new google.maps.InfoWindow({
            content:
              "<div id='content' color='black'>" +
-             "<a href='/#/user/robot'><h3>Check out Robot</h3></a>" +
+             "<a href='/#/user/robot'><h3>Check out your Robot</h3></a>" +
              "</div>",
          });
          const infowindow3 = new google.maps.InfoWindow({

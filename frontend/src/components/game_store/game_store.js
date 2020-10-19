@@ -123,7 +123,9 @@ class GameStore extends React.Component{
     checkWeapon2(){
         const robot = this.state.robot
         let weapon2
-        if (robot.weapon2 === "Mongoose Missile") {
+        if(robot.weapon2 === undefined){
+            weapon2 = "Mongoose Missile"
+        }else if (robot.weapon2 === "Mongoose Missile") {
             weapon2 = "Honey Badger Missile"
 
         } else if ((robot.weapon2 === "Honey Badger Missile")) {
@@ -170,7 +172,9 @@ class GameStore extends React.Component{
         }
 
         let weapon2
-        if (robot.weapon2 === "Mongoose Missile"){
+        if (robot.weapon2 === undefined) {
+            weapon2 = "Mongoose Missile"
+        } else if (robot.weapon2 === "Mongoose Missile") {
             weapon2 = "Honey Badger Missile"
 
         } else if ((robot.weapon2 === "Honey Badger Missile")){
