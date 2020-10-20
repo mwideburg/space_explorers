@@ -201,12 +201,12 @@ class Battle extends React.Component {
             }
 
         } else if (enemy.weapon1 === 'Base Blaster') {
-            if (random < 85) {
+            if (random < 80) {
                 robot.hp -= 5;
                 message = "Ouch you got hit!";
             }
         } else if (enemy.weapon1 === "Nice Base Blaster") {
-            if (random < 75) {
+            if (random < 60) {
                 robot.hp -= 10;
                 message = "Ouch you got hit!";
             }
@@ -221,7 +221,7 @@ class Battle extends React.Component {
                 message = "Ouch you got hit!";
             }
         } else if (enemy.weapon1 === "Chromium HandCannon") {
-            if (random < 80) {
+            if (random < 60) {
                 robot.hp -= 12;
                 message = "Ouch you got hit!";
             }

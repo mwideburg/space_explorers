@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+$leonardo-blue: rgb(60, 144, 247);
+$michelangelo-orange: rgb(242, 183, 65);
+$donatello-purple: rgb(235, 91, 247);
+$raphael-red: rgb(237, 92, 42);
+$turtle-green: rgb(136, 236, 72);
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
 #map-container{
 
 }
@@ -5,6 +13,7 @@
     color: black;
     width: 100%;
     height: 500px;
+    
     position: relative;
     overflow: visible;
 }
@@ -16,7 +25,34 @@
     overflow: visible;
     
 }
+.gm-style-iw{
+    
+}
 
 #content{
+    text-align: center;
     color: black;
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color:$raphael-red;
+        }
+        p{
+            font-size: 10px;
+            font-weight: lighter;
+            color: $donatello-purple;
+        }
+    font-family: "Press Start 2P";
+    background-size: cover;
+    h3{
+        font-size: 13px;
+    }
+
+
+}
+
+.content{
+    color: black;
+    background-color: aquamarine;
 }

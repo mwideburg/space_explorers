@@ -8,7 +8,7 @@ import enemy4 from '../../images/enemy4.png';
 import enemy9 from '../../images/enemy9.png';
 import enemy10 from '../../images/enemy10.png';
 import mech from '../../images/mech.gif';
-
+import './maps.scss'
 
 // import MarkerManagerUtil from '../../util/marker_manager'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
