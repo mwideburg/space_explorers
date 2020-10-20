@@ -82,21 +82,21 @@ class Battle extends React.Component {
         } else{
         robot.missles -= 1;
         if (robot.weapon2 === 'Mongoose Missile') {
-            if ((Math.random() * 100 + evasion) < 50) {
-                enemy.hp -= 2;
+            if ((Math.random() * 100 + evasion) < 70) {
+                enemy.hp -= 5;
                 message = "You hit!";
             }
             
         } else if (robot.weapon2 === 'Honey Badger Missile') {
             //70% chance
-            if ((Math.random() * 100 + evasion) < 70){
-                enemy.hp -= 3;
+            if ((Math.random() * 100 + evasion) < 80){
+                enemy.hp -= 8;
                 message = "You hit!";
             }
             
         } else if (robot.weapon2 === 'Hellhound Missile') {
             if ((Math.random() * 100 + evasion) < 90) {
-                enemy.hp -= 3;
+                enemy.hp -= 10;
                 message = "You hit!";
             }
            
@@ -206,8 +206,8 @@ class Battle extends React.Component {
                 message = "Ouch you got hit!";
             }
         } else if (enemy.weapon1 === "Nice Base Blaster") {
-            if (random < 60) {
-                robot.hp -= 10;
+            if (random < 50) {
+                robot.hp -= 8;
                 message = "Ouch you got hit!";
             }
         }  else if (enemy.weapon1 === "Chrome Blaster") {
