@@ -54,14 +54,9 @@ class Battle extends React.Component {
         // this.setState({robot: this.props.robot})
 
     }
-    // componentUnmount(){
-    //     debugger
-    //     // this.setState({robot: this.props.robot})
-    //     localStorage.removeItem('robot')
-    //     this.setState({robot: {}})
-    //     // robot = this.props.robot
-
-    // }
+    componentWillUnmount(){
+        this.setState({ message: "", enemy: "" })
+    }
     reRender() {
         const robot = this.props.robot;
         this.setState({ robot: robot });
@@ -246,7 +241,7 @@ class Battle extends React.Component {
     }
     flee(){
         const robot = this.state.robot;
-        
+        this.setState({ robot: robot, message: "" });
         let currentPlanet = this.props.robot.location;
         let planetLink;
         if (currentPlanet === "mars") {
@@ -256,7 +251,7 @@ class Battle extends React.Component {
         }
        
         this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push(planetLink))
-        this.checkHp()
+
     }
 
     checkHp(){
@@ -272,8 +267,8 @@ class Battle extends React.Component {
         const enemy = this.state.enemy;
         robot.rosscoin += enemy.rosscoin;
         robot.qp += 1
-        this.setState({ robot: robot });
-        
+        this.setState({ robot: robot, message: "" });
+
         
         let currentPlanet = this.state.robot.location;
         let planetLink;

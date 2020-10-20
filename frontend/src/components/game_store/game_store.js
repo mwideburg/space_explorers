@@ -33,12 +33,13 @@ class GameStore extends React.Component{
 
     componentWillUnmount(){
         const robot = this.state.robot
+        
         this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push('/game'))
         
     }
 
     checkMoney(cost){
-        if(this.state.robot.rosscoin > cost){
+        if(this.state.robot.rosscoin >= cost){
             return true
         }
         this.setState({message: "Not Enough Ross Coin, maybe you haven't been finishing strong"})
