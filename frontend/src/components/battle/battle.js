@@ -43,11 +43,11 @@ class Battle extends React.Component {
       
         setTimeout(() => {
             this.setState({ hidden: false });
-            // let robot = JSON.parse(localStorage.getItem('robot'));
+            let robot = JSON.parse(localStorage.getItem('robot'));
             
             
-            // // robot = this.props.robot
-            // this.setState({ robot: robot });
+            // robot = this.props.robot
+            this.setState({ robot: robot });
         }, 3000);
         
         
