@@ -8,6 +8,12 @@ import MarsMap from '../maps/mars_map_conatiner';
 import RobotStats from './robot_stats'
 import GameStore from '../game_store/game_store_container';
 import soundwave from "../../images/soundwave.gif";
+import repair_shop from "../../images/rich_image.png";
+import travel_img from "../../images/rocket.png";
+import battle from "../../images/enemy5.png";
+import kestrel_img from "../../images/kestrel_img.jpg";
+import roc_img from "../../images/roc_img.png";
+import snow_owl_img from "../../images/snow_owl_img.jpg";
 
 
 import moon_img from '../../images/moon2.png';
@@ -91,11 +97,26 @@ class Game extends React.Component {
                 </div>)
             }
             let robot = this.props.robot
+            let photo;
             robot.location = "moon"
+            if(robot.name === "The Kestrel"){
+                photo = kestrel_img
+            }else if(robot.name === "The Snowy Owl"){
+                photo = snow_owl_img
+            } else{
+              photo = roc_img
+            }
         
         return (
           <div className="game-container">
             <div className="sidebar-planets">
+            <div className="side-legend">
+              REPAIR SHOP: <img src={repair_shop} alt="repair shop" />
+              <br/>
+              TRAVEL: <img src={travel_img} alt="repair shop" />
+                <br />
+              BATTLE: <img src={battle} alt="repair shop" />
+            </div>
               <div className="planet-description">
                 Current Location:
                 <br></br>
@@ -116,7 +137,8 @@ class Game extends React.Component {
               <h2>$RC: {robot.rosscoin}</h2>
               <h2>{this.state.robot.name}</h2>
               <center>QP: {robot.qp} </center>
-              <img src={robot.photoUrl} alt="robot" className="robot-img" />
+
+              <img src={photo} alt="robot" className="robot-img" />
               <ul>
                 <li>HP:{robot.hp}</li>
                 <li>Location:{robot.location}</li>
