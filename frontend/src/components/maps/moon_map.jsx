@@ -3,7 +3,13 @@ import { Map, GoogleApiWrapper, mapTypes, InfoWindow, Marker } from 'google-maps
 import rocket_img from '../../images/rocket.png';
 import rich_image from '../../images/rich_image.png';
 import heavy_arms from '../../images/heavy_arms.gif';
+import enemy5 from '../../images/enemy5.png';
+import enemy4 from '../../images/enemy4.png';
+import enemy9 from '../../images/enemy9.png';
+import enemy10 from '../../images/enemy10.png';
 import mech from '../../images/mech.gif';
+
+
 // import MarkerManagerUtil from '../../util/marker_manager'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -179,9 +185,33 @@ export class MoonMap extends React.Component {
           title: "Hello World!",
         });
         const marker3 = new google.maps.Marker({
-            position: {lat: -70, lng: -20},
+            position: {lat: -70, lng: 60},
             markermap,
             icon: rich_image,
+            title: "Hello World!",
+        });
+        const enemy7 = new google.maps.Marker({
+            position: {lat: 10, lng: 1050},
+            markermap,
+            icon: enemy4,
+            title: "Hello World!",
+        });
+        const enemy8 = new google.maps.Marker({
+            position: {lat: -30, lng: 650},
+            markermap,
+            icon: enemy10,
+            title: "Hello World!",
+        });
+        const enemy11 = new google.maps.Marker({
+            position: {lat: 10, lng: -500},
+            markermap,
+            icon: enemy9,
+            title: "Hello World!",
+        });
+        const enemy6 = new google.maps.Marker({
+            position: {lat: 70, lng: -600},
+            markermap,
+            icon: enemy5,
             title: "Hello World!",
         });
         
@@ -229,6 +259,18 @@ export class MoonMap extends React.Component {
         enemy.addListener("click", () => {
           enemyWindow2.open(markermap, enemy);
         });
+        enemy7.addListener("click", () => {
+          enemyWindow2.open(markermap, enemy7);
+        });
+        enemy8.addListener("click", () => {
+          enemyWindow2.open(markermap, enemy8);
+        });
+        enemy11.addListener("click", () => {
+          enemyWindow2.open(markermap, enemy11);
+        });
+        enemy6.addListener("click", () => {
+          enemyWindow2.open(markermap, enemy6);
+        });
         marker2.addListener("click", () => {
           infowindow2.open(markermap, marker2);
         });
@@ -244,6 +286,11 @@ export class MoonMap extends React.Component {
         marker2.setMap(markermap);
         marker3.setMap(markermap);
         rocket.setMap(markermap);
+        enemy6.setMap(markermap);
+        enemy7.setMap(markermap);   
+        enemy8.setMap(markermap);   
+        enemy11.setMap(markermap);   
+        
     }
     componentDidUpdate() {
        

@@ -3,6 +3,10 @@ import { Map, GoogleApiWrapper, mapTypes, InfoWindow, Marker } from 'google-maps
 import rocket_img from '../../images/rocket.png';
 import rich_image from "../../images/rich_image.png";
 import mech from "../../images/mech.gif";
+import enemy6 from "../../images/enemy6.png";
+import enemy7 from "../../images/enemy7.png";
+import enemy8 from "../../images/enemy8.png";
+
 // import MarkerManagerUtil from '../../util/marker_manager'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -139,6 +143,24 @@ export class MarsMap extends React.Component {
             icon: mech,
             title: "Mega Metal",
         });
+        const marker4 = new google.maps.Marker({
+            position: {lat: -10, lng: -1000},
+            markermap,
+            icon: enemy6,
+            title: "Hard Battle",
+        });
+        const marker5 = new google.maps.Marker({
+            position: {lat: 60, lng: 1000},
+            markermap,
+            icon: enemy7,
+            title: "Hard Battle",
+        });
+        const marker6 = new google.maps.Marker({
+            position: {lat: 45, lng: 600},
+            markermap,
+            icon: enemy8,
+            title: "Hard Battle",
+        });
         const marker3 = new google.maps.Marker({
             position: {lat: -20, lng: 35},
             markermap,
@@ -196,6 +218,15 @@ export class MarsMap extends React.Component {
          marker.addListener("click", () => {
            infowindow.open(markermap, marker);
          });
+         marker4.addListener("click", () => {
+           infowindow.open(markermap, marker4);
+         });
+         marker5.addListener("click", () => {
+           infowindow.open(markermap, marker5);
+         });
+         marker6.addListener("click", () => {
+           infowindow.open(markermap, marker6);
+         });
          marker2.addListener("click", () => {
            infowindow2.open(markermap, marker2);
          });
@@ -206,6 +237,9 @@ export class MarsMap extends React.Component {
            rocketWindow.open(markermap, rocket);
          });
         marker.setMap(markermap);
+        marker4.setMap(markermap);
+        marker5.setMap(markermap);
+        marker6.setMap(markermap);
         marker2.setMap(markermap);
         marker3.setMap(markermap);
         rocket.setMap(markermap);
