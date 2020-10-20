@@ -7,6 +7,9 @@ import snow_owl from "../../images/snow_owl.png";
 import the_kestrel from "../../images/the_kestrel.png";
 import the_roc from "../../images/the_roc.png";
 import soundwave from "../../images/soundwave.gif";
+import kestrel_img from "../../images/kestrel_img.jpg";
+import roc_img from "../../images/roc_img.png";
+import snow_owl_img from "../../images/snow_owl_img.jpg";
 
 import "./user-robot.scss"
 class RobotUser extends React.Component {
@@ -75,6 +78,15 @@ class RobotUser extends React.Component {
         } else if (this.state.robot.name === "The Roc") {
             main_image = the_roc;
         }
+        let photo;
+        robot.location = "moon"
+        if (robot.name === "The Kestrel") {
+            photo = kestrel_img
+        } else if (robot.name === "The Snowy Owl") {
+            photo = snow_owl_img
+        } else {
+            photo = roc_img
+        }
         
         
         return (
@@ -86,7 +98,7 @@ class RobotUser extends React.Component {
                     <h2> {this.state.user.handle}'s</h2>
                     <h3> Most Recent Game: </h3>
                     <center><h3> {this.state.robot.name} </h3></center>
-                    <img src={robot.photoUrl} alt="robot" className="robot-img" />
+                    <img src={photo} alt="robot" className="robot-img" />
                     <br/>
                     <ul>
                         <li>
