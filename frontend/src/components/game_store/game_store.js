@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-
+import kestrel_img from "../../images/kestrel_img.jpg";
+import roc_img from "../../images/roc_img.png";
+import snow_owl_img from "../../images/snow_owl_img.jpg";
 import rich from '../../images/rich.png'
 
 
@@ -163,6 +165,8 @@ class GameStore extends React.Component{
                 </div>
             )
         }
+
+        
         const robot = this.state.robot
         let weapon
         if (robot.weapon1 === "Laser MKI"){
@@ -184,6 +188,14 @@ class GameStore extends React.Component{
             weapon2 = "Hellhound Missile"
         }else{
             weapon2 = "No Upgrade Available"
+        }
+        let photo;
+        if (robot.name === "The Kestrel") {
+            photo = kestrel_img
+        } else if (robot.name === "The Snowy Owl") {
+            photo = snow_owl_img
+        } else {
+            photo = roc_img
         }
             
         
@@ -250,7 +262,7 @@ class GameStore extends React.Component{
                     <h2>$RC: {robot.rosscoin}</h2>
                     <h2>{this.state.robot.name}</h2>
                     <center>QP: {robot.qp} </center>
-                    <img src={robot.photoUrl} alt="robot" className="robot-img" />
+                    <img src={photo} alt="robot" className="robot-img" />
                     <ul>
                         <li>
                             HP:{robot.hp}

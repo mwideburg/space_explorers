@@ -46,7 +46,7 @@ class UserRobot extends React.Component {
             evasion: 5,
             qp: 0,
             hpmax: 30,
-            photoUrl: "https://i.imgur.com/2QuLJvO.jpg",
+            photoUrl: "../../images/kestrel_img.jpg",
             rosscoin: 500,
             location: "moon"
         }
@@ -58,7 +58,7 @@ class UserRobot extends React.Component {
             evasion: 20,
             qp: 0,
             hpmax: 30,
-            photoUrl: "https://i.pinimg.com/originals/3d/f5/d7/3df5d723be9c1353553ff007b56d3b86.jpg",
+            photoUrl: "../../images/snow_owl_img.jpg",
             rosscoin: 500,
             location: "moon"
         }
@@ -70,7 +70,7 @@ class UserRobot extends React.Component {
             evasion: 5,
             hpmax: 40,
             qp: 0,
-            photoUrl: "https://i.pinimg.com/originals/93/f3/b7/93f3b751097e506880f4ba37403c143b.png",
+            photoUrl: "../../images/roc_img.png",
             rosscoin: 500,
             location: "moon"
         }
