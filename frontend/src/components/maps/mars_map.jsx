@@ -27,7 +27,7 @@ export class MarsMap extends React.Component {
         } 
         
         this.map = new google.maps.Map(this.mapNode, {
-            center: { lat: 0, lng: 0 },
+            center: { lat: -40, lng: 0 },
             zoom: 3,
             minZoom: 2,
             restriction: {
@@ -115,7 +115,7 @@ export class MarsMap extends React.Component {
           origin: new google.maps.Point(0, 0),
           anchor: new google.maps.Point(0, 32),
         };
-        const myLatLng = { lat: 0, lng: 0 }
+        const myLatLng = { lat: -40, lng: 0  }
         const myLatLng2 = { lat: 55, lng: -20 }
         const markermap = this.map
         const marker = new google.maps.Marker({
