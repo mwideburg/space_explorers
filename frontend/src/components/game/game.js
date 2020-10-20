@@ -94,7 +94,9 @@ class Game extends React.Component {
             robot.location = "moon"
         
         return (
+          
           <div className="game-container">
+            
             <div className="sidebar-planets">
               <div className="planet-description">
                 Current Location:
@@ -110,6 +112,14 @@ class Game extends React.Component {
             <div className="map-container">
               <h1>{this.props.user.handle}</h1>
               <MarsMap robot={robot} />
+
+              
+              <div className="toolbar" >
+                <center><h2>Goals</h2></center>
+                <p> * Click Robots to fight them </p>
+                <p> * Defeat Robots to gain quest points</p>
+                <p> * Click the Spaceship to launch when you have earned enough quest points</p>
+              </div>
             </div>
 
             <div className="sidebar-inventory">

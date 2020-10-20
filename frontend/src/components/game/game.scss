@@ -17,6 +17,16 @@ $white: rgb(255, 255, 255);
     background:$white;
 }
 
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    p {
+
+        margin-top: 5px;
+    }
+}
+
 .map-container{
     display: flex;
     justify-content: center;
