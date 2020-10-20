@@ -18,8 +18,8 @@ $white: rgb(255, 255, 255);
 }
 footer{
     display: flex;
-    flex-direction: column;
-
+  
+    justify-content: center;
     width: 100%;
     text-align: center;
     position: absolute;
@@ -28,6 +28,16 @@ footer{
     font-size: 10px;
     height: 30px;
     margin-bottom: 5px;
+    a{
+        text-decoration: none;
+        color: white;
+        font-size:8px;
+    }
+    a:hover{
+        
+        color: $donatello-purple;
+
+    }
 
 }
 .nav-logged-in-wrapper {   
@@ -41,5 +51,8 @@ footer{
 }
 
 .audio-player {
-    
+    height:20px;
+    position: absolute;
+    left: 10px;
+
 }

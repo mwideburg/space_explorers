@@ -36,7 +36,20 @@ const App = () => (
         controls
         loop
       />
+      
+      <div>
       Copyright &copy; 2020
+      <br/>
+      <a href="https://www.linkedin.com/in/nicholas-mcdonnell-328569108/" target="#">Nicholas McDonnell</a>, 
+      <a href="https://www.linkedin.com/in/michael-wideburg-01331b34/" target="#">Michael Wideburg</a>, 
+      <a href="https://www.linkedin.com/in/travis-holter/" target="#">Travis Holter</a>, 
+      <a href="https://www.linkedin.com/in/ross-miglin/" target="#">Ross Miglin</a>
+
+      </div>
+      <div>
+      
+
+      </div>
     </footer>
   </div>
 );
