@@ -55,12 +55,11 @@ class GameStore extends React.Component{
         }
         if(robot.hp === robot.hpmax){
             return null
-        }
-        if(robot.hp < robot.hpmax ){
+        }else if(robot.hp <= robot.hpmax ){
             if (robot.hp + 10 > robot.hpmax){
                 robot.hp = robot.hpmax 
             }
-            if (robot.hp + 10 < robot.hpmax){
+            if (robot.hp + 10 <= robot.hpmax){
 
                 robot.hp += 10
             }

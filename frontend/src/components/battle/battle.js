@@ -107,11 +107,15 @@ class Battle extends React.Component {
            
           }
         }
+        if (enemy.hp <= 0) {
+            message = "";
+        }
         this.setState({ enemy: enemy });
         this.props.updateStats(this.state.robot, this.props.user);
         this.setState({ robot: robot, message: message });
+        this.checkHp()
         const that = this;
-        if (enemy.hp > 0) {
+        if (enemy.hp > 0 && robot.hp > 0) {
             this.setState({ robot: robot, message: message });
             const that = this;
 
@@ -151,12 +155,18 @@ class Battle extends React.Component {
                 message = "You hit!";
             }
         }
+        if(enemy.hp <= 0){
+            // debugger
+            message = ""
+        }
         // debugger
         this.setState({enemy: enemy});
         this.props.updateStats(this.state.robot, this.props.user);
+
         this.setState({ robot: robot, message: message });
+        
         const that = this;
-        if (enemy.hp > 0) {
+        if (enemy.hp > 0 && robot.hp > 0) {
             this.setState({ robot: robot, message: message });
             const that = this;
 
@@ -170,19 +180,12 @@ class Battle extends React.Component {
 
         }
         
+        
     }
     enemyTurn(){
-        
-        let message = "Enemy is preparing for attack";
-        const that = this;
-        that.setState({ message: message });
-        if (!that.state.enemy.health <= 0 || !that.state.robot.hp <= 0) {
-            
-            setTimeout(function () {
-                
-                
-                that.enemyAttack();
-            }, 2000);
+        if(this.state.enemy.hp > 0 && this.state.robot.hp > 0){
+ 
+                this.enemyAttack();
         }
 
     }
@@ -229,13 +232,17 @@ class Battle extends React.Component {
             }
         } 
         
-        if (robot.hp < 0) {
+        if (robot.hp <= 0) {
             robot.hp = 0;
+            message = "";
         }
         // debugger
         this.setState({ enemy: enemy });
         this.props.updateStats(this.state.robot, this.props.user);
         this.setState({ robot: robot, message: message });
+        if (enemy.hp > 0 && robot.hp > 0) {
+            this.setState({ robot: robot, message: message });
+        }
     }
     flee(){
         const robot = this.state.robot;
@@ -249,9 +256,14 @@ class Battle extends React.Component {
         }
        
         this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push(planetLink))
+        this.checkHp()
     }
 
     checkHp(){
+        if(this.state.robot.hp <= 0 || this.state.enemy.hp <= 0){
+            this.setState({ message: "" })
+            
+        }
         
     }
     salvage(){
@@ -262,12 +274,6 @@ class Battle extends React.Component {
         robot.qp += 1
         this.setState({ robot: robot });
         
-        setTimeout(() => {
-            
-           
-            // robot = this.props.robot
-            
-        }, 2000);
         
         let currentPlanet = this.state.robot.location;
         let planetLink;
@@ -284,7 +290,7 @@ class Battle extends React.Component {
         if (this.state.hidden){
             return null;
         }
-       
+        
         let message
         const enemy = this.state.enemy;
         const robot = this.state.robot;
@@ -302,8 +308,7 @@ class Battle extends React.Component {
 
         } else if (robot.hp <= 0) {
             
-            message = `You have failed humanity... recover and try again`
-          
+            message = `Fatal hit! You have failed humanity... recover and try again`
             return (
                 <div>
                     <h1> {message} </h1>
@@ -370,6 +375,7 @@ class Battle extends React.Component {
         
         
         let robot = this.state.robot
+        let message = this.state.message
         console.log(this.state.robot)
         // debugger
         
