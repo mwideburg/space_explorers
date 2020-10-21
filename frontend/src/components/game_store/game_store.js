@@ -53,7 +53,7 @@ class GameStore extends React.Component{
     }
     increaseHp(){
         const robot = this.state.robot
-        if(!this.checkMoney(100)){
+        if(!this.checkMoney(25)){
             return null
         }
         if(robot.hp === robot.hpmax){
@@ -67,7 +67,7 @@ class GameStore extends React.Component{
                 robot.hp += 10
             }
         }
-        robot.rosscoin -= 100
+        robot.rosscoin -= 25
         this.setState({robot: robot})
     }
     increaseEvasion(){
