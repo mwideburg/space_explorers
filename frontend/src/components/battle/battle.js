@@ -72,44 +72,47 @@ class Battle extends React.Component {
         const robot = this.state.robot;
         const enemy = this.state.enemy;
         let message = "You Missed!";
-        const evasion = enemy.evasion;
-        if (enemy.hp <= 0) {
-            message = ""
-            this.setState({ message: "" })
-            return this.endMessage()
-        }else if (robot.missles <= 0) {
-            message = "You are out of missles";
-        } else{
-        robot.missles -= 1;
-        if (robot.weapon2 === 'Mongoose Missile') {
-            if ((Math.random() * 100 + evasion) < 70) {
-                enemy.hp -= 5;
-                message = "You hit!";
+        if(robot.hp >0){
+
+            const evasion = enemy.evasion;
+            if (enemy.hp <= 0) {
+                message = ""
+                this.setState({ message: "" })
+                return this.endMessage()
+            }else if (robot.missles <= 0) {
+                message = "You are out of missles";
+            } else{
+            robot.missles -= 1;
+            if (robot.weapon2 === 'Mongoose Missile') {
+                if ((Math.random() * 100 + evasion) < 70) {
+                    enemy.hp -= 5;
+                    message = "You hit!";
+                }
+                
+            } else if (robot.weapon2 === 'Honey Badger Missile') {
+                //70% chance
+                if ((Math.random() * 100 + evasion) < 80){
+                    enemy.hp -= 8;
+                    message = "You hit!";
+                }
+                
+            } else if (robot.weapon2 === 'Hellhound Missile') {
+                if ((Math.random() * 100 + evasion) < 90) {
+                    enemy.hp -= 10;
+                    message = "You hit!";
+                }
+               
+              }
             }
-            
-        } else if (robot.weapon2 === 'Honey Badger Missile') {
-            //70% chance
-            if ((Math.random() * 100 + evasion) < 80){
-                enemy.hp -= 8;
-                message = "You hit!";
+            if (enemy.hp <= 0) {
+                message = "";
             }
-            
-        } else if (robot.weapon2 === 'Hellhound Missile') {
-            if ((Math.random() * 100 + evasion) < 90) {
-                enemy.hp -= 10;
-                message = "You hit!";
-            }
-           
-          }
+            this.setState({ enemy: enemy });
+            this.props.updateStats(this.state.robot, this.props.user);
+            this.setState({ robot: robot, message: message });
+            this.checkHp()
+            const that = this;
         }
-        if (enemy.hp <= 0) {
-            message = "";
-        }
-        this.setState({ enemy: enemy });
-        this.props.updateStats(this.state.robot, this.props.user);
-        this.setState({ robot: robot, message: message });
-        this.checkHp()
-        const that = this;
         if (enemy.hp > 0 && robot.hp > 0) {
             this.setState({ robot: robot, message: message });
             const that = this;
@@ -129,37 +132,39 @@ class Battle extends React.Component {
         const robot = this.state.robot;
         const enemy = this.state.enemy;
         const evasion = enemy.evasion;
-        if (enemy.hp <= 0) {
-            message = ""
-            this.setState({message: ""})
-            return this.endMessage()
-        }else if(robot.weapon1 === 'Laser MKI'){
-            if ((Math.random() * 100 + evasion) < 95) {
-                enemy.hp -= 1;
-                message = "You hit!";
+        if (robot.hp > 0) {
+            if (enemy.hp <= 0) {
+                message = ""
+                this.setState({message: ""})
+                return this.endMessage()
+            }else if(robot.weapon1 === 'Laser MKI'){
+                if ((Math.random() * 100 + evasion) < 95) {
+                    enemy.hp -= 1;
+                    message = "You hit!";
+                }
+                
+            } else if (robot.weapon1 === 'Laser MKII'){
+                if ((Math.random() * 100 + evasion) < 95) {
+                    enemy.hp -= 2;
+                    message = "You hit!";
+                }
+            } else if (robot.weapon1 === 'Laser MKIII'){
+                if ((Math.random() * 100 + evasion) < 95) {
+                    enemy.hp -= 3;
+                    message = "You hit!";
+                }
+            }
+            if(enemy.hp <= 0){
+                // debugger
+                message = ""
             }
             
-        } else if (robot.weapon1 === 'Laser MKII'){
-            if ((Math.random() * 100 + evasion) < 95) {
-                enemy.hp -= 2;
-                message = "You hit!";
-            }
-        } else if (robot.weapon1 === 'Laser MKIII'){
-            if ((Math.random() * 100 + evasion) < 95) {
-                enemy.hp -= 3;
-                message = "You hit!";
-            }
-        }
-        if(enemy.hp <= 0){
             // debugger
-            message = ""
-        }
-        // debugger
-        this.setState({enemy: enemy});
-        this.props.updateStats(this.state.robot, this.props.user);
+            this.setState({enemy: enemy});
+            this.props.updateStats(this.state.robot, this.props.user);
 
-        this.setState({ robot: robot, message: message });
-        
+            this.setState({ robot: robot, message: message });
+        } 
         const that = this;
         if (enemy.hp > 0 && robot.hp > 0) {
             this.setState({ robot: robot, message: message });
@@ -307,7 +312,7 @@ class Battle extends React.Component {
             return (
                 <div>
                     <h1> {message} </h1>
-                    <button onClick={() => this.flee()}> Return To Map </button>
+                    <button className="rosscoin-btn" onClick={() => this.flee()}> Return To Map </button>
                 </div>
 
             )
