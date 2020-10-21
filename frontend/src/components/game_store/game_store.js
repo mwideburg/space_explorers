@@ -235,7 +235,7 @@ class GameStore extends React.Component{
                     <ul>
                     <li>
                         <div className="item-div">
-                                    $RC100: Increase HP by 10
+                                    $RC25: Increase HP by 10
                          <button className="store-btn" onClick={() => this.increaseHp()}>BUY</button>
                         </div>
                     </li>
