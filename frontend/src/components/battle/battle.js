@@ -303,7 +303,7 @@ class Battle extends React.Component {
 
         } else if (robot.hp <= 0) {
             
-            message = `Fatal hit! You have failed humanity... recover and try again`
+            message = `HP at 0! You have failed humanity... recover and try again`
             return (
                 <div>
                     <h1> {message} </h1>
