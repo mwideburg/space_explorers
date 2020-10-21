@@ -40,7 +40,9 @@ class Game extends React.Component {
             
             this.props.getRobot(this.props.user)
             let robot = JSON.parse(localStorage.getItem('robot'))
+            robot.location = "moon"
             this.setState({ robot: robot })
+
             this.props.getEnemies(robot)
             
             // l
@@ -96,15 +98,18 @@ class Game extends React.Component {
                   RENDERING..
                 </div>)
             }
-            let robot = this.props.robot
+            let robot = this.state.robot
             let photo;
-            robot.location = "moon"
-            if(robot.name === "The Kestrel"){
-                photo = kestrel_img
-            }else if(robot.name === "The Snowy Owl"){
-                photo = snow_owl_img
-            } else{
-              photo = roc_img
+            // robot.location = "moon"
+            if(this.state.robot != "undefined"){
+
+              if(robot.name === "The Kestrel"){
+                  photo = kestrel_img
+              }else if(robot.name === "The Snowy Owl"){
+                  photo = snow_owl_img
+              } else{
+                photo = roc_img
+              }
             }
         
         return (
@@ -148,7 +153,7 @@ class Game extends React.Component {
               <h2>{this.state.robot.name}</h2>
               <center>QP: {robot.qp} </center>
 
-              <img src={photo} alt="robot" className="robot-img" />
+              <img src={robot.photoUrl} alt="robot" className="robot-img" />
               <ul>
                 <li>HP:{robot.hp}</li>
                 <li>Location:{robot.location}</li>

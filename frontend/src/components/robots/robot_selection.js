@@ -1,7 +1,9 @@
 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import kestrel_img from "../../images/kestrel_img.jpg";
+import roc_img from "../../images/roc_img.png";
+import snow_owl_img from "../../images/snow_owl_img.jpg";
 import "./robot.scss"
 class UserRobot extends React.Component {
     constructor(props) {
@@ -46,7 +48,7 @@ class UserRobot extends React.Component {
             evasion: 5,
             qp: 0,
             hpmax: 30,
-            photoUrl: "../../images/kestrel_img.jpg",
+            photoUrl: kestrel_img,
             rosscoin: 500,
             location: "moon"
         }
@@ -58,7 +60,7 @@ class UserRobot extends React.Component {
             evasion: 20,
             qp: 0,
             hpmax: 30,
-            photoUrl: "../../images/snow_owl_img.jpg",
+            photoUrl: snow_owl_img,
             rosscoin: 500,
             location: "moon"
         }
@@ -70,7 +72,7 @@ class UserRobot extends React.Component {
             evasion: 5,
             hpmax: 40,
             qp: 0,
-            photoUrl: "../../images/roc_img.png",
+            photoUrl: roc_img,
             rosscoin: 500,
             location: "moon"
         }

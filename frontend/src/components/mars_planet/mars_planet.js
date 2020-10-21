@@ -7,7 +7,9 @@ import MoonMap from '../maps/moon_map_conatiner'
 import MarsMap from '../maps/mars_map_conatiner'
 import RobotStats from './robot_mars_stats'
 import GameStore from '../game_store/game_store_container';
-
+import repair_shop from "../../images/rich_image.png";
+import travel_img from "../../images/rocket.png";
+import battle from "../../images/enemy5.png";
 
 import mars_img from '../../images/mars.png'
 import "./mars.scss"
@@ -100,11 +102,18 @@ class MarsGame extends React.Component {
                 return "RENDERING.."
             }
             let robot = this.props.robot
-            robot.location = "mars"
+            // robot.location = "mars"
         
         return (
           <div className="game-container">
             <div className="sidebar-planets">
+              <div className="side-legend">
+                REPAIR SHOP: <img src={repair_shop} alt="repair shop" />
+                <br />
+              TRAVEL: <img src={travel_img} alt="repair shop" />
+                <br />
+              BATTLE: <img src={battle} alt="repair shop" />
+              </div>
               <div className="planet-description">
                 Current Planet: {robot.location}
                 <div className="planet-container">
@@ -129,7 +138,16 @@ class MarsGame extends React.Component {
               <h1>{this.props.user.handle}</h1>
 
               <MoonMap robot={robot} />
+
+              <div className="toolbar" >
+                <center><h2>Goals</h2></center>
+                <p> * Click Robots to fight them </p>
+                <p> * Defeat Robots to gain quest points</p>
+                <p> * Click the Spaceship to launch when you have earned enough quest points</p>
+              </div>
+            
             </div>
+
 
             <div className="sidebar-inventory">
               <h2>$RC: {robot.rosscoin}</h2>
@@ -138,7 +156,7 @@ class MarsGame extends React.Component {
               <img src={robot.photoUrl} alt="robot" className="robot-img" />
               <ul>
                 <li>HP:{robot.hp}</li>
-                <li>Location:{robot.location}</li>
+                <li>Location: mars</li>
                 <li>Weapon:{robot.weapon1}</li>
                 <li>Weapon 2:{robot.weapon2}</li>
                 <li>Missiles: {robot.missles}</li>

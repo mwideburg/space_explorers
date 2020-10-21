@@ -17,6 +17,16 @@ $white: rgb(255, 255, 255);
     background:$white;
 }
 
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin-top: 20px;
+    p {
+
+        margin-top: 5px;
+    }
+}
 .map-container{
     display: flex;
     justify-content: center;
@@ -27,8 +37,11 @@ $white: rgb(255, 255, 255);
     color: $white;
 }
 .sidebar-planets{
-    width: 400px;
+    width: 300px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
     background-color: $donatello-purple;
 }
 .sidebar-inventory{
@@ -80,6 +93,21 @@ $white: rgb(255, 255, 255);
         object-fit: contain;
     }
     
+}
+
+.side-legend{
+    font-size: 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    img{
+        padding-top: 10px;
+        height: 40px;
+        width: 40px;
+    }
 }
 p{
         // font-size: 10px;

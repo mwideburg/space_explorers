@@ -36,7 +36,7 @@ class GameStore extends React.Component{
     componentWillUnmount(){
         const robot = this.state.robot
         
-        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push('/game'))
+        // this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot }))
         
     }
 
@@ -155,6 +155,20 @@ class GameStore extends React.Component{
         
         return weapon
     }
+    flee() {
+        
+       const robot = this.state.robot
+        let currentPlanet = this.state.robot.location;
+        let planetLink;
+        if (currentPlanet === "mars") {
+            planetLink = "/game/mars";
+        } else if (currentPlanet === "moon"){
+            planetLink = "/game";
+        }
+
+        this.props.updateRobot(this.state.robot, this.props.user).then(this.setState({ robot: robot })).then(this.props.history.push(planetLink))
+
+    }
 
     render(){
         if (this.state.hidden) {
@@ -197,7 +211,7 @@ class GameStore extends React.Component{
         } else {
             photo = roc_img
         }
-            
+
         
         return (
         <div className="game-store-wrapper">
@@ -283,7 +297,7 @@ class GameStore extends React.Component{
                             Evasion: {robot.evasion}
                         </li>
                     </ul>
-                    <Link to="/game"> Back To Map </Link>
+                    <a onClick={() => this.flee()}> Back To Map </a>
                 </div>
 
 
