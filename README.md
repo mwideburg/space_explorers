@@ -2,7 +2,7 @@
 Michael Wideburg, Nicholas McDonnell, Travis Holter, Ross Miglin (in first name alphabetical order)
 
 # Overview
-Space evaders is a click based RPG space adventure game. The story begins with you signing up and creating a character from 2-3 classes of robot. 
+Space explorers is a click based RPG space adventure game. The story begins with you signing up and creating a character from 2-3 classes of robot. 
 From there you are prompted to navigate the universe of space explorers, being challenged every step of the way!
 
 Players navigate a chosen world and story- fighting enemies, completing tasks, and developing their characters abilities and arsenal.
